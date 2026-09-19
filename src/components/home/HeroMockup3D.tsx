@@ -22,6 +22,7 @@ type ProductTab = "dental" | "reyna" | "pharmalized";
 
 export function HeroMockup3D() {
   const [activeTab, setActiveTab] = useState<ProductTab>("dental");
+  const [dentalViewMode, setDentalViewMode] = useState<"interactive" | "real">("interactive");
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -196,76 +197,108 @@ export function HeroMockup3D() {
                       Panel Diario de Operaciones & Turnos
                     </h3>
                   </div>
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium">
-                      Hoy: 18 turnos
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-medium border border-emerald-200">
-                      94% Asistencia
-                    </span>
+                  
+                  {/* Selector de Modo: Interactivo vs Captura Real */}
+                  <div className="flex items-center gap-2">
+                    <div className="inline-flex p-0.5 rounded-lg bg-slate-100 border border-slate-200 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => setDentalViewMode("interactive")}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                          dentalViewMode === "interactive"
+                            ? "bg-white text-[#2563EB] shadow-xs"
+                            : "text-slate-600 hover:text-[#151A21]"
+                        }`}
+                      >
+                        Panel Interactivo
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setDentalViewMode("real")}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                          dentalViewMode === "real"
+                            ? "bg-white text-[#2563EB] shadow-xs"
+                            : "text-slate-600 hover:text-[#151A21]"
+                        }`}
+                      >
+                        Captura de Producción
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                {/* Métricas Rápidas */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
-                    <span className="text-[11px] text-slate-500 block font-medium">Turnos Completados</span>
-                    <span className="text-xl font-extrabold text-[#151A21] font-mono">14 / 18</span>
-                    <span className="text-[10px] text-emerald-600 block mt-0.5 font-medium">4 en sala de espera</span>
+                {dentalViewMode === "real" ? (
+                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                    <img
+                      src="/dashboard-dental.jpg"
+                      alt="DentalDesk Dashboard en Producción Real"
+                      className="w-full h-auto object-cover max-h-[360px]"
+                    />
                   </div>
-                  <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
-                    <span className="text-[11px] text-slate-500 block font-medium">Fichas Clínicas Digitales</span>
-                    <span className="text-xl font-extrabold text-[#151A21] font-mono">1.240</span>
-                    <span className="text-[10px] text-[#2563EB] block mt-0.5 font-medium">Historial 100% en la nube</span>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
-                    <span className="text-[11px] text-slate-500 block font-medium">Seguridad de Datos</span>
-                    <span className="text-xl font-extrabold text-emerald-600 font-mono">RLS Activo</span>
-                    <span className="text-[10px] text-slate-500 block mt-0.5 font-medium">Aislamiento por clínica</span>
-                  </div>
-                </div>
+                ) : (
+                  <>
+                    {/* Métricas Rápidas */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
+                        <span className="text-[11px] text-slate-500 block font-medium">Turnos Completados</span>
+                        <span className="text-xl font-extrabold text-[#151A21] font-mono">14 / 18</span>
+                        <span className="text-[10px] text-emerald-600 block mt-0.5 font-medium">4 en sala de espera</span>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
+                        <span className="text-[11px] text-slate-500 block font-medium">Fichas Clínicas Digitales</span>
+                        <span className="text-xl font-extrabold text-[#151A21] font-mono">1.240</span>
+                        <span className="text-[10px] text-[#2563EB] block mt-0.5 font-medium">Historial 100% en la nube</span>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
+                        <span className="text-[11px] text-slate-500 block font-medium">Seguridad de Datos</span>
+                        <span className="text-xl font-extrabold text-emerald-600 font-mono">RLS Activo</span>
+                        <span className="text-[10px] text-slate-500 block mt-0.5 font-medium">Aislamiento por clínica</span>
+                      </div>
+                    </div>
 
-                {/* Lista de Turnos Operativos */}
-                <div className="rounded-xl border border-slate-200 bg-white overflow-hidden text-xs">
-                  <div className="grid grid-cols-12 px-3 py-2 bg-slate-50 font-mono text-[11px] text-slate-500 font-semibold border-b border-slate-200">
-                    <span className="col-span-3">Hora · Paciente</span>
-                    <span className="col-span-4">Tratamiento</span>
-                    <span className="col-span-3">Profesional</span>
-                    <span className="col-span-2 text-right">Estado</span>
-                  </div>
-                  <div className="divide-y divide-slate-100 font-medium">
-                    <div className="grid grid-cols-12 px-3 py-2.5 items-center">
-                      <span className="col-span-3 text-[#151A21]">09:30 · Martín Sosa</span>
-                      <span className="col-span-4 text-slate-600">Ortodoncia — Control mensual</span>
-                      <span className="col-span-3 text-slate-600">Dra. M. Benítez</span>
-                      <span className="col-span-2 text-right">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] bg-emerald-50 text-emerald-700 font-semibold">
-                          Finalizado
-                        </span>
-                      </span>
+                    {/* Lista de Turnos Operativos */}
+                    <div className="rounded-xl border border-slate-200 bg-white overflow-hidden text-xs">
+                      <div className="grid grid-cols-12 px-3 py-2 bg-slate-50 font-mono text-[11px] text-slate-500 font-semibold border-b border-slate-200">
+                        <span className="col-span-3">Hora · Paciente</span>
+                        <span className="col-span-4">Tratamiento</span>
+                        <span className="col-span-3">Profesional</span>
+                        <span className="col-span-2 text-right">Estado</span>
+                      </div>
+                      <div className="divide-y divide-slate-100 font-medium">
+                        <div className="grid grid-cols-12 px-3 py-2.5 items-center">
+                          <span className="col-span-3 text-[#151A21]">09:30 · Martín Sosa</span>
+                          <span className="col-span-4 text-slate-600">Ortodoncia — Control mensual</span>
+                          <span className="col-span-3 text-slate-600">Dra. M. Benítez</span>
+                          <span className="col-span-2 text-right">
+                            <span className="px-2 py-0.5 rounded-full text-[10px] bg-emerald-50 text-emerald-700 font-semibold">
+                              Finalizado
+                            </span>
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-12 px-3 py-2.5 items-center bg-blue-50/30">
+                          <span className="col-span-3 text-[#151A21] font-semibold">10:15 · Florencia Díaz</span>
+                          <span className="col-span-4 text-slate-600">Limpieza + Diagnóstico 3D</span>
+                          <span className="col-span-3 text-slate-600">Dr. G. Zambrano</span>
+                          <span className="col-span-2 text-right">
+                            <span className="px-2 py-0.5 rounded-full text-[10px] bg-blue-50 text-[#2563EB] font-semibold animate-pulse">
+                              En Box 2
+                            </span>
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-12 px-3 py-2.5 items-center">
+                          <span className="col-span-3 text-slate-700">11:00 · Carlos Méndez</span>
+                          <span className="col-span-4 text-slate-600">Implante — Primera consulta</span>
+                          <span className="col-span-3 text-slate-600">Dra. M. Benítez</span>
+                          <span className="col-span-2 text-right">
+                            <span className="px-2 py-0.5 rounded-full text-[10px] bg-slate-100 text-slate-600">
+                              Confirmado
+                            </span>
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="grid grid-cols-12 px-3 py-2.5 items-center bg-blue-50/30">
-                      <span className="col-span-3 text-[#151A21] font-semibold">10:15 · Florencia Díaz</span>
-                      <span className="col-span-4 text-slate-600">Limpieza + Diagnóstico 3D</span>
-                      <span className="col-span-3 text-slate-600">Dr. G. Zambrano</span>
-                      <span className="col-span-2 text-right">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] bg-blue-50 text-[#2563EB] font-semibold animate-pulse">
-                          En Box 2
-                        </span>
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-12 px-3 py-2.5 items-center">
-                      <span className="col-span-3 text-slate-700">11:00 · Carlos Méndez</span>
-                      <span className="col-span-4 text-slate-600">Implante — Primera consulta</span>
-                      <span className="col-span-3 text-slate-600">Dra. M. Benítez</span>
-                      <span className="col-span-2 text-right">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] bg-slate-100 text-slate-600">
-                          Confirmado
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  </>
+                )}
               </div>
             )}
 
