@@ -3,11 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ArrowDown, ArrowRight } from "lucide-react";
+import { HeroMockup3D } from "@/components/home/HeroMockup3D";
 
 export function HomeHero() {
-
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-white border-b border-slate-200">
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-white border-b border-slate-200 overflow-hidden">
+      {/* Luz ambiental sutil superior (100% tema claro) */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.06),rgba(255,255,255,0))]" />
+
       <Container className="relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
           {/* Eyebrow */}
@@ -51,20 +54,11 @@ export function HomeHero() {
               </Button>
             </Link>
           </div>
+        </div>
 
-          {/* Franja discreta de texto pequeño */}
-          <div className="pt-8 text-center space-y-1.5 border-t border-slate-100 w-full max-w-xl">
-            <p className="text-xs text-slate-500 font-medium">
-              Ya construimos sistemas para clínicas, nutricionistas y farmacias:
-            </p>
-            <div className="flex items-center justify-center gap-2 sm:gap-3 text-xs font-semibold text-[#151A21]">
-              <span className="hover:text-[#2563EB] transition-colors">DentalDesk</span>
-              <span className="text-slate-300">·</span>
-              <span className="hover:text-[#2563EB] transition-colors">Reyna Desk</span>
-              <span className="text-slate-300">·</span>
-              <span className="hover:text-[#2563EB] transition-colors">Pharmalized AI</span>
-            </div>
-          </div>
+        {/* Mockup Interactivo 3D con selector del ecosistema */}
+        <div className="mt-12 sm:mt-16 w-full">
+          <HeroMockup3D />
         </div>
       </Container>
     </section>
