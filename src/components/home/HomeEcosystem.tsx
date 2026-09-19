@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -65,6 +66,15 @@ export function HomeEcosystem() {
               {/* Detalle inline expandible */}
               {expandedProduct === "dentaldesk" && (
                 <div className="mb-6 p-4 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2.5 font-sans animate-in fade-in duration-200">
+                  <Image
+                    src="/dashboard-dental.jpg"
+                    alt="DentalDesk Dashboard en producción"
+                    width={3006}
+                    height={1736}
+                    quality={95}
+                    sizes="(max-width: 768px) 100vw, 450px)"
+                    className="w-full h-auto rounded-lg border border-slate-200 object-contain max-h-56 mb-2 bg-slate-100"
+                  />
                   <div className="font-semibold text-[#151A21] flex items-center gap-1.5">
                     <ShieldCheck size={14} className="text-[#2563EB]" />
                     Especificación de Arquitectura:
@@ -123,10 +133,14 @@ export function HomeEcosystem() {
               {/* Detalle inline expandible */}
               {expandedProduct === "reynadesk" && (
                 <div className="mb-6 p-4 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2.5 font-sans animate-in fade-in duration-200">
-                  <img
+                  <Image
                     src="/lautaronutricion-dashboard.jpg"
                     alt="LautaroNutrición Dashboard en producción"
-                    className="w-full h-auto rounded-lg border border-slate-200 object-cover max-h-48 mb-2"
+                    width={2048}
+                    height={1196}
+                    quality={95}
+                    sizes="(max-width: 768px) 100vw, 450px)"
+                    className="w-full h-auto rounded-lg border border-slate-200 object-contain max-h-56 mb-2 bg-slate-100"
                   />
                   <div className="font-semibold text-[#151A21] flex items-center gap-1.5">
                     <Sparkles size={14} className="text-emerald-600" />
@@ -186,10 +200,14 @@ export function HomeEcosystem() {
               {/* Detalle inline expandible */}
               {expandedProduct === "pharmalyze" && (
                 <div className="mb-6 p-4 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2.5 font-sans animate-in fade-in duration-200">
-                  <img
+                  <Image
                     src="/pharmalyze-dashboard.jpg"
                     alt="Pharmalyze AI Dashboard en producción"
-                    className="w-full h-auto rounded-lg border border-slate-200 object-cover max-h-48 mb-2"
+                    width={2048}
+                    height={1196}
+                    quality={95}
+                    sizes="(max-width: 768px) 100vw, 450px)"
+                    className="w-full h-auto rounded-lg border border-slate-200 object-contain max-h-56 mb-2 bg-slate-100"
                   />
                   <div className="font-semibold text-[#151A21] flex items-center gap-1.5">
                     <Layers size={14} className="text-emerald-600" />

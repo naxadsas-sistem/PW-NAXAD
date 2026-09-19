@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Stethoscope,
   Apple,
@@ -9,15 +10,47 @@ import {
   ShieldCheck,
   Sparkles,
   ChevronRight,
+  Maximize2,
+  X,
+  ZoomIn,
 } from "lucide-react";
 
 type ProductTab = "dental" | "lautaro" | "pharmalyze";
+
+interface ModalImageData {
+  src: string;
+  alt: string;
+  title: string;
+  badge: string;
+  subtitle: string;
+  width: number;
+  height: number;
+}
 
 export function HeroMockup3D() {
   const [activeTab, setActiveTab] = useState<ProductTab>("dental");
   const [dentalViewMode, setDentalViewMode] = useState<"interactive" | "real">("interactive");
   const [lautaroViewMode, setLautaroViewMode] = useState<"interactive" | "real" | "login">("interactive");
   const [pharmalyzeViewMode, setPharmalyzeViewMode] = useState<"interactive" | "real">("interactive");
+  const [modalImage, setModalImage] = useState<ModalImageData | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setModalImage(null);
+      }
+    };
+    if (modalImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [modalImage]);
 
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -225,12 +258,39 @@ export function HeroMockup3D() {
                 </div>
 
                 {dentalViewMode === "real" ? (
-                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                    <img
+                  <div
+                    onClick={() =>
+                      setModalImage({
+                        src: "/dashboard-dental.jpg",
+                        alt: "DentalDesk Dashboard en Producción Real",
+                        title: "DentalDesk · Centro Odontológico Belgrano",
+                        badge: "Producción Real · CABA",
+                        subtitle:
+                          "Agenda de turnos en tiempo real, 20 tablas RLS auditadas y liquidación automática",
+                        width: 3006,
+                        height: 1736,
+                      })
+                    }
+                    className="group relative rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm cursor-zoom-in transition-all hover:border-blue-400 hover:shadow-md"
+                  >
+                    <Image
                       src="/dashboard-dental.jpg"
                       alt="DentalDesk Dashboard en Producción Real"
-                      className="w-full h-auto object-cover max-h-[380px]"
+                      width={3006}
+                      height={1736}
+                      quality={96}
+                      priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px)"
+                      className="w-full h-auto object-contain block transition-transform duration-300 group-hover:scale-[1.01]"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3.5 pointer-events-none">
+                      <span className="text-white text-xs font-semibold drop-shadow-sm flex items-center gap-1.5">
+                        <Maximize2 size={14} /> Ampliar captura en alta definición
+                      </span>
+                      <span className="px-2 py-0.5 rounded bg-white/90 text-slate-800 text-[10px] font-mono font-bold shadow-xs">
+                        3006 × 1736 px · 3K
+                      </span>
+                    </div>
                   </div>
                 ) : (
                   <>
@@ -354,20 +414,74 @@ export function HeroMockup3D() {
                 </div>
 
                 {lautaroViewMode === "real" ? (
-                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                    <img
+                  <div
+                    onClick={() =>
+                      setModalImage({
+                        src: "/lautaronutricion-dashboard.jpg",
+                        alt: "LautaroNutrición Dashboard en Producción Real",
+                        title: "LautaroNutrición · Dr. Lautaro Reyna",
+                        badge: "Producción Real · En Consultorio",
+                        subtitle:
+                          "Panel diario: 3 turnos hoy, 41 planes a revisar, 99 pacientes activos y alertas contra abandono",
+                        width: 2048,
+                        height: 1196,
+                      })
+                    }
+                    className="group relative rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm cursor-zoom-in transition-all hover:border-emerald-400 hover:shadow-md"
+                  >
+                    <Image
                       src="/lautaronutricion-dashboard.jpg"
                       alt="LautaroNutrición Dashboard en Producción Real"
-                      className="w-full h-auto object-cover max-h-[380px]"
+                      width={2048}
+                      height={1196}
+                      quality={96}
+                      priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px)"
+                      className="w-full h-auto object-contain block transition-transform duration-300 group-hover:scale-[1.01]"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3.5 pointer-events-none">
+                      <span className="text-white text-xs font-semibold drop-shadow-sm flex items-center gap-1.5">
+                        <Maximize2 size={14} /> Ampliar captura en alta definición (2K)
+                      </span>
+                      <span className="px-2 py-0.5 rounded bg-white/90 text-slate-800 text-[10px] font-mono font-bold shadow-xs">
+                        2048 × 1196 px · 2K
+                      </span>
+                    </div>
                   </div>
                 ) : lautaroViewMode === "login" ? (
-                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white flex justify-center bg-slate-900/5 p-4">
-                    <img
+                  <div
+                    onClick={() =>
+                      setModalImage({
+                        src: "/lautaronutricion-login.jpg",
+                        alt: "LautaroNutrición Pantalla de Acceso en Producción Real",
+                        title: "LautaroNutrición · Portal de Pacientes",
+                        badge: "Producción Real · Acceso Web",
+                        subtitle:
+                          "Acceso seguro para registro diario de hábitos, peso y fotos de platos con visión por IA",
+                        width: 2048,
+                        height: 1182,
+                      })
+                    }
+                    className="group relative rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm cursor-zoom-in transition-all hover:border-emerald-400 hover:shadow-md flex justify-center p-2 sm:p-4"
+                  >
+                    <Image
                       src="/lautaronutricion-login.jpg"
                       alt="LautaroNutrición Pantalla de Acceso en Producción Real"
-                      className="w-auto h-auto object-contain max-h-[380px] rounded-lg shadow-md border border-slate-200"
+                      width={2048}
+                      height={1182}
+                      quality={96}
+                      priority
+                      sizes="(max-width: 768px) 100vw, 850px)"
+                      className="w-full max-w-2xl h-auto object-contain rounded-lg shadow-sm border border-slate-200/80 transition-transform duration-300 group-hover:scale-[1.01]"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3.5 pointer-events-none">
+                      <span className="text-white text-xs font-semibold drop-shadow-sm flex items-center gap-1.5">
+                        <Maximize2 size={14} /> Ampliar pantalla de acceso (2K)
+                      </span>
+                      <span className="px-2 py-0.5 rounded bg-white/90 text-slate-800 text-[10px] font-mono font-bold shadow-xs">
+                        2048 × 1182 px · 2K
+                      </span>
+                    </div>
                   </div>
                 ) : (
                   <>
@@ -503,12 +617,39 @@ export function HeroMockup3D() {
                 </div>
 
                 {pharmalyzeViewMode === "real" ? (
-                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                    <img
+                  <div
+                    onClick={() =>
+                      setModalImage({
+                        src: "/pharmalyze-dashboard.jpg",
+                        alt: "Pharmalyze AI Dashboard en Producción Real",
+                        title: "Pharmalyze AI · NaxadSistem v1.0",
+                        badge: "Piloto en Producción · Farmacia Internacional CABA",
+                        subtitle:
+                          "Triaje operativo diario, inventario valorizado en $916.200 y control de 180 alertas de stock",
+                        width: 2048,
+                        height: 1196,
+                      })
+                    }
+                    className="group relative rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm cursor-zoom-in transition-all hover:border-emerald-400 hover:shadow-md"
+                  >
+                    <Image
                       src="/pharmalyze-dashboard.jpg"
                       alt="Pharmalyze AI Dashboard en Producción Real"
-                      className="w-full h-auto object-cover max-h-[380px]"
+                      width={2048}
+                      height={1196}
+                      quality={96}
+                      priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px)"
+                      className="w-full h-auto object-contain block transition-transform duration-300 group-hover:scale-[1.01]"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3.5 pointer-events-none">
+                      <span className="text-white text-xs font-semibold drop-shadow-sm flex items-center gap-1.5">
+                        <Maximize2 size={14} /> Ampliar captura en alta definición (2K)
+                      </span>
+                      <span className="px-2 py-0.5 rounded bg-white/90 text-slate-800 text-[10px] font-mono font-bold shadow-xs">
+                        2048 × 1196 px · 2K
+                      </span>
+                    </div>
                   </div>
                 ) : (
                   <>
@@ -635,6 +776,68 @@ export function HeroMockup3D() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal HD para Inspección en Máxima Resolución */}
+      {modalImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setModalImage(null)}
+          className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex flex-col items-center justify-center p-2 sm:p-6 animate-in fade-in duration-200"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-6xl max-h-[94vh] bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden flex flex-col"
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-slate-200 bg-slate-50/90 shrink-0">
+              <div className="space-y-0.5">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-xs sm:text-sm font-bold text-[#151A21]">
+                    {modalImage.title}
+                  </h3>
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-50 text-emerald-800 border border-emerald-200 font-semibold">
+                    {modalImage.badge}
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-500 hidden sm:block">
+                  {modalImage.subtitle}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="hidden sm:inline-block text-[11px] font-mono text-slate-400 bg-slate-100 px-2 py-1 rounded">
+                  ESC para cerrar
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setModalImage(null)}
+                  className="h-8 w-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+                  title="Cerrar (Esc)"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body: Imagen a resolución nativa completa */}
+            <div className="p-3 sm:p-5 overflow-auto max-h-[calc(94vh-65px)] flex items-center justify-center bg-slate-900/5">
+              <div className="w-full flex justify-center">
+                <Image
+                  src={modalImage.src}
+                  alt={modalImage.alt}
+                  width={modalImage.width}
+                  height={modalImage.height}
+                  quality={98}
+                  priority
+                  sizes="100vw"
+                  className="max-w-full h-auto object-contain rounded-xl border border-slate-200 shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
