@@ -10,12 +10,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "NAXAD — SaaS propios y sistemas de gestión a medida",
   description:
-    "Construimos productos y sistemas de gestión a partir de cómo opera tu negocio en la vida real. DentalDesk, Reyna Desk y Pharmalized AI.",
+    "Construimos productos y sistemas de gestión a partir de cómo opera tu negocio en la vida real. DentalDesk, LautaroNutrición y Pharmalyze AI.",
   keywords: [
     "sistemas de gestion a medida",
     "saas clinicas dentales dentaldesk",
-    "software nutricion reyna desk",
-    "inteligencia de stock farmacias pharmalized",
+    "software nutricion lautaronutricion",
+    "inteligencia de stock farmacias pharmalyze",
     "consultoria gestion buenos aires",
   ],
   authors: [{ name: "NAXAD · Gabriel Zambrano" }],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NAXAD — SaaS propios y sistemas a medida",
     description:
-      "El sistema que tu negocio necesita, no el que le sobra. DentalDesk · Reyna Desk · Pharmalized AI.",
+      "El sistema que tu negocio necesita, no el que le sobra. DentalDesk · LautaroNutrición · Pharmalyze AI.",
   },
   robots: {
     index: true,

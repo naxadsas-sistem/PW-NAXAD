@@ -169,7 +169,7 @@ export default function NosotrosPage() {
               ¿Querés conversar sobre la gestión de tu organización?
             </h3>
             <p className="text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
-              Coordinemos una llamada inicial sin compromiso para conocer tus procesos y evaluar si DentalDesk, Reyna Desk o un sistema a medida tienen sentido para vos.
+              Coordinemos una llamada inicial sin compromiso para conocer tus procesos y evaluar si DentalDesk, LautaroNutrición, Pharmalyze AI o un sistema a medida tienen sentido para vos.
             </p>
             <div>
               <Link href="/contacto">

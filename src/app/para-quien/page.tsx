@@ -35,13 +35,13 @@ export default function ParaQuienPage() {
       icon: Briefcase,
       title: "Profesionales de la salud y nutrición",
       description:
-        "Nutricionistas, terapeutas y especialistas que precisan un portal de pacientes interactivo, seguimiento de tratamientos y herramientas de registro automatizado sin perder tiempo administrativo (ej. Reyna Desk).",
+        "Nutricionistas, terapeutas y especialistas que precisan un portal de pacientes interactivo, seguimiento de tratamientos y herramientas de registro automatizado sin perder tiempo administrativo (ej. LautaroNutrición).",
     },
     {
       icon: Store,
       title: "Farmacias y comercios especializados",
       description:
-        "Negocios con control estricto de lotes, vencimientos y reposición periódica con proveedores, que necesitan capas de inteligencia sobre su punto de venta existente (ej. Pharmalized AI).",
+        "Negocios con control estricto de lotes, vencimientos y reposición periódica con proveedores, que necesitan capas de inteligencia sobre su punto de venta existente (ej. Pharmalyze AI).",
     },
     {
       icon: Users,

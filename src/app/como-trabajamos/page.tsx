@@ -52,7 +52,7 @@ export default function ComoTrabajamosPage() {
       activities: [
         "Análisis de impacto vs. esfuerzo de cada oportunidad de mejora.",
         "Definición de qué conviene ordenar antes de automatizar.",
-        "Evaluación de base técnica (DentalDesk, Reyna Desk, Pharmalized AI o nuevo desarrollo).",
+        "Evaluación de base técnica (DentalDesk, LautaroNutrición, Pharmalyze AI o nuevo desarrollo).",
       ],
       deliverable:
         "Diagnóstico claro con hoja de ruta y especificación funcional.",

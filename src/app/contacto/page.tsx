@@ -276,11 +276,11 @@ export default function ContactoPage() {
                           <option value="DentalDesk (SaaS clínica dental)">
                             DentalDesk — SaaS para clínicas dentales
                           </option>
-                          <option value="Reyna Desk (Sistema nutrición / salud)">
-                            Reyna Desk — Gestión para profesionales de salud/nutrición
+                          <option value="LautaroNutrición (Sistema nutrición / salud)">
+                            LautaroNutrición — Gestión para profesionales de salud/nutrición
                           </option>
-                          <option value="Pharmalized AI (Piloto farmacias)">
-                            Pharmalized AI — Inteligencia de reposición de farmacias
+                          <option value="Pharmalyze AI (Piloto farmacias)">
+                            Pharmalyze AI — Inteligencia de reposición de farmacias
                           </option>
                           <option value="Sistema de gestión a medida">
                             Desarrollo de sistema de gestión a medida
@@ -388,7 +388,7 @@ export default function ContactoPage() {
                         </span>
                       </div>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        Contacto directo e inmediato para dudas puntuales sobre DentalDesk, Reyna Desk o presupuestos.
+                        Contacto directo e inmediato para dudas puntuales sobre DentalDesk, LautaroNutrición, Pharmalyze AI o presupuestos.
                       </p>
                       <div className="pt-1">
                         <a

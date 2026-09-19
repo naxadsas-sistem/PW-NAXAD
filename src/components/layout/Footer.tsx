@@ -20,7 +20,7 @@ export function Footer() {
               Ecosistema de SaaS y sistemas a medida
             </p>
             <p className="text-sm text-slate-600 max-w-md leading-relaxed">
-              Construimos productos y sistemas de gestión a partir de cómo opera tu negocio en la vida real. DentalDesk, Reyna Desk y Pharmalized AI son la prueba de nuestro método.
+              Construimos productos y sistemas de gestión a partir de cómo opera tu negocio en la vida real. DentalDesk, LautaroNutrición y Pharmalyze AI son la prueba de nuestro método.
             </p>
             <div className="pt-1 text-xs font-semibold text-[#151A21] flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E76F73]" />

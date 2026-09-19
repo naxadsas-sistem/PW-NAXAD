@@ -12,7 +12,7 @@ export function HomeTrust() {
     {
       value: "31",
       label: "Tablas de base de datos auditadas",
-      desc: "20 en DentalDesk + 11 en Pharmalized AI, con políticas de acceso revisadas.",
+      desc: "20 en DentalDesk + 11 en Pharmalyze AI, con políticas de acceso revisadas.",
     },
     {
       value: "3",

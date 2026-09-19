@@ -101,11 +101,11 @@ export function HomeEcosystem() {
             </div>
           </div>
 
-          {/* CARD 2 — Reyna Desk */}
+          {/* CARD 2 — LautaroNutrición */}
           <div className="rounded-xl bg-white border border-slate-200 p-6 sm:p-7 shadow-sm hover:border-emerald-300 transition-all flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-100">
+                <span className="text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-100">
                   Sistema a medida
                 </span>
                 <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
@@ -114,15 +114,20 @@ export function HomeEcosystem() {
               </div>
 
               <h3 className="text-xl font-bold text-[#151A21] mb-2">
-                Reyna Desk
+                LautaroNutrición
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                Construido específicamente para un nutricionista: portal de pacientes, estimación de macros por IA desde una foto, seguimiento automático que evita el abandono del tratamiento.
+                Construido específicamente para el Dr. Lautaro Reyna: portal de pacientes, estimación de macros por IA desde una foto y panel de alertas de retención contra abandono de tratamiento.
               </p>
 
               {/* Detalle inline expandible */}
               {expandedProduct === "reynadesk" && (
                 <div className="mb-6 p-4 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2.5 font-sans animate-in fade-in duration-200">
+                  <img
+                    src="/lautaronutricion-dashboard.jpg"
+                    alt="LautaroNutrición Dashboard en producción"
+                    className="w-full h-auto rounded-lg border border-slate-200 object-cover max-h-48 mb-2"
+                  />
                   <div className="font-semibold text-[#151A21] flex items-center gap-1.5">
                     <Sparkles size={14} className="text-emerald-600" />
                     Caso de Uso & Alcance:
@@ -131,10 +136,10 @@ export function HomeEcosystem() {
                     <li>Estimación calórica y macronutrientes mediante visión por IA desde fotos de platos.</li>
                     <li>Portal para que el paciente registre peso, sensaciones y comidas diarias.</li>
                     <li>Disparador de alertas y mensajes de retención ante interrupción del registro.</li>
-                    <li>Historial de bioimpedancia y evolución gráfica de composición corporal.</li>
+                    <li>Historial antropométrico y evolución gráfica de composición corporal.</li>
                   </ul>
-                  <div className="pt-1 text-[11px] font-mono text-emerald-700">
-                    Estado: Entregado y en uso diario
+                  <div className="pt-1 text-[11px] font-mono text-emerald-800">
+                    Estado: Entregado y en uso diario en consultorio
                   </div>
                 </div>
               )}
@@ -143,7 +148,7 @@ export function HomeEcosystem() {
             <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-2.5 justify-between">
               <button
                 onClick={() => toggleExpand("reynadesk")}
-                className="text-xs font-semibold text-slate-600 hover:text-[#151A21] inline-flex items-center gap-1 py-1"
+                className="text-xs font-semibold text-slate-600 hover:text-[#151A21] inline-flex items-center gap-1 py-1 cursor-pointer"
               >
                 {expandedProduct === "reynadesk" ? (
                   <>Menos detalle <ChevronUp size={14} /></>
@@ -159,30 +164,35 @@ export function HomeEcosystem() {
             </div>
           </div>
 
-          {/* CARD 3 — Pharmalized AI */}
-          <div className="rounded-xl bg-white border border-slate-200 p-6 sm:p-7 shadow-sm hover:border-amber-300 transition-all flex flex-col justify-between">
+          {/* CARD 3 — Pharmalyze AI */}
+          <div className="rounded-xl bg-white border border-slate-200 p-6 sm:p-7 shadow-sm hover:border-emerald-300 transition-all flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-100">
+                <span className="text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-100">
                   En desarrollo — próximo SaaS
                 </span>
-                <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
                   <Pill size={18} />
                 </div>
               </div>
 
               <h3 className="text-xl font-bold text-[#151A21] mb-2">
-                Pharmalized AI
+                Pharmalyze AI
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                Nace como sistema a medida para una farmacia real y avanza hacia convertirse en el SaaS de inteligencia de stock para todo el rubro: vencimientos, lotes, comparación real de proveedores — conectado a tu POS, no en su lugar.
+                Nace como sistema a medida para Farmacia Internacional (CABA) y avanza hacia convertirse en el SaaS de inteligencia de stock para todo el rubro: vencimientos, lotes, comparación real de proveedores — conectado a tu POS, no en su lugar.
               </p>
 
               {/* Detalle inline expandible */}
-              {expandedProduct === "pharmalized" && (
+              {expandedProduct === "pharmalyze" && (
                 <div className="mb-6 p-4 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2.5 font-sans animate-in fade-in duration-200">
+                  <img
+                    src="/pharmalyze-dashboard.jpg"
+                    alt="Pharmalyze AI Dashboard en producción"
+                    className="w-full h-auto rounded-lg border border-slate-200 object-cover max-h-48 mb-2"
+                  />
                   <div className="font-semibold text-[#151A21] flex items-center gap-1.5">
-                    <Layers size={14} className="text-amber-600" />
+                    <Layers size={14} className="text-emerald-600" />
                     Trayectoria & Pruebas en Vivo:
                   </div>
                   <ul className="space-y-1.5 text-slate-600 list-disc list-inside">
@@ -191,8 +201,8 @@ export function HomeEcosystem() {
                     <li>Comparador de listas de precios y bonificaciones entre droguerías.</li>
                     <li>Capa no invasiva: complementa el sistema de facturación actual sin reemplazarlo.</li>
                   </ul>
-                  <div className="pt-1 text-[11px] font-mono text-amber-800">
-                    Estado: Piloto activo · Camino a SaaS
+                  <div className="pt-1 text-[11px] font-mono text-emerald-800">
+                    Estado: Piloto activo en CABA · NaxadSistem v1.0
                   </div>
                 </div>
               )}
@@ -200,10 +210,10 @@ export function HomeEcosystem() {
 
             <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-2.5 justify-between">
               <button
-                onClick={() => toggleExpand("pharmalized")}
-                className="text-xs font-semibold text-slate-600 hover:text-[#151A21] inline-flex items-center gap-1 py-1"
+                onClick={() => toggleExpand("pharmalyze")}
+                className="text-xs font-semibold text-slate-600 hover:text-[#151A21] inline-flex items-center gap-1 py-1 cursor-pointer"
               >
-                {expandedProduct === "pharmalized" ? (
+                {expandedProduct === "pharmalyze" ? (
                   <>Menos detalle <ChevronUp size={14} /></>
                 ) : (
                   <>Ver el proyecto <ChevronDown size={14} /></>

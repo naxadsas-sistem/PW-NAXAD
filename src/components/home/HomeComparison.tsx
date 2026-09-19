@@ -27,7 +27,7 @@ export function HomeComparison() {
       feature: "Camino a futuro",
       generico: "Ninguno — pagás upgrades o te quedás estancado",
       freelancer: "Ninguno definido — cada cambio se cotiza de cero",
-      naxad: "Puede evolucionar de sistema a medida a producto propio (como Pharmalized AI)",
+      naxad: "Puede evolucionar de sistema a medida a producto propio (como Pharmalyze AI)",
     },
   ];
 

@@ -6,23 +6,19 @@ import {
   Stethoscope,
   Apple,
   Pill,
-  Calendar,
-  Users,
-  CheckCircle2,
-  TrendingUp,
-  Sparkles,
-  Clock,
   ShieldCheck,
-  AlertTriangle,
-  ArrowUpRight,
+  Sparkles,
   ChevronRight,
 } from "lucide-react";
 
-type ProductTab = "dental" | "reyna" | "pharmalized";
+type ProductTab = "dental" | "lautaro" | "pharmalyze";
 
 export function HeroMockup3D() {
   const [activeTab, setActiveTab] = useState<ProductTab>("dental");
   const [dentalViewMode, setDentalViewMode] = useState<"interactive" | "real">("interactive");
+  const [lautaroViewMode, setLautaroViewMode] = useState<"interactive" | "real" | "login">("interactive");
+  const [pharmalyzeViewMode, setPharmalyzeViewMode] = useState<"interactive" | "real">("interactive");
+
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -74,32 +70,32 @@ export function HeroMockup3D() {
 
           <button
             type="button"
-            onClick={() => setActiveTab("reyna")}
+            onClick={() => setActiveTab("lautaro")}
             className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "reyna"
-                ? "bg-white text-emerald-700 shadow-xs"
+              activeTab === "lautaro"
+                ? "bg-white text-emerald-800 shadow-xs"
                 : "text-slate-600 hover:text-[#151A21]"
             }`}
           >
-            <Apple size={15} className={activeTab === "reyna" ? "text-emerald-600" : ""} />
-            <span>Reyna Desk</span>
-            <span className="hidden sm:inline-block text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700">
-              Salud & Nutrición
+            <Apple size={15} className={activeTab === "lautaro" ? "text-emerald-600" : ""} />
+            <span>LautaroNutrición</span>
+            <span className="hidden sm:inline-block text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800">
+              Nutrición & IA
             </span>
           </button>
 
           <button
             type="button"
-            onClick={() => setActiveTab("pharmalized")}
+            onClick={() => setActiveTab("pharmalyze")}
             className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "pharmalized"
-                ? "bg-white text-amber-700 shadow-xs"
+              activeTab === "pharmalyze"
+                ? "bg-white text-emerald-800 shadow-xs"
                 : "text-slate-600 hover:text-[#151A21]"
             }`}
           >
-            <Pill size={15} className={activeTab === "pharmalized" ? "text-amber-600" : ""} />
-            <span>Pharmalized AI</span>
-            <span className="hidden sm:inline-block text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-50 text-amber-800">
+            <Pill size={15} className={activeTab === "pharmalyze" ? "text-emerald-600" : ""} />
+            <span>Pharmalyze AI</span>
+            <span className="hidden sm:inline-block text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700">
               Farmacia
             </span>
           </button>
@@ -171,7 +167,7 @@ export function HeroMockup3D() {
                 <span className="h-3 w-3 rounded-full bg-emerald-400/80 border border-emerald-300/60" />
               </div>
               <span className="ml-2 text-[11px] font-mono font-medium text-slate-500 hidden sm:inline-block">
-                naxad-ecosystem-os v2.4 · {activeTab === "dental" ? "DentalDesk Clínica" : activeTab === "reyna" ? "Reyna Desk Nutrición" : "Pharmalized AI Farmacia"}
+                naxad-ecosystem-os v2.4 · {activeTab === "dental" ? "DentalDesk Clínica" : activeTab === "lautaro" ? "LautaroNutrición · Dr. Lautaro Reyna" : "Pharmalyze AI · Control de Stock"}
               </span>
             </div>
 
@@ -185,6 +181,7 @@ export function HeroMockup3D() {
 
           {/* Contenido Visual Interactivo según Producto Seleccionado */}
           <div className="p-4 sm:p-6 md:p-8 bg-gradient-to-b from-white to-slate-50/50">
+            {/* 1. DENTALDESK */}
             {activeTab === "dental" && (
               <div className="space-y-5 text-left">
                 {/* Header de la App */}
@@ -197,7 +194,7 @@ export function HeroMockup3D() {
                       Panel Diario de Operaciones & Turnos
                     </h3>
                   </div>
-                  
+
                   {/* Selector de Modo: Interactivo vs Captura Real */}
                   <div className="flex items-center gap-2">
                     <div className="inline-flex p-0.5 rounded-lg bg-slate-100 border border-slate-200 text-xs">
@@ -232,7 +229,7 @@ export function HeroMockup3D() {
                     <img
                       src="/dashboard-dental.jpg"
                       alt="DentalDesk Dashboard en Producción Real"
-                      className="w-full h-auto object-cover max-h-[360px]"
+                      className="w-full h-auto object-cover max-h-[380px]"
                     />
                   </div>
                 ) : (
@@ -302,115 +299,322 @@ export function HeroMockup3D() {
               </div>
             )}
 
-            {activeTab === "reyna" && (
+            {/* 2. LAUTARONUTRICIÓN (Dr. Lautaro Reyna) */}
+            {activeTab === "lautaro" && (
               <div className="space-y-5 text-left">
                 {/* Header de la App */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
                   <div>
-                    <span className="text-[10px] font-mono text-emerald-600 uppercase font-semibold">
-                      Reyna Desk · Consulta Nutricional Especializada
+                    <span className="text-[10px] font-mono text-emerald-700 uppercase font-semibold">
+                      LautaroNutrición · Dr. Lautaro Reyna · Gestión Nutricional
                     </span>
                     <h3 className="text-base sm:text-lg font-bold text-[#151A21]">
-                      Seguimiento Antropométrico & Análisis de Platos por IA
+                      Buenas tardes, Lautaro 👋
                     </h3>
                   </div>
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-medium border border-emerald-200">
-                      88% Adherencia Paciente
-                    </span>
+
+                  {/* Selector de Modo: Interactivo vs Dashboard Real vs Login Real */}
+                  <div className="flex items-center gap-2">
+                    <div className="inline-flex p-0.5 rounded-lg bg-slate-100 border border-slate-200 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => setLautaroViewMode("interactive")}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                          lautaroViewMode === "interactive"
+                            ? "bg-white text-emerald-800 shadow-xs"
+                            : "text-slate-600 hover:text-[#151A21]"
+                        }`}
+                      >
+                        Panel Interactivo
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setLautaroViewMode("real")}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                          lautaroViewMode === "real"
+                            ? "bg-white text-emerald-800 shadow-xs"
+                            : "text-slate-600 hover:text-[#151A21]"
+                        }`}
+                      >
+                        Dashboard Real
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setLautaroViewMode("login")}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                          lautaroViewMode === "login"
+                            ? "bg-white text-emerald-800 shadow-xs"
+                            : "text-slate-600 hover:text-[#151A21]"
+                        }`}
+                      >
+                        Acceso Paciente
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                {/* Métricas y Análisis de IA */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
-                    <span className="text-[11px] text-slate-500 block font-medium">Reconocimiento por Foto</span>
-                    <span className="text-xl font-extrabold text-[#151A21] font-mono">IA Vision</span>
-                    <span className="text-[10px] text-emerald-600 block mt-0.5 font-medium">Cálculo de macros automático</span>
+                {lautaroViewMode === "real" ? (
+                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                    <img
+                      src="/lautaronutricion-dashboard.jpg"
+                      alt="LautaroNutrición Dashboard en Producción Real"
+                      className="w-full h-auto object-cover max-h-[380px]"
+                    />
                   </div>
-                  <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
-                    <span className="text-[11px] text-slate-500 block font-medium">Plan Nutricional Activo</span>
-                    <span className="text-xl font-extrabold text-[#151A21] font-mono">2.150 kcal</span>
-                    <span className="text-[10px] text-slate-500 block mt-0.5 font-medium">145g Proteínas · 180g Carbos</span>
+                ) : lautaroViewMode === "login" ? (
+                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white flex justify-center bg-slate-900/5 p-4">
+                    <img
+                      src="/lautaronutricion-login.jpg"
+                      alt="LautaroNutrición Pantalla de Acceso en Producción Real"
+                      className="w-auto h-auto object-contain max-h-[380px] rounded-lg shadow-md border border-slate-200"
+                    />
                   </div>
-                  <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
-                    <span className="text-[11px] text-slate-500 block font-medium">Retención de Pacientes</span>
-                    <span className="text-xl font-extrabold text-emerald-600 font-mono">+40%</span>
-                    <span className="text-[10px] text-slate-500 block mt-0.5 font-medium">Portal propio con feedback</span>
-                  </div>
-                </div>
+                ) : (
+                  <>
+                    {/* 4 Métricas Reales del Dashboard */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-200">
+                        <span className="text-[11px] text-slate-500 block font-medium">Turnos Hoy</span>
+                        <span className="text-xl font-extrabold text-[#151A21] font-mono">3</span>
+                        <span className="text-[10px] text-emerald-600 block mt-0.5 font-medium">Agenda cargada</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-200">
+                        <span className="text-[11px] text-slate-500 block font-medium">Planes a Revisar</span>
+                        <span className="text-xl font-extrabold text-[#151A21] font-mono">41</span>
+                        <span className="text-[10px] text-amber-600 block mt-0.5 font-medium">Vencidos o sin fecha</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-200">
+                        <span className="text-[11px] text-slate-500 block font-medium">Pacientes Activos</span>
+                        <span className="text-xl font-extrabold text-[#151A21] font-mono">99</span>
+                        <span className="text-[10px] text-[#2563EB] block mt-0.5 font-medium">En seguimiento</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-200">
+                        <span className="text-[11px] text-slate-500 block font-medium">Asistencia</span>
+                        <span className="text-xl font-extrabold text-emerald-600 font-mono">100%</span>
+                        <span className="text-[10px] text-slate-500 block mt-0.5 font-medium">Últimos 30 días</span>
+                      </div>
+                    </div>
 
-                {/* Tarjeta de Plato Analizado */}
-                <div className="p-4 rounded-xl border border-emerald-100 bg-emerald-50/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-emerald-200 flex items-center justify-center text-emerald-600 font-bold shrink-0">
-                      🥗
+                    {/* Agenda del Día & Alertas de Retención */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 text-xs">
+                      {/* Agenda del día */}
+                      <div className="lg:col-span-7 rounded-xl border border-slate-200 bg-white p-3 space-y-2">
+                        <div className="flex items-center justify-between pb-1.5 border-b border-slate-100 font-semibold text-[#151A21]">
+                          <span>Agenda del Día</span>
+                          <span className="text-[11px] text-slate-400 font-normal">3 turnos</span>
+                        </div>
+                        <div className="space-y-1.5 font-medium">
+                          <div className="p-2 rounded-lg bg-emerald-50/40 border border-emerald-100/60 flex items-center justify-between">
+                            <div>
+                              <span className="font-bold text-[#151A21] block">11:00 · Alan Meozzi</span>
+                              <span className="text-[11px] text-slate-500">Musculación · 30d sin registro</span>
+                            </div>
+                            <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-100 text-emerald-800 font-semibold">
+                              Confirmado
+                            </span>
+                          </div>
+                          <div className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
+                            <div>
+                              <span className="font-semibold text-slate-800 block">12:30 · Juan RS Molina</span>
+                              <span className="text-[11px] text-slate-500">Sin registros</span>
+                            </div>
+                            <span className="px-2 py-0.5 rounded text-[10px] bg-amber-50 text-amber-800 font-semibold">
+                              Pendiente
+                            </span>
+                          </div>
+                          <div className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between">
+                            <div>
+                              <span className="font-semibold text-slate-800 block">13:30 · Johanna RS Francia</span>
+                              <span className="text-[11px] text-slate-500">Sin registros</span>
+                            </div>
+                            <span className="px-2 py-0.5 rounded text-[10px] bg-amber-50 text-amber-800 font-semibold">
+                              Pendiente
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Alertas de Retención */}
+                      <div className="lg:col-span-5 rounded-xl border border-rose-100 bg-rose-50/30 p-3 space-y-2">
+                        <div className="flex items-center justify-between pb-1.5 border-b border-rose-100 font-semibold text-rose-800">
+                          <span>Alertas de Retención</span>
+                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-rose-100 text-rose-700 font-mono">10</span>
+                        </div>
+                        <div className="space-y-1.5">
+                          <div className="p-2 rounded-lg bg-white border border-rose-200">
+                            <span className="font-bold text-[#151A21] block">Mimi RS Barrionuevo</span>
+                            <span className="text-[10px] font-bold uppercase text-rose-600 block">Riesgo de abandono</span>
+                            <span className="text-[10px] text-slate-500">Nunca registró comidas en el portal</span>
+                          </div>
+                          <div className="p-2 rounded-lg bg-white border border-rose-200">
+                            <span className="font-bold text-[#151A21] block">Barby Arroyo</span>
+                            <span className="text-[10px] font-bold uppercase text-rose-600 block">Riesgo de abandono · 7% adherencia</span>
+                            <span className="text-[10px] text-slate-500">13 días sin registrar comidas</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-bold text-[#151A21]">Almuerzo: Bowl de Salmón, Quinoa y Palta</p>
-                      <p className="text-[11px] text-slate-600">Estimación validada por profesional: 580 kcal · 38g Proteína</p>
-                    </div>
-                  </div>
-                  <span className="px-3 py-1 rounded-md bg-white border border-emerald-200 text-emerald-700 font-semibold text-[11px] shrink-0">
-                    Cumple pauta diaria ✔
-                  </span>
-                </div>
+                  </>
+                )}
               </div>
             )}
 
-            {activeTab === "pharmalized" && (
+            {/* 3. PHARMALYZE AI (Control de Stock Predictivo) */}
+            {activeTab === "pharmalyze" && (
               <div className="space-y-5 text-left">
                 {/* Header de la App */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
                   <div>
-                    <span className="text-[10px] font-mono text-amber-600 uppercase font-semibold">
-                      Pharmalized AI · Inteligencia de Reposición Farmacéutica
+                    <span className="text-[10px] font-mono text-emerald-700 uppercase font-semibold">
+                      Pharmalyze AI · NaxadSistem v1.0
                     </span>
                     <h3 className="text-base sm:text-lg font-bold text-[#151A21]">
-                      Monitoreo FEFO & Comparación de Droguerías
+                      Control de Stock Predictivo · Farmacia Internacional (CABA)
                     </h3>
                   </div>
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-800 font-medium border border-amber-200">
-                      Piloto CABA Activo
-                    </span>
+
+                  {/* Selector de Modo: Interactivo vs Captura Real */}
+                  <div className="flex items-center gap-2">
+                    <div className="inline-flex p-0.5 rounded-lg bg-slate-100 border border-slate-200 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => setPharmalyzeViewMode("interactive")}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                          pharmalyzeViewMode === "interactive"
+                            ? "bg-white text-emerald-800 shadow-xs"
+                            : "text-slate-600 hover:text-[#151A21]"
+                        }`}
+                      >
+                        Panel Interactivo
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setPharmalyzeViewMode("real")}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                          pharmalyzeViewMode === "real"
+                            ? "bg-white text-emerald-800 shadow-xs"
+                            : "text-slate-600 hover:text-[#151A21]"
+                        }`}
+                      >
+                        Captura de Producción
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                {/* Métricas de Stock */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
-                    <span className="text-[11px] text-slate-500 block font-medium">Control FEFO de Lotes</span>
-                    <span className="text-xl font-extrabold text-[#151A21] font-mono">0 Pérdidas</span>
-                    <span className="text-[10px] text-amber-700 block mt-0.5 font-medium">Alertas a 60 y 30 días</span>
+                {pharmalyzeViewMode === "real" ? (
+                  <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                    <img
+                      src="/pharmalyze-dashboard.jpg"
+                      alt="Pharmalyze AI Dashboard en Producción Real"
+                      className="w-full h-auto object-cover max-h-[380px]"
+                    />
                   </div>
-                  <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
-                    <span className="text-[11px] text-slate-500 block font-medium">Comparativa Droguerías</span>
-                    <span className="text-xl font-extrabold text-[#151A21] font-mono">3 Proveedores</span>
-                    <span className="text-[10px] text-emerald-600 block mt-0.5 font-medium">Ahorro promedio: 8.5%</span>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
-                    <span className="text-[11px] text-slate-500 block font-medium">Integración</span>
-                    <span className="text-xl font-extrabold text-[#2563EB] font-mono">Conectado a POS</span>
-                    <span className="text-[10px] text-slate-500 block mt-0.5 font-medium">Sin reemplazar caja</span>
-                  </div>
-                </div>
+                ) : (
+                  <>
+                    {/* Mission Control: Triaje Operativo Diario */}
+                    <div className="rounded-xl bg-[#111827] text-white p-4 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono tracking-wider uppercase text-emerald-400 font-semibold">
+                          MISSION CONTROL · Triaje Operativo Diario
+                        </span>
+                        <span className="text-[11px] text-slate-300 font-mono">Reglas determinísticas v2.0</span>
+                      </div>
+                      <p className="text-base font-bold text-white">¿Qué necesita mi farmacia hoy?</p>
 
-                {/* Alerta de sugerencia de compra inteligente */}
-                <div className="p-4 rounded-xl border border-amber-200 bg-amber-50/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-amber-200 flex items-center justify-center text-amber-600 font-bold shrink-0">
-                      <AlertTriangle size={18} />
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1 text-slate-900 text-xs">
+                        {/* 1. Crítico */}
+                        <div className="p-3 rounded-lg bg-white border border-rose-200 space-y-2">
+                          <div className="flex items-center justify-between text-rose-700 font-bold text-[11px]">
+                            <span>1. CRÍTICO</span>
+                            <span className="px-1.5 py-0.5 rounded bg-rose-50 border border-rose-200 text-rose-700 font-bold">
+                              180 alertas
+                            </span>
+                          </div>
+                          <p className="font-semibold text-slate-800 text-[11px]">
+                            179 productos agotados (Stock 0)
+                          </p>
+                          <p className="text-[10px] text-slate-500 leading-tight">
+                            102 MUJER cáps. bl. x 30, ACC LP AGUJA x 1 y 177 más
+                          </p>
+                          <div className="pt-1 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                            <span className="text-rose-600 font-bold">1 lote vencido en góndola</span>
+                            <span className="text-slate-400">Retirar hoy</span>
+                          </div>
+                          <button
+                            type="button"
+                            className="w-full py-1.5 rounded-md bg-rose-600 hover:bg-rose-700 text-white font-bold text-[10px] transition-colors"
+                          >
+                            Resolver Críticos →
+                          </button>
+                        </div>
+
+                        {/* 2. Atención */}
+                        <div className="p-3 rounded-lg bg-white border border-amber-200 space-y-2">
+                          <div className="flex items-center justify-between text-amber-800 font-bold text-[11px]">
+                            <span>2. ATENCIÓN</span>
+                            <span className="px-1.5 py-0.5 rounded bg-amber-50 border border-amber-200 text-amber-800 font-bold">
+                              1 punto
+                            </span>
+                          </div>
+                          <p className="font-semibold text-slate-800 text-[11px]">
+                            1 producto bajo punto de reposición
+                          </p>
+                          <p className="text-[10px] text-slate-500 leading-tight">
+                            Existencias iguales o inferiores al stock mínimo asignado por góndola.
+                          </p>
+                          <div className="pt-2" />
+                          <button
+                            type="button"
+                            className="w-full py-1.5 rounded-md bg-amber-600 hover:bg-amber-700 text-white font-bold text-[10px] transition-colors"
+                          >
+                            Inspeccionar Inventario →
+                          </button>
+                        </div>
+
+                        {/* 3. Oportunidades & Decisiones */}
+                        <div className="p-3 rounded-lg bg-white border border-slate-200 space-y-2">
+                          <div className="flex items-center justify-between text-slate-800 font-bold text-[11px]">
+                            <span>3. OPORTUNIDADES</span>
+                            <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700">
+                              Evidencia real
+                            </span>
+                          </div>
+                          <p className="font-semibold text-slate-800 text-[11px]">
+                            Sugerencia de Reposición Directa
+                          </p>
+                          <p className="text-[10px] text-slate-500 leading-tight">
+                            Naxad no inventa proyecciones de demanda ni velocidades ficticias. 0 datos simulados.
+                          </p>
+                          <div className="pt-1 border-t border-slate-100">
+                            <span className="text-[10px] text-emerald-700 font-semibold block">
+                              Conectado a POS en tiempo real
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-bold text-[#151A21]">Amoxicilina 500mg (20 comp.) — Reposición sugerida</p>
-                      <p className="text-[11px] text-slate-600">Stock crítico: 3 unidades restantes · Droguería Monroe tiene 11% de descuento hoy</p>
+
+                    {/* Bottom KPIs */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
+                        <span className="text-[11px] text-slate-500 block font-medium">Días de Autonomía</span>
+                        <span className="text-lg font-bold text-slate-700 font-mono">Sin datos</span>
+                        <span className="text-[10px] text-slate-500 block mt-0.5">Historial en acumulación</span>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
+                        <span className="text-[11px] text-slate-500 block font-medium">Productos en Riesgo</span>
+                        <span className="text-xl font-extrabold text-[#151A21] font-mono">180</span>
+                        <span className="text-[10px] text-rose-600 block mt-0.5 font-medium">En o bajo mínimo, hoy</span>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200">
+                        <span className="text-[11px] text-slate-500 block font-medium">Valor de Inventario</span>
+                        <span className="text-xl font-extrabold text-emerald-700 font-mono">$ 916.200</span>
+                        <span className="text-[10px] text-slate-500 block mt-0.5 font-medium">A precio de costo total</span>
+                      </div>
                     </div>
-                  </div>
-                  <span className="px-3 py-1 rounded-md bg-[#151A21] text-white font-semibold text-[11px] shrink-0">
-                    Sugerir Pedido
-                  </span>
-                </div>
+                  </>
+                )}
               </div>
             )}
 

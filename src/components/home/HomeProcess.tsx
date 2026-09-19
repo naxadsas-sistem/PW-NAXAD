@@ -28,7 +28,7 @@ export interface RelevamientoOperativo {
   rubro: string;
   flujoActual: "planillas" | "sistema_rigido" | "mixto";
   estrategia: "ADOPTAR_SAAS_EXISTENTE" | "CONSTRUIR_A_MEDIDA";
-  sistemasEcosistemaDisponibles: ["DentalDesk", "Reyna Desk", "Pharmalized AI"];
+  sistemasEcosistemaDisponibles: ["DentalDesk", "LautaroNutrición", "Pharmalyze AI"];
 }
 
 export function evaluarCaso(operacion: RelevamientoOperativo) {
@@ -45,7 +45,7 @@ export function evaluarCaso(operacion: RelevamientoOperativo) {
       duration: "Semanas, no meses",
       desc: "Si tu rubro ya está en el ecosistema, ajustamos el sistema existente a tu operación. Si no, construimos sobre la misma base técnica que ya probamos en producción.",
       deliverable: "Sistema funcionando, no una maqueta.",
-      codePreview: `// 02-logica-sistema.ts (Ejemplo: Pharmalized AI / Stock FEFO)
+      codePreview: `// 02-logica-sistema.ts (Ejemplo: Pharmalyze AI / Stock FEFO)
 export async function registrarRecepcionLote(lote: {
   medicamentoId: string;
   loteCodigo: string;
@@ -64,7 +64,7 @@ export async function registrarRecepcionLote(lote: {
       icon: LifeBuoy,
       title: "Seguimos con vos, no desaparecemos al entregar",
       duration: "Continuo",
-      desc: "Capacitación de tu equipo, ajustes sobre la marcha, soporte directo — el mismo criterio que sostiene a DentalDesk y Reyna Desk en producción hoy.",
+      desc: "Capacitación de tu equipo, ajustes sobre la marcha, soporte directo — el mismo criterio que sostiene a DentalDesk y LautaroNutrición en producción hoy.",
       deliverable: "Soporte continuo + evolución del sistema.",
       codePreview: `// 03-acompanamiento.ts
 export const soporteEcosistema = {
@@ -73,8 +73,8 @@ export const soporteEcosistema = {
   filosofia: "Ajustes sobre la práctica real, no teoría",
   estadoSistemas: {
     dentalDesk: "En producción",
-    reynaDesk: "En producción",
-    pharmalizedAI: "Piloto activo",
+    lautaroNutricion: "En producción",
+    pharmalyzeAI: "Piloto activo",
   },
 };`,
     },

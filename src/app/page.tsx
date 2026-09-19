@@ -54,22 +54,22 @@ const jsonLd = {
     },
     {
       "@type": "SoftwareApplication",
-      "name": "Reyna Desk",
+      "name": "LautaroNutrición",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "description":
-        "Plataforma de gestión clínica y seguimiento antropométrico para nutricionistas.",
+        "Plataforma de gestión clínica y seguimiento antropométrico para nutricionistas (Dr. Lautaro Reyna).",
       "provider": {
         "@id": "https://naxad.com/#organization",
       },
     },
     {
       "@type": "SoftwareApplication",
-      "name": "Pharmalized AI",
+      "name": "Pharmalyze AI",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "description":
-        "Inteligencia predictiva de reposición y stock crítico para farmacias.",
+        "Inteligencia predictiva de reposición y stock crítico para farmacias (NaxadSistem).",
       "provider": {
         "@id": "https://naxad.com/#organization",
       },
@@ -93,7 +93,7 @@ export default function HomePage() {
         {/* 2. Dolor / Problema (+ Autodiagnóstico con scroll a #ecosistema) */}
         <HomePain />
 
-        {/* 3. Ecosistema de Productos (DentalDesk, Reyna Desk, Pharmalized AI) */}
+        {/* 3. Ecosistema de Productos (DentalDesk, LautaroNutrición, Pharmalyze AI) */}
         <HomeEcosystem />
 
         {/* 4. Propuesta / Solución (Criterio de negocio, arquitectura) */}
