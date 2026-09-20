@@ -5,8 +5,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { ContactBackground } from "@/components/ui/ContactBackground";
 import { siteConfig } from "@/config/site";
 import {
   MessageSquare,
@@ -18,9 +18,7 @@ import {
   Loader2,
   Copy,
   Check,
-  Sparkles,
   Clock,
-  ExternalLink,
 } from "lucide-react";
 
 export default function ContactoPage() {
@@ -61,9 +59,8 @@ export default function ContactoPage() {
 
   return (
     <div className="relative flex min-h-screen flex-col bg-white text-[#151A21] overflow-hidden">
-      {/* Fondo con gradiente radial y malla de puntos sutil (100% Tema Claro) */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.07),rgba(255,255,255,0))]" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-dot-grid opacity-30 [mask-image:radial-gradient(ellipse_70%_50%_at_50%_15%,#000_60%,transparent_100%)]" />
+      {/* Fondo dinámico líquido y arquitectónico ultra-ligero */}
+      <ContactBackground />
 
       <Navbar />
 
