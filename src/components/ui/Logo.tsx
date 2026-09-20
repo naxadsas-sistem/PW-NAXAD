@@ -18,10 +18,10 @@ export interface LogoProps {
 }
 
 const sizeClasses = {
-  sm: "h-6 w-auto",          // 24px de alto
-  md: "h-7 sm:h-[30px] w-auto", // 28-30px de alto (proporción áurea para Navbar y Footer)
-  lg: "h-9 sm:h-10 w-auto",    // 36-40px de alto
-  xl: "h-12 sm:h-14 w-auto",   // 48-56px de alto
+  sm: "h-5 w-auto",             // 20px de alto
+  md: "h-6 sm:h-[25px] w-auto", // 24-25px de alto (sutil, estilizado y equilibrado)
+  lg: "h-8 sm:h-9 w-auto",      // 32-36px de alto
+  xl: "h-10 sm:h-12 w-auto",    // 40-48px de alto
 };
 
 export function Logo({
