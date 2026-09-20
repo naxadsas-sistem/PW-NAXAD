@@ -1,81 +1,98 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import { StripeGradient } from "@/lib/stripe-gradient";
 
 export function ContactBackground() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Parallax suave y amortiguado con el cursor (solo si no prefiere reducción de movimiento)
-    if (typeof window === "undefined") return;
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) return;
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
 
-    let frameId: number;
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
+    // Detectar preferencia de reducción de movimiento
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      targetX = (e.clientX / innerWidth - 0.5) * 28; // máximo 14px de rango
-      targetY = (e.clientY / innerHeight - 0.5) * 28;
-    };
+    const gradient = new StripeGradient();
+    
+    // Configuración estética de Stripe: ondas visibles y fluidas
+    gradient.amp = 260;
+    gradient.angle = 0.35; // inclinación elegante diagonal
+    gradient.conf.density = [0.06, 0.16];
 
-    const updatePosition = () => {
-      currentX += (targetX - currentX) * 0.05;
-      currentY += (targetY - currentY) * 0.05;
+    try {
+      gradient.initGradient(canvas);
+      if (prefersReducedMotion) {
+        gradient.pause();
+      }
+    } catch (err) {
+      console.warn("WebGL Stripe Gradient initialization fallback:", err);
+    }
 
-      setMousePos({ x: currentX, y: currentY });
-      frameId = requestAnimationFrame(updatePosition);
-    };
+    // Pausar cuando no esté visible en la pantalla (ahorro de batería y GPU)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !prefersReducedMotion) {
+          gradient.play();
+        } else {
+          gradient.pause();
+        }
+      },
+      { threshold: 0.05 }
+    );
 
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    frameId = requestAnimationFrame(updatePosition);
+    observer.observe(container);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      cancelAnimationFrame(frameId);
+      observer.disconnect();
+      gradient.destroy();
     };
   }, []);
 
   return (
-    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden select-none">
-      {/* 1. Gradiente radial difuso base */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.08),rgba(255,255,255,0))]" />
-
-      {/* 2. Malla líquida de orbes reactivos al cursor (100% GPU, 0% CPU) */}
+    <div
+      ref={containerRef}
+      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden select-none"
+    >
+      {/* 1. Canvas con el Shader WebGL Stripe Real (Paleta Oficial NAXAD) */}
       <div
-        className="absolute inset-0 transition-transform duration-300 ease-out"
-        style={{
-          transform: `translate3d(${mousePos.x}px, ${mousePos.y}px, 0)`,
-          willChange: "transform",
-        }}
-      >
-        {/* Orbe Azul Eléctrico NAXAD (#2563EB -> #38BDF8) - Superior Izquierda */}
-        <div className="absolute -top-[12%] -left-[8%] w-[32rem] sm:w-[42rem] h-[32rem] sm:h-[42rem] rounded-full bg-gradient-to-tr from-[#2563EB]/18 via-[#38BDF8]/16 to-transparent blur-[85px] animate-orb-1" />
-
-        {/* Orbe Índigo / Coral (#6366F1 -> #E76F73) - Superior Derecha */}
-        <div className="absolute top-[5%] -right-[10%] w-[30rem] sm:w-[38rem] h-[30rem] sm:h-[38rem] rounded-full bg-gradient-to-bl from-[#E76F73]/14 via-[#6366F1]/16 to-transparent blur-[90px] animate-orb-2" />
-
-        {/* Orbe Central Inferior de Profundidad (#818CF8 / Lavanda Tech) */}
-        <div className="absolute top-[45%] left-[20%] w-[26rem] sm:w-[34rem] h-[26rem] sm:h-[34rem] rounded-full bg-gradient-to-r from-[#818CF8]/12 to-[#2563EB]/10 blur-[80px] animate-orb-3" />
-      </div>
-
-      {/* 3. Cuadrícula arquitectónica punteada estilo Stripe con máscara focal */}
-      <div
-        className="absolute inset-0 bg-dot-grid opacity-35"
+        className="absolute top-0 left-0 right-0 h-[560px] sm:h-[680px] w-full"
         style={{
           maskImage:
-            "radial-gradient(ellipse 75% 65% at 50% 20%, black 30%, transparent 90%)",
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.2) 85%, transparent 100%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 75% 65% at 50% 20%, black 30%, transparent 90%)",
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.2) 85%, transparent 100%)",
+        }}
+      >
+        <canvas
+          ref={canvasRef}
+          className="w-full h-full block opacity-75 sm:opacity-80"
+          style={
+            {
+              "--gradient-color-1": "#2563EB", // Azul Eléctrico NAXAD
+              "--gradient-color-2": "#4F46E5", // Índigo profundo
+              "--gradient-color-3": "#0EA5E9", // Cyan / Sky brillante
+              "--gradient-color-4": "#F43F5E", // Coral / Fucsia de contraste
+            } as React.CSSProperties
+          }
+        />
+      </div>
+
+      {/* 2. Cuadrícula arquitectónica punteada estilo Stripe para eliminar bandas de color */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[560px] sm:h-[680px] bg-dot-grid opacity-30"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 75% 65% at 50% 25%, black 20%, transparent 85%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 75% 65% at 50% 25%, black 20%, transparent 85%)",
         }}
       />
 
-      {/* 4. Velo protector de contraste (asegura legibilidad perfecta del formulario) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/60 to-white/95" />
+      {/* 3. Velo luminoso de transición para fundirse armónicamente con el fondo blanco inferior */}
+      <div className="absolute top-0 left-0 right-0 h-[560px] sm:h-[680px] bg-gradient-to-b from-white/10 via-white/20 to-white pointer-events-none" />
     </div>
   );
 }
