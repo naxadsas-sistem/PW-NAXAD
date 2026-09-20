@@ -27,7 +27,7 @@ class MiniGl {
   constructor(canvas: HTMLCanvasElement, width?: number, height?: number) {
     const _miniGl = this;
     this.canvas = canvas;
-    const gl = canvas.getContext("webgl", { antialias: true, alpha: true });
+    const gl = canvas.getContext("webgl", { antialias: true, alpha: true, preserveDrawingBuffer: true });
     if (!gl) throw new Error("WebGL not supported");
     this.gl = gl;
     this.meshes = [];

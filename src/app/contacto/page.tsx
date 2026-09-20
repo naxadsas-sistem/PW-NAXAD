@@ -59,23 +59,23 @@ export default function ContactoPage() {
 
   return (
     <div className="relative flex min-h-screen flex-col bg-white text-[#151A21] overflow-hidden">
-      {/* Fondo dinámico líquido y arquitectónico ultra-ligero */}
+      {/* Fondo dinámico líquido y arquitectónico WebGL */}
       <ContactBackground />
 
       <Navbar />
 
-      <main className="flex-1 pt-32 pb-24">
+      <main className="relative z-10 flex-1 pt-32 pb-24">
         <Container>
           {/* Header de Página */}
           <div className="max-w-3xl mb-14 space-y-4 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/80 border border-blue-100 text-xs font-semibold text-[#2563EB]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 backdrop-blur-md border border-blue-200/80 text-xs font-semibold text-[#2563EB] shadow-xs">
               <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB] animate-pulse" />
               <span>Canales oficiales de NAXAD</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#151A21] tracking-tight leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
               Hablemos de tu gestión.
             </h1>
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-800 leading-relaxed font-normal max-w-2xl">
               Contanos sobre tu negocio o el producto del ecosistema que te interesa. Analizamos tu contexto para indicarte si adoptás una solución existente o construimos algo a tu medida.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function ContactoPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Formulario Principal con Floating Labels y Micro-interacciones (7 columnas) */}
             <div className="lg:col-span-7 animate-fade-in-up delay-75">
-              <Card className="relative p-6 sm:p-10 bg-white border border-slate-200 shadow-xs hover:shadow-md transition-shadow duration-300">
+              <Card className="relative p-6 sm:p-10 bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 {submitted ? (
                   <div className="py-12 text-center space-y-5 animate-fade-in-up">
                     <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto shadow-xs">

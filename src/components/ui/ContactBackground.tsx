@@ -17,9 +17,9 @@ export function ContactBackground() {
 
     const gradient = new StripeGradient();
     
-    // Configuración estética de Stripe: ondas visibles y fluidas
-    gradient.amp = 260;
-    gradient.angle = 0.35; // inclinación elegante diagonal
+    // Configuración estética de Stripe: ondas visibles, amplias y fluidas
+    gradient.amp = 280;
+    gradient.angle = 0.15; // Inclinación diagonal orgánica suave
     gradient.conf.density = [0.06, 0.16];
 
     try {
@@ -54,21 +54,21 @@ export function ContactBackground() {
   return (
     <div
       ref={containerRef}
-      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden select-none"
+      className="pointer-events-none absolute top-0 left-0 right-0 z-0 h-[640px] sm:h-[760px] overflow-hidden select-none"
     >
       {/* 1. Canvas con el Shader WebGL Stripe Real (Paleta Oficial NAXAD) */}
       <div
-        className="absolute top-0 left-0 right-0 h-[560px] sm:h-[680px] w-full"
+        className="w-full h-full"
         style={{
           maskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.2) 85%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.3) 80%, transparent 100%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.2) 85%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.3) 80%, transparent 100%)",
         }}
       >
         <canvas
           ref={canvasRef}
-          className="w-full h-full block opacity-75 sm:opacity-80"
+          className="w-full h-full block"
           style={
             {
               "--gradient-color-1": "#2563EB", // Azul Eléctrico NAXAD
@@ -80,9 +80,9 @@ export function ContactBackground() {
         />
       </div>
 
-      {/* 2. Cuadrícula arquitectónica punteada estilo Stripe para eliminar bandas de color */}
+      {/* 2. Cuadrícula arquitectónica punteada estilo Stripe */}
       <div
-        className="absolute top-0 left-0 right-0 h-[560px] sm:h-[680px] bg-dot-grid opacity-30"
+        className="absolute inset-0 bg-dot-grid opacity-25"
         style={{
           maskImage:
             "radial-gradient(ellipse 75% 65% at 50% 25%, black 20%, transparent 85%)",
@@ -90,9 +90,6 @@ export function ContactBackground() {
             "radial-gradient(ellipse 75% 65% at 50% 25%, black 20%, transparent 85%)",
         }}
       />
-
-      {/* 3. Velo luminoso de transición para fundirse armónicamente con el fondo blanco inferior */}
-      <div className="absolute top-0 left-0 right-0 h-[560px] sm:h-[680px] bg-gradient-to-b from-white/10 via-white/20 to-white pointer-events-none" />
     </div>
   );
 }
