@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
@@ -39,6 +39,23 @@ export default function ContactoPage() {
   // Validaciones en tiempo real
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
   const isPhoneValid = formData.phone.trim().length >= 8;
+
+  // Preseleccionar necesidad si viene desde un botón CTA de producto
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const sol = params.get("solucion");
+      if (sol === "dentaldesk") {
+        setFormData((prev) => ({ ...prev, needType: "DentalDesk (SaaS clínica dental)" }));
+      } else if (sol === "lautaro" || sol === "lautaronutricion") {
+        setFormData((prev) => ({ ...prev, needType: "LautaroNutrición (Sistema nutrición / salud)" }));
+      } else if (sol === "pharmalyze") {
+        setFormData((prev) => ({ ...prev, needType: "Pharmalyze AI (Piloto farmacias)" }));
+      } else if (sol === "medida") {
+        setFormData((prev) => ({ ...prev, needType: "Sistema de gestión a medida" }));
+      }
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
