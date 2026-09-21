@@ -28,8 +28,8 @@ export function HomeHero() {
             <span className="text-[#151A21]">no el que le sobra.</span>
           </h1>
 
-          {/* Subtítulo */}
-          <p className="text-lg sm:text-xl text-slate-600 leading-loose max-w-2xl font-normal">
+          {/* Subtítulo alineado a la izquierda */}
+          <p className="text-left text-base sm:text-lg md:text-xl text-slate-600 leading-loose max-w-2xl w-full font-normal">
             Construimos productos y sistemas de gestión a partir de cómo opera tu negocio en la vida real. Ya funcionan en una clínica, un consultorio y una farmacia — el próximo puede ser el tuyo.
           </p>
 
