@@ -13,10 +13,10 @@ import {
 } from "lucide-react";
 
 // Hook para animar contadores
-function useCountUp(target: number, duration = 2000) {
+function useCountUp(target: number, duration = 1800) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   useEffect(() => {
     if (!isInView || target <= 0) return;
@@ -39,6 +39,7 @@ function useCountUp(target: number, duration = 2000) {
 
 export interface StatItem {
   id: string;
+  tag: string;
   valor: number;
   valorTexto?: string;
   sufijo: string;
@@ -53,79 +54,99 @@ export interface StatItem {
 const stats: StatItem[] = [
   {
     id: "sistemas",
+    tag: "Ecosistema",
     valor: 3,
     sufijo: "",
     label: "Sistemas en el ecosistema",
-    descripcion: "Dos en producción, uno en desarrollo activo",
+    descripcion: "Dos en producción, uno en desarrollo activo.",
     icono: Globe,
     color: "from-blue-500 to-indigo-600",
     bgColor: "bg-blue-50 text-[#2563EB]",
     visual: (
-      <div className="flex gap-1.5 mt-3">
-        <div className="h-2 w-8 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600" />
-        <div className="h-2 w-8 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600" />
-        <div className="h-2 w-8 rounded-full bg-slate-200 animate-pulse" />
+      <div className="flex items-center gap-1.5 text-[10px] font-mono text-slate-400">
+        <div className="h-1.5 w-5 rounded-full bg-blue-600" title="DentalDesk" />
+        <div className="h-1.5 w-5 rounded-full bg-emerald-600" title="LautaroNutrición" />
+        <div className="h-1.5 w-5 rounded-full bg-amber-400 animate-pulse" title="Pharmalyze AI" />
+        <span className="ml-auto text-emerald-600 font-semibold">2 prod · 1 dev</span>
       </div>
     ),
   },
   {
     id: "tablas",
+    tag: "PostgreSQL",
     valor: 31,
     sufijo: "",
     label: "Tablas auditadas con RLS",
-    descripcion: "20 en DentalDesk + 11 en Pharmalyze AI",
+    descripcion: "20 en DentalDesk + 11 en Pharmalyze AI.",
     icono: Database,
     color: "from-emerald-500 to-teal-600",
     bgColor: "bg-emerald-50 text-emerald-600",
     visual: (
-      <div className="grid grid-cols-7 gap-1 mt-3">
-        {Array.from({ length: 31 }).map((_, i) => (
-          <div
-            key={i}
-            className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 opacity-80"
-          />
-        ))}
+      <div className="space-y-1">
+        <div className="flex flex-wrap gap-0.5">
+          {Array.from({ length: 31 }).map((_, i) => (
+            <div
+              key={i}
+              className="h-1.5 w-1.5 rounded-full bg-emerald-500/80"
+              title={`Tabla ${i + 1}`}
+            />
+          ))}
+        </div>
+        <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 pt-0.5">
+          <span>20 DentalDesk</span>
+          <span>11 Pharmalyze</span>
+        </div>
       </div>
     ),
   },
   {
     id: "rubros",
+    tag: "Industrias",
     valor: 3,
     sufijo: "",
     label: "Rubros resueltos",
-    descripcion: "Clínicas, nutrición y farmacias",
+    descripcion: "Clínicas, nutrición y farmacias.",
     icono: Stethoscope,
     color: "from-amber-500 to-orange-600",
     bgColor: "bg-amber-50 text-amber-600",
     visual: (
-      <div className="flex items-center gap-2 mt-3">
-        <div className="h-6 w-6 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-xs">
-          <Stethoscope size={12} className="text-white" />
+      <div className="flex items-center justify-between text-xs">
+        <div className="flex items-center gap-1.5">
+          <div className="h-5 w-5 rounded-md bg-blue-50 text-[#2563EB] flex items-center justify-center border border-blue-100 shadow-2xs" title="Clínicas">
+            <Stethoscope size={10} />
+          </div>
+          <div className="h-5 w-5 rounded-md bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 shadow-2xs" title="Nutrición">
+            <Activity size={10} />
+          </div>
+          <div className="h-5 w-5 rounded-md bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100 shadow-2xs" title="Farmacia">
+            <Zap size={10} />
+          </div>
         </div>
-        <div className="h-6 w-6 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-xs">
-          <Activity size={12} className="text-white" />
-        </div>
-        <div className="h-6 w-6 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-xs">
-          <Zap size={12} className="text-white" />
-        </div>
+        <span className="text-[10px] font-mono text-amber-700 font-semibold">3 activos</span>
       </div>
     ),
   },
   {
     id: "soporte",
+    tag: "Presencial & Cloud",
     valor: 0,
     valorTexto: "CABA",
     sufijo: "",
     label: "CABA · Soporte directo",
-    descripcion: "Presencia en Buenos Aires para toda la región",
+    descripcion: "Presencia en Buenos Aires para toda la región.",
     icono: MapPin,
     color: "from-slate-600 to-slate-800",
     bgColor: "bg-slate-100 text-slate-700",
     visual: (
-      <div className="relative mt-3 h-8 flex items-center">
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-slate-700 ring-4 ring-slate-200" />
-        <div className="ml-4 h-px flex-1 bg-gradient-to-r from-slate-300 to-transparent" />
-        <span className="ml-2 text-[10px] font-mono text-slate-500">34°36&apos;S 58°22&apos;W</span>
+      <div className="flex items-center justify-between text-[10px] font-mono text-slate-500">
+        <div className="flex items-center gap-1.5">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+          </span>
+          <span className="text-slate-700 font-medium">1-a-1</span>
+        </div>
+        <span className="text-slate-400">34°36&apos;S 58°22&apos;W</span>
       </div>
     ),
   },
@@ -134,44 +155,43 @@ const stats: StatItem[] = [
 function StatCard({ stat, idx }: { stat: StatItem; idx: number }) {
   const { count, ref } = useCountUp(stat.valor);
   const Icon = stat.icono;
-  const isLarge = idx === 0 || idx === 1;
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className={`group relative ${isLarge ? "lg:col-span-2" : ""}`}
+      transition={{ duration: 0.4, delay: idx * 0.08 }}
+      className="group relative h-full"
     >
-      <div className="relative h-full p-6 lg:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-500 overflow-hidden flex flex-col justify-between">
-        {/* Gradiente de fondo sutil al hover */}
+      <div className="relative h-full p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all duration-300 overflow-hidden flex flex-col justify-between">
+        {/* Indicador superior de acento con animación sutil al hover */}
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`}
-        />
-
-        {/* Indicador superior */}
-        <div
-          className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${stat.color} transform origin-left transition-transform duration-500 scale-x-0 group-hover:scale-x-100`}
+          className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${stat.color} transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100`}
         />
 
         <div>
-          {/* Icono con fondo dinámico */}
-          <div
-            className={`inline-flex p-3 rounded-2xl ${stat.bgColor} mb-4 transition-all duration-500 group-hover:scale-110 shadow-2xs`}
-          >
-            <Icon size={24} />
+          {/* Header de la card: Icono estilizado y Tag */}
+          <div className="flex items-center justify-between mb-3.5">
+            <div
+              className={`p-2 rounded-xl ${stat.bgColor} shadow-2xs group-hover:scale-105 transition-transform duration-300`}
+            >
+              <Icon size={16} />
+            </div>
+            <span className="text-[10px] font-mono font-medium text-slate-500 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+              {stat.tag}
+            </span>
           </div>
 
-          {/* Número animado */}
+          {/* Número animado compacto */}
           <div className="mb-2">
             <div className="flex items-baseline gap-1">
-              <span className="text-5xl lg:text-6xl font-extrabold bg-gradient-to-br from-slate-900 to-slate-600 bg-clip-text text-transparent tabular-nums font-mono">
+              <span className="text-3xl sm:text-4xl font-extrabold text-[#151A21] tracking-tight font-mono">
                 {stat.valorTexto ?? count}
               </span>
               {stat.sufijo && (
-                <span className="text-2xl font-bold text-slate-400">
+                <span className="text-lg font-bold text-slate-400">
                   {stat.sufijo}
                 </span>
               )}
@@ -179,23 +199,20 @@ function StatCard({ stat, idx }: { stat: StatItem; idx: number }) {
           </div>
 
           {/* Label */}
-          <h3 className="text-sm font-bold text-[#151A21] mb-1">
+          <h3 className="text-xs sm:text-sm font-bold text-[#151A21] mb-1 leading-snug">
             {stat.label}
           </h3>
 
           {/* Descripción */}
-          <p className="text-xs text-slate-600 leading-relaxed mb-4">
+          <p className="text-[11px] text-slate-500 leading-relaxed font-normal">
             {stat.descripcion}
           </p>
         </div>
 
-        {/* Visualización contextual */}
-        <div className="pt-4 border-t border-slate-100">
+        {/* Visualización contextual compacta */}
+        <div className="pt-3 mt-3 border-t border-slate-100">
           {stat.visual}
         </div>
-
-        {/* Efecto de brillo al hover */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       </div>
     </motion.div>
   );
@@ -203,52 +220,39 @@ function StatCard({ stat, idx }: { stat: StatItem; idx: number }) {
 
 export default function StatsCommandCenter() {
   return (
-    <section className="py-20 sm:py-24 bg-gradient-to-b from-slate-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
+    <div className="py-14 sm:py-18 bg-gradient-to-b from-slate-50/50 to-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Header Compacto y Proporcional */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-10 sm:mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 mb-4">
-            <Shield size={14} className="text-[#2563EB]" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 mb-3 shadow-2xs">
+            <Shield size={13} className="text-[#2563EB]" />
             <span>Métricas auditadas en tiempo real</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#151A21] tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#151A21] tracking-tight mb-2">
             Números que{" "}
             <span className="bg-gradient-to-r from-[#2563EB] to-[#E76F73] bg-clip-text text-transparent">
               respaldan decisiones
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Cada sistema, cada tabla, cada rubro: construido con criterio de negocio y seguridad enterprise.
           </p>
         </motion.div>
 
-        {/* Bento Grid Asimétrico con Contadores Animados */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Grid Simétrico de 4 Columnas Compacto y Equilibrado */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-4.5">
           {stats.map((stat, idx) => (
             <StatCard key={stat.id} stat={stat} idx={idx} />
           ))}
         </div>
-
-        {/* Footer de la sección */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <p className="text-xs sm:text-sm text-slate-500">
-            Todas las métricas son auditadas y actualizadas en tiempo real desde nuestros sistemas en producción.
-          </p>
-        </motion.div>
       </div>
-    </section>
+    </div>
   );
 }
 
