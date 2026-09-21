@@ -115,15 +115,15 @@ h1, h2, h3, h4, .font-heading {
 }
 
 .animate-orb-1 {
-  animation: orbFloat1 20s ease-in-out infinite;
+  animation: orbFloat1 36s ease-in-out infinite;
 }
 
 .animate-orb-2 {
-  animation: orbFloat2 26s ease-in-out infinite;
+  animation: orbFloat2 44s ease-in-out infinite;
 }
 
 .animate-orb-3 {
-  animation: orbFloat3 22s ease-in-out infinite;
+  animation: orbFloat3 38s ease-in-out infinite;
 }
 
 @keyframes scrollPill {
@@ -199,7 +199,7 @@ h1, h2, h3, h4, .font-heading {
 
 .animate-gradient {
   background-size: 200% 200%;
-  animation: gradientAnimation 6s ease-in-out infinite;
+  animation: gradientAnimation 10s ease-in-out infinite;
 }
 
 /* Subtle 3D Mockup Floating & Tilting */

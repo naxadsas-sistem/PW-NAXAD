@@ -37,12 +37,12 @@ export function ContactBackground() {
 
     const gradient = new StripeGradient();
 
-    // Calibración dinámica: ondas amplias, fluidas y de movimiento continuo visible
-    gradient.amp = 320;
-    gradient.angle = 0.16; // Inclinación diagonal orgánica suave
-    gradient.conf.density = [0.06, 0.16];
-    gradient.globalNoiseSpeed = 1.5e-5;
-    gradient.speedFactor = 2.4;
+    // Calibración fluida y serena: ondas lentas, suaves y continuas sin distorsión
+    gradient.amp = 140;
+    gradient.angle = 0.12; // Inclinación diagonal orgánica suave
+    gradient.conf.density = [0.04, 0.12];
+    gradient.globalNoiseSpeed = 4.0e-6;
+    gradient.speedFactor = 0.65;
 
     try {
       gradient.initGradient(canvas);
