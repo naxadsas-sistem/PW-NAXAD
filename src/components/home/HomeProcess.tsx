@@ -81,25 +81,25 @@ export const soporteEcosistema = {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-white border-b border-slate-200">
+    <section className="py-28 sm:py-32 md:py-36 lg:py-40 bg-white border-b border-slate-200">
       <Container>
         {/* Header */}
-        <div className="max-w-3xl mb-14">
+        <div className="max-w-3xl mb-16">
           <Badge variant="blue" size="sm" className="mb-3">
             Cómo entrás al ecosistema
           </Badge>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#151A21] leading-tight">
             No arrancamos de cero. Partimos de lo que ya funciona.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-loose">
             Ya sea que tu rubro esté en el ecosistema o necesites algo a medida, el punto de partida es una base construida y probada — no una página en blanco.
           </p>
         </div>
 
         {/* Componente Split: 3 Pasos Clickeables + Consola de Código en Fondo Claro */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-stretch">
           {/* Pasos a la izquierda */}
-          <div className="lg:col-span-5 space-y-3">
+          <div className="lg:col-span-5 space-y-3.5">
             {steps.map((step, idx) => {
               const isSelected = selectedStep === idx;
               const Icon = step.icon;
@@ -107,13 +107,13 @@ export const soporteEcosistema = {
                 <div
                   key={step.num}
                   onClick={() => setSelectedStep(idx)}
-                  className={`p-5 rounded-xl border transition-all cursor-pointer ${
+                  className={`p-6 rounded-2xl border transition-all cursor-pointer ${
                     isSelected
-                      ? "bg-blue-50/50 border-[#2563EB] shadow-sm"
+                      ? "bg-blue-50/60 border-[#2563EB] shadow-xs"
                       : "bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50"
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-2.5">
                     <div className="flex items-center gap-2">
                       <span
                         className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${
@@ -134,13 +134,13 @@ export const soporteEcosistema = {
                     />
                   </div>
                   <h3
-                    className={`text-base font-bold transition-colors ${
+                    className={`text-base sm:text-lg font-bold transition-colors ${
                       isSelected ? "text-[#151A21]" : "text-slate-800"
                     }`}
                   >
                     {step.title}
                   </h3>
-                  <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-loose">
                     {step.desc}
                   </p>
                 </div>

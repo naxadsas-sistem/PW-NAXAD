@@ -24,13 +24,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         disabled={disabled}
         className={cn(
-          "inline-flex items-center justify-center gap-2 font-medium tracking-tight rounded-xl transition-all duration-200 cursor-pointer select-none",
+          "inline-flex items-center justify-center gap-2 font-medium tracking-tight rounded-xl transition-all duration-200 cursor-pointer select-none touch-manipulation",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-white",
           "disabled:opacity-50 disabled:cursor-not-allowed",
-          // Sizes
-          size === "sm" && "h-9 px-3.5 text-xs",
-          size === "md" && "h-11 px-5 text-sm font-semibold",
-          size === "lg" && "h-12 px-6 text-base font-semibold",
+          // Sizes (touch target mínimo de 44px en móviles)
+          size === "sm" && "min-h-[44px] sm:min-h-0 h-9 px-3.5 text-xs",
+          size === "md" && "min-h-[44px] h-11 px-5 text-sm font-semibold",
+          size === "lg" && "min-h-[48px] h-12 px-6 text-base font-semibold",
           // Variants
           variant === "primary" &&
             "bg-[#2563EB] text-white hover:bg-blue-700 shadow-sm active:scale-[0.99]",

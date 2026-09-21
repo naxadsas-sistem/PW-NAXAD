@@ -27,19 +27,19 @@ export function HomeTrust() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-white border-b border-slate-200">
+    <section className="py-28 sm:py-32 md:py-36 lg:py-40 bg-white border-b border-slate-200">
       <Container>
         {/* Barra de 4 Métricas Reales en Grafito y Azul */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pb-16 border-b border-slate-200">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 pb-18 sm:pb-20 border-b border-slate-200">
           {metrics.map((m, idx) => (
-            <div key={idx} className="space-y-1.5 font-mono">
+            <div key={idx} className="space-y-2 font-mono">
               <div className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#151A21] tracking-tight">
                 {m.value}
               </div>
               <div className="text-xs sm:text-sm font-bold text-[#2563EB]">
                 {m.label}
               </div>
-              <p className="text-xs text-slate-600 font-sans leading-relaxed pt-0.5">
+              <p className="text-xs text-slate-600 font-sans leading-loose pt-0.5">
                 {m.desc}
               </p>
             </div>
@@ -47,11 +47,11 @@ export function HomeTrust() {
         </div>
 
         {/* Declaración del Fundador & Credenciales Reales */}
-        <div className="pt-16 max-w-4xl mx-auto">
-          <div className="rounded-2xl bg-slate-50 border border-slate-200 p-7 sm:p-10 shadow-sm relative">
+        <div className="pt-18 sm:pt-20 max-w-4xl mx-auto">
+          <div className="rounded-2xl bg-slate-50 border border-slate-200 p-8 sm:p-12 shadow-sm relative">
             <Quote size={36} className="text-[#2563EB]/30 mb-5" />
 
-            <blockquote className="text-lg sm:text-xl md:text-2xl font-semibold text-[#151A21] leading-relaxed tracking-tight mb-8">
+            <blockquote className="text-lg sm:text-xl md:text-2xl font-semibold text-[#151A21] leading-loose tracking-tight mb-8">
               &ldquo;No vengo de la ingeniería de software, vengo de la gestión. Dirijo el desarrollo con inteligencia artificial y modelos de lenguaje, pero cada decisión de qué construir y cómo medirlo pasa primero por un criterio de administración de empresas — no por lo que es técnicamente posible.&rdquo;
             </blockquote>
 

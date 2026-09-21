@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/ui/ImageWithSkeleton";
 import {
   Stethoscope,
   Apple,
@@ -12,7 +12,6 @@ import {
   ChevronRight,
   Maximize2,
   X,
-  ZoomIn,
 } from "lucide-react";
 
 type ProductTab = "dental" | "lautaro" | "pharmalyze";
@@ -88,7 +87,7 @@ export function HeroMockup3D() {
           <button
             type="button"
             onClick={() => setActiveTab("dental")}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer touch-manipulation ${
               activeTab === "dental"
                 ? "bg-white text-[#2563EB] shadow-xs"
                 : "text-slate-600 hover:text-[#151A21]"
@@ -104,7 +103,7 @@ export function HeroMockup3D() {
           <button
             type="button"
             onClick={() => setActiveTab("lautaro")}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer touch-manipulation ${
               activeTab === "lautaro"
                 ? "bg-white text-emerald-800 shadow-xs"
                 : "text-slate-600 hover:text-[#151A21]"
@@ -120,7 +119,7 @@ export function HeroMockup3D() {
           <button
             type="button"
             onClick={() => setActiveTab("pharmalyze")}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer touch-manipulation ${
               activeTab === "pharmalyze"
                 ? "bg-white text-emerald-800 shadow-xs"
                 : "text-slate-600 hover:text-[#151A21]"
@@ -143,13 +142,22 @@ export function HeroMockup3D() {
         onMouseLeave={handleMouseLeave}
         className="relative [perspective:1400px]"
       >
-        {/* Badges Flotantes 3D en los Laterales (Visibles en pantallas medianas y grandes) */}
+        {/* Sombra y halo de suelo 3D reactivo */}
+        <div
+          className={`absolute -bottom-6 left-1/2 -translate-x-1/2 w-[85%] h-12 bg-gradient-to-r from-blue-600/15 via-indigo-600/20 to-purple-600/15 blur-2xl rounded-full pointer-events-none transition-all duration-700 ${
+            isHovered ? "scale-105 opacity-100" : "scale-100 opacity-70 animate-pulse"
+          }`}
+        />
+
+        {/* Badges Flotantes 3D en los Laterales con flotación desfasada para máxima profundidad */}
         <div
           style={{
-            transform: `translate3d(0, 0, ${isHovered ? "45px" : "20px"})`,
+            transform: isHovered ? `translate3d(0, 0, 45px)` : undefined,
             transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
-          className="absolute -left-3 sm:-left-6 top-1/4 z-30 hidden md:block pointer-events-none"
+          className={`absolute -left-3 sm:-left-6 top-1/4 z-30 hidden md:block pointer-events-none ${
+            !isHovered ? "animate-badge-float-left" : ""
+          }`}
         >
           <div className="rounded-2xl border border-slate-200/90 bg-white/95 backdrop-blur-md px-4 py-3 shadow-[0_12px_30px_rgba(0,0,0,0.08)] flex items-center gap-3">
             <div className="h-9 w-9 rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center shrink-0">
@@ -164,10 +172,12 @@ export function HeroMockup3D() {
 
         <div
           style={{
-            transform: `translate3d(0, 0, ${isHovered ? "45px" : "20px"})`,
+            transform: isHovered ? `translate3d(0, 0, 45px)` : undefined,
             transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
-          className="absolute -right-3 sm:-right-6 bottom-1/4 z-30 hidden md:block pointer-events-none"
+          className={`absolute -right-3 sm:-right-6 bottom-1/4 z-30 hidden md:block pointer-events-none ${
+            !isHovered ? "animate-badge-float-right" : ""
+          }`}
         >
           <div className="rounded-2xl border border-slate-200/90 bg-white/95 backdrop-blur-md px-4 py-3 shadow-[0_12px_30px_rgba(0,0,0,0.08)] flex items-center gap-3">
             <div className="h-9 w-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
@@ -180,16 +190,18 @@ export function HeroMockup3D() {
           </div>
         </div>
 
-        {/* Tarjeta Mockup Principal con Tilt 3D */}
+        {/* Tarjeta Mockup Principal: Flotación y rotación sutil continua + Tilt 3D reactivo al cursor */}
         <div
           style={{
-            transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
+            transform: isHovered ? `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)` : undefined,
             transition: isHovered
               ? "transform 0.12s ease-out, box-shadow 0.25s ease-out"
-              : "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease",
+              : "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease",
             transformStyle: "preserve-3d",
           }}
-          className="relative mx-auto rounded-2xl border border-slate-200 bg-white shadow-[0_20px_60px_-15px_rgba(15,23,42,0.1)] overflow-hidden"
+          className={`relative mx-auto rounded-2xl border border-slate-200 bg-white shadow-[0_20px_60px_-15px_rgba(15,23,42,0.12)] overflow-hidden transition-all ${
+            !isHovered ? "animate-float-sway" : "hover:shadow-[0_25px_70px_-15px_rgba(37,99,235,0.18)]"
+          }`}
         >
           {/* Barra de Título Superior estilo macOS */}
           <div className="flex items-center justify-between border-b border-slate-200/90 bg-slate-50/90 px-4 py-3">
@@ -273,7 +285,7 @@ export function HeroMockup3D() {
                     }
                     className="group relative rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm cursor-zoom-in transition-all hover:border-blue-400 hover:shadow-md"
                   >
-                    <Image
+                    <ImageWithSkeleton
                       src="/dashboard-dental.jpg"
                       alt="DentalDesk Dashboard en Producción Real"
                       width={3006}
@@ -429,7 +441,7 @@ export function HeroMockup3D() {
                     }
                     className="group relative rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm cursor-zoom-in transition-all hover:border-emerald-400 hover:shadow-md"
                   >
-                    <Image
+                    <ImageWithSkeleton
                       src="/lautaronutricion-dashboard.jpg"
                       alt="LautaroNutrición Dashboard en Producción Real"
                       width={2048}
@@ -464,7 +476,7 @@ export function HeroMockup3D() {
                     }
                     className="group relative rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm cursor-zoom-in transition-all hover:border-emerald-400 hover:shadow-md flex justify-center p-2 sm:p-4"
                   >
-                    <Image
+                    <ImageWithSkeleton
                       src="/lautaronutricion-login.jpg"
                       alt="LautaroNutrición Pantalla de Acceso en Producción Real"
                       width={2048}
@@ -632,7 +644,7 @@ export function HeroMockup3D() {
                     }
                     className="group relative rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm cursor-zoom-in transition-all hover:border-emerald-400 hover:shadow-md"
                   >
-                    <Image
+                    <ImageWithSkeleton
                       src="/pharmalyze-dashboard.jpg"
                       alt="Pharmalyze AI Dashboard en Producción Real"
                       width={2048}
@@ -823,7 +835,7 @@ export function HeroMockup3D() {
             {/* Modal Body: Imagen a resolución nativa completa */}
             <div className="p-3 sm:p-5 overflow-auto max-h-[calc(94vh-65px)] flex items-center justify-center bg-slate-900/5">
               <div className="w-full flex justify-center">
-                <Image
+                <ImageWithSkeleton
                   src={modalImage.src}
                   alt={modalImage.alt}
                   width={modalImage.width}

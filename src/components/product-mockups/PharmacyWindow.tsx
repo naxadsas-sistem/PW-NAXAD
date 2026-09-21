@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MOCK_PRODUCTS, MockProduct } from "@/config/mock-products";
-import { Badge } from "@/components/ui/Badge";
+import { MOCK_PRODUCTS } from "@/config/mock-products";
 import { cn } from "@/lib/utils";
 import {
   Clock,

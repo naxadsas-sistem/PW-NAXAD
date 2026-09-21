@@ -9,6 +9,7 @@ import { HomeProcess } from "@/components/home/HomeProcess";
 import { HomeComparison } from "@/components/home/HomeComparison";
 import { HomeTrust } from "@/components/home/HomeTrust";
 import { HomeFinalCTA } from "@/components/home/HomeFinalCTA";
+import { LazySection } from "@/components/ui/LazySection";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -97,19 +98,29 @@ export default function HomePage() {
         <HomeEcosystem />
 
         {/* 4. Propuesta / Solución (Criterio de negocio, arquitectura) */}
-        <HomeValue />
+        <LazySection>
+          <HomeValue />
+        </LazySection>
 
         {/* 5. Metodología (3 pasos claros sin métricas inventadas) */}
-        <HomeProcess />
+        <LazySection>
+          <HomeProcess />
+        </LazySection>
 
         {/* 6. Comparativa (Software genérico vs Freelancer vs NAXAD) */}
-        <HomeComparison />
+        <LazySection>
+          <HomeComparison />
+        </LazySection>
 
         {/* 7. Métricas reales y credencial de Gabriel Zambrano */}
-        <HomeTrust />
+        <LazySection>
+          <HomeTrust />
+        </LazySection>
 
-        {/* 8. CTA Final */}
-        <HomeFinalCTA />
+        {/* 8. CTA Final con Fondo Animado Premium */}
+        <LazySection>
+          <HomeFinalCTA />
+        </LazySection>
       </main>
 
       <Footer />

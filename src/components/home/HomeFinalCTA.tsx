@@ -8,7 +8,15 @@ import { ArrowRight, MessageSquare, ShieldCheck, Clock, CheckCircle2 } from "luc
 
 export function HomeFinalCTA() {
   return (
-    <section className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
+    <section className="py-28 sm:py-32 md:py-36 lg:py-40 bg-slate-50 relative overflow-hidden">
+      {/* Background dinámico con orbes flotantes de colores en movimiento */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
+        <div className="absolute -top-24 left-1/4 w-[34rem] h-[34rem] bg-gradient-to-tr from-blue-600/20 via-sky-400/15 to-transparent rounded-full blur-3xl animate-orb-1" />
+        <div className="absolute top-1/3 -right-20 w-[36rem] h-[36rem] bg-gradient-to-bl from-indigo-600/20 via-purple-500/15 to-transparent rounded-full blur-3xl animate-orb-2" />
+        <div className="absolute -bottom-24 left-10 w-[30rem] h-[30rem] bg-gradient-to-br from-rose-500/16 via-pink-400/12 to-transparent rounded-full blur-3xl animate-orb-3" />
+        <div className="absolute inset-0 bg-dot-grid opacity-20" />
+      </div>
+
       <Container className="relative z-10">
         {/* Contenedor con borde sutil y fondo blanco */}
         <div className="rounded-2xl p-[1px] bg-gradient-to-r from-[#2563EB]/40 via-slate-200 to-[#E76F73]/40 shadow-sm">
@@ -25,7 +33,7 @@ export function HomeFinalCTA() {
                 </span>
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-slate-600 leading-loose max-w-2xl mx-auto">
                 Contanos cómo funciona hoy tu empresa. Coordinemos una primera conversación de 30 minutos para analizar tus procesos y devolverte una propuesta de ordenamiento sin costo.
               </p>
 

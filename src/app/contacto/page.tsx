@@ -45,15 +45,22 @@ export default function ContactoPage() {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
       const sol = params.get("solucion");
-      if (sol === "dentaldesk") {
-        setFormData((prev) => ({ ...prev, needType: "DentalDesk (SaaS clínica dental)" }));
-      } else if (sol === "lautaro" || sol === "lautaronutricion") {
-        setFormData((prev) => ({ ...prev, needType: "LautaroNutrición (Sistema nutrición / salud)" }));
-      } else if (sol === "pharmalyze") {
-        setFormData((prev) => ({ ...prev, needType: "Pharmalyze AI (Piloto farmacias)" }));
-      } else if (sol === "medida") {
-        setFormData((prev) => ({ ...prev, needType: "Sistema de gestión a medida" }));
-      }
+      const timer = setTimeout(() => {
+        if (sol === "dentaldesk") {
+          setFormData((prev) => ({ ...prev, needType: "DentalDesk (SaaS clínica dental)" }));
+        } else if (sol === "lautaro" || sol === "lautaronutricion") {
+          setFormData((prev) => ({ ...prev, needType: "LautaroNutrición (Sistema nutrición / salud)" }));
+        } else if (sol === "pharmalyze") {
+          setFormData((prev) => ({ ...prev, needType: "Pharmalyze AI (Piloto farmacias)" }));
+        } else if (sol === "medida" || sol === "desarrollo") {
+          setFormData((prev) => ({ ...prev, needType: "Sistema de gestión a medida" }));
+        } else if (sol === "automatizacion") {
+          setFormData((prev) => ({ ...prev, needType: "Automatización e integración de procesos" }));
+        } else if (sol === "consultoria") {
+          setFormData((prev) => ({ ...prev, needType: "Consultoría y diagnóstico operativo" }));
+        }
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, []);
 

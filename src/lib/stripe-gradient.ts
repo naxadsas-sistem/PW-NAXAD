@@ -552,6 +552,8 @@ export class StripeGradient {
   freqX: number = 14e-5;
   freqY: number = 29e-5;
   activeColors: number[] = [1, 1, 1, 1];
+  speedFactor: number = 1.0;
+  globalNoiseSpeed: number = 5e-6;
   conf: { density: [number, number]; playing: boolean } = {
     density: [0.06, 0.16],
     playing: true,
@@ -623,7 +625,7 @@ export class StripeGradient {
             value: [this.freqX, this.freqY],
             type: "vec2",
           }),
-          noiseSpeed: new this.minigl.Uniform({ value: 5e-6 }),
+          noiseSpeed: new this.minigl.Uniform({ value: this.globalNoiseSpeed }),
         },
         type: "struct",
       }),
@@ -710,7 +712,7 @@ export class StripeGradient {
 
   animate = (time: number) => {
     if (!this.conf.playing || this.isDestroyed || !this.mesh || !this.minigl) return;
-    this.t += Math.min(time - this.last, 1000 / 15);
+    this.t += Math.min(time - this.last, 1000 / 15) * this.speedFactor;
     this.last = time;
     this.mesh.material.uniforms.u_time.value = this.t;
     this.minigl.render();

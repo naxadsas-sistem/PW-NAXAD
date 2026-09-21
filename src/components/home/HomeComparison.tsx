@@ -32,23 +32,23 @@ export function HomeComparison() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-slate-50 border-b border-slate-200">
+    <section className="py-28 sm:py-32 md:py-36 lg:py-40 bg-slate-50 border-b border-slate-200">
       <Container>
         {/* Header */}
-        <div className="max-w-3xl mb-14">
+        <div className="max-w-3xl mb-16">
           <Badge variant="coral" size="sm" className="mb-3">
             Por qué elegir Naxad
           </Badge>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#151A21] leading-tight">
             No es más barato. Es la única opción que no empieza de cero.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-loose">
             Comparado con software genérico o contratar a alguien suelto, así se ve la diferencia real:
           </p>
         </div>
 
         {/* Tabla Comparativa en Modo Claro */}
-        <div className="rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden">
+        <div className="rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>

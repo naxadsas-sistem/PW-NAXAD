@@ -1,6 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @import "tailwindcss";
+
+@theme {
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
 
 @layer base {
   :root {
@@ -27,14 +33,21 @@ html {
 body {
   background-color: var(--bg-light);
   color: var(--text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Tipografía de datos y código */
-.font-mono-system, code, pre {
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+/* Tipografía de títulos estilo Stripe: Inter limpio, neutro, con tracking óptico ajustado (-0.032em) */
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.032em;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Tipografía de datos y código profesional: JetBrains Mono */
+.font-mono, .font-mono-system, code, pre, kbd, samp {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
   font-variant-numeric: tabular-nums;
 }
 
@@ -136,3 +149,138 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Stripe-inspired Bento Card Utilities */
+.stripe-bento-card {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stripe-bento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(37, 99, 235, 0.2);
+}
+
+.stripe-gradient-border {
+  position: relative;
+}
+
+.stripe-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(99, 102, 241, 0.15), rgba(231, 111, 115, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stripe-bento-card:hover .stripe-gradient-border::before {
+  opacity: 1;
+}
+
+/* Gradient text animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientAnimation 6s ease-in-out infinite;
+}
+
+/* Subtle 3D Mockup Floating & Tilting */
+@keyframes floatSway {
+  0%, 100% {
+    transform: translateY(0px) rotateX(1deg) rotateY(-1.5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(-1.5deg) rotateY(1.5deg);
+  }
+}
+
+@keyframes badgeFloatLeft {
+  0%, 100% {
+    transform: translate3d(0, 0px, 35px);
+  }
+  50% {
+    transform: translate3d(0, -8px, 45px);
+  }
+}
+
+@keyframes badgeFloatRight {
+  0%, 100% {
+    transform: translate3d(0, 0px, 35px);
+  }
+  50% {
+    transform: translate3d(0, 8px, 45px);
+  }
+}
+
+.animate-float-sway {
+  animation: floatSway 7s ease-in-out infinite;
+}
+
+.animate-badge-float-left {
+  animation: badgeFloatLeft 5.5s ease-in-out infinite;
+}
+
+.animate-badge-float-right {
+  animation: badgeFloatRight 6s ease-in-out infinite 0.75s;
+}
+
+/* Skeleton Shimmer Loading */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.4) 20%,
+    rgba(255, 255, 255, 0.7) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 1.8s infinite;
+  content: '';
+}
+
+/* Utilitario para ocultar scrollbars en carruseles horizontales táctiles */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+

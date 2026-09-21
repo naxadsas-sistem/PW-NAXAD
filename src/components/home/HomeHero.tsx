@@ -4,29 +4,32 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { HeroMockup3D } from "@/components/home/HeroMockup3D";
-import { HeroDynamicBackground } from "@/components/home/HeroDynamicBackground";
+import { StripeGradientBackground } from "@/components/home/HeroDynamicBackground";
 
 export function HomeHero() {
   return (
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-white border-b border-slate-200 overflow-hidden">
-      {/* Background dinámico: Canvas interactivo + Parallax + Malla + Orbes de luz */}
-      <HeroDynamicBackground />
+      {/* Background dinámico: Canvas interactivo Stripe WebGL + Parallax + Malla */}
+      <StripeGradientBackground intensity="medium" />
 
       <Container className="relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-xs font-medium text-slate-700 shadow-xs">
-            <span className="h-2 w-2 rounded-full bg-[#2563EB]" />
+            <span className="h-2 w-2 rounded-full bg-[#2563EB] animate-pulse" />
             <span>NAXAD — SaaS propios y sistemas a medida</span>
           </div>
 
-          {/* H1 en texto sólido grafito */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#151A21] tracking-tight leading-[1.12] max-w-3xl">
-            El sistema que tu negocio necesita, no el que le sobra.
+          {/* H1 con texto gradiente animado estilo Stripe */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.14] max-w-3xl">
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent animate-gradient">
+              El sistema que tu negocio necesita
+            </span>{" "}
+            <span className="text-[#151A21]">no el que le sobra.</span>
           </h1>
 
           {/* Subtítulo */}
-          <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl font-normal">
+          <p className="text-lg sm:text-xl text-slate-600 leading-loose max-w-2xl font-normal">
             Construimos productos y sistemas de gestión a partir de cómo opera tu negocio en la vida real. Ya funcionan en una clínica, un consultorio y una farmacia — el próximo puede ser el tuyo.
           </p>
 

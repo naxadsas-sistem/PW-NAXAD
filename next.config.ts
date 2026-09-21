@@ -21,6 +21,7 @@ const nextConfig: NextConfig = {
   // Formatos modernos de compresión de imágenes
   images: {
     formats: ["image/avif", "image/webp"],
+    qualities: [75, 90, 95, 96],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 días
   },
 
