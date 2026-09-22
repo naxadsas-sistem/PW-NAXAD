@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ContactBackground } from "@/components/ui/ContactBackground";
 import ContactCards from "@/components/ContactCards";
+import { motion } from "framer-motion";
 import {
   CheckCircle2,
   ArrowRight,
@@ -29,8 +30,23 @@ export default function ContactoPage() {
   const [loading, setLoading] = useState(false);
 
   // Validaciones en tiempo real
+  const isNameValid = formData.name.trim().length >= 3;
+  const isOrgValid = formData.organization.trim().length >= 2;
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
   const isPhoneValid = formData.phone.trim().length >= 8;
+  const isMessageValid = formData.message.trim().length >= 10;
+
+  // Cálculo del progreso del formulario (7 campos clave)
+  const completedFields = [
+    isNameValid,
+    isOrgValid,
+    isEmailValid,
+    isPhoneValid,
+    Boolean(formData.needType),
+    isMessageValid,
+    formData.privacyAccepted,
+  ].filter(Boolean).length;
+  const progressPercentage = Math.round((completedFields / 7) * 100);
 
   // Preseleccionar necesidad si viene desde un botón CTA de producto
   useEffect(() => {
@@ -93,10 +109,19 @@ export default function ContactoPage() {
             <div className="lg:col-span-7 animate-fade-in-up delay-75">
               <Card className="relative p-6 sm:p-10 bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 {submitted ? (
-                  <div className="py-12 text-center space-y-5 animate-fade-in-up">
-                    <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto shadow-xs">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="py-12 text-center space-y-5"
+                  >
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                      className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto shadow-xs"
+                    >
                       <CheckCircle2 size={32} />
-                    </div>
+                    </motion.div>
                     <div className="space-y-2">
                       <h2 className="text-2xl font-bold text-[#151A21]">
                         Consulta recibida correctamente
@@ -121,14 +146,34 @@ export default function ContactoPage() {
                             privacyAccepted: false,
                           });
                         }}
-                        className="text-xs font-semibold hover:bg-slate-100"
+                        className="text-xs font-semibold hover:bg-slate-100 cursor-pointer"
                       >
                         Enviar otra consulta
                       </Button>
                     </div>
-                  </div>
+                  </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6 text-left">
+                    {/* Progress Bar del Formulario */}
+                    <div className="mb-6">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                          Progreso del formulario
+                        </span>
+                        <span className="text-xs font-semibold font-mono text-[#2563EB]">
+                          {progressPercentage}%
+                        </span>
+                      </div>
+                      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${progressPercentage}%` }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </div>
+                    </div>
+
                     <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                       <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                         Formulario de relevamiento
@@ -150,7 +195,11 @@ export default function ContactoPage() {
                           onChange={(e) =>
                             setFormData({ ...formData, name: e.target.value })
                           }
-                          className="peer w-full h-12 pt-4 pb-1 px-3.5 text-xs sm:text-sm bg-slate-50/70 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] focus:bg-white text-[#151A21] transition-all"
+                          className={`peer w-full h-12 pt-4 pb-1 pl-3.5 pr-9 text-xs sm:text-sm bg-slate-50/70 border rounded-xl focus:outline-none focus:ring-2 focus:bg-white text-[#151A21] transition-all ${
+                            formData.name && isNameValid
+                              ? "border-emerald-300 focus:border-emerald-500 focus:ring-emerald-500/20"
+                              : "border-slate-200 focus:ring-[#2563EB]/20 focus:border-[#2563EB]"
+                          }`}
                         />
                         <label
                           htmlFor="name"
@@ -158,6 +207,14 @@ export default function ContactoPage() {
                         >
                           Nombre y apellido *
                         </label>
+                        {formData.name && isNameValid && (
+                          <div className="absolute right-3 top-3.5">
+                            <CheckCircle2
+                              size={16}
+                              className="text-emerald-500 animate-fade-in-up"
+                            />
+                          </div>
+                        )}
                       </div>
 
                       {/* Floating Label: Organización / rubro */}
@@ -174,7 +231,11 @@ export default function ContactoPage() {
                               organization: e.target.value,
                             })
                           }
-                          className="peer w-full h-12 pt-4 pb-1 px-3.5 text-xs sm:text-sm bg-slate-50/70 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] focus:bg-white text-[#151A21] transition-all"
+                          className={`peer w-full h-12 pt-4 pb-1 pl-3.5 pr-9 text-xs sm:text-sm bg-slate-50/70 border rounded-xl focus:outline-none focus:ring-2 focus:bg-white text-[#151A21] transition-all ${
+                            formData.organization && isOrgValid
+                              ? "border-emerald-300 focus:border-emerald-500 focus:ring-emerald-500/20"
+                              : "border-slate-200 focus:ring-[#2563EB]/20 focus:border-[#2563EB]"
+                          }`}
                         />
                         <label
                           htmlFor="organization"
@@ -182,6 +243,14 @@ export default function ContactoPage() {
                         >
                           Organización o rubro *
                         </label>
+                        {formData.organization && isOrgValid && (
+                          <div className="absolute right-3 top-3.5">
+                            <CheckCircle2
+                              size={16}
+                              className="text-emerald-500 animate-fade-in-up"
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -311,7 +380,11 @@ export default function ContactoPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, message: e.target.value })
                         }
-                        className="peer w-full pt-5 pb-2 px-3.5 text-xs sm:text-sm bg-slate-50/70 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] focus:bg-white text-[#151A21] transition-all resize-none"
+                        className={`peer w-full pt-5 pb-2 px-3.5 text-xs sm:text-sm bg-slate-50/70 border rounded-xl focus:outline-none focus:ring-2 focus:bg-white text-[#151A21] transition-all resize-none ${
+                          formData.message && isMessageValid
+                            ? "border-emerald-300 focus:border-emerald-500 focus:ring-emerald-500/20"
+                            : "border-slate-200 focus:ring-[#2563EB]/20 focus:border-[#2563EB]"
+                        }`}
                       />
                       <label
                         htmlFor="message"
@@ -319,6 +392,20 @@ export default function ContactoPage() {
                       >
                         ¿Qué proceso o necesidad querés resolver? *
                       </label>
+                      {formData.message && (
+                        <div className="flex items-center justify-between text-[10px] text-slate-400 pt-1">
+                          <span>Mínimo 10 caracteres</span>
+                          <span
+                            className={`font-mono ${
+                              isMessageValid
+                                ? "text-emerald-600 font-semibold"
+                                : "text-slate-400"
+                            }`}
+                          >
+                            {formData.message.trim().length} caracteres
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Checkbox de privacidad */}
