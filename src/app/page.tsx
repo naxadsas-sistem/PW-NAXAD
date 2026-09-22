@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HomeHero } from "@/components/home/HomeHero";
-import { HomePain } from "@/components/home/HomePain";
+import DiagnosticoOperativo from "@/components/DiagnosticoOperativo";
 import { HomeEcosystem } from "@/components/home/HomeEcosystem";
 import { HomeValue } from "@/components/home/HomeValue";
 import { HomeProcess } from "@/components/home/HomeProcess";
@@ -91,8 +91,8 @@ export default function HomePage() {
         {/* 1. Hero */}
         <HomeHero />
 
-        {/* 2. Dolor / Problema (+ Autodiagnóstico con scroll a #ecosistema) */}
-        <HomePain />
+        {/* 2. Diagnóstico Operativo (The Pain Mirror) */}
+        <DiagnosticoOperativo />
 
         {/* 3. Ecosistema de Productos (DentalDesk, LautaroNutrición, Pharmalyze AI) */}
         <HomeEcosystem />
