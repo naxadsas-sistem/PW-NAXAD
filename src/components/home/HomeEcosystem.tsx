@@ -48,6 +48,10 @@ export interface BentoProduct {
   techStack: string[];
   metrics: { label: string; value: string }[];
   features: string[];
+  targetAudience?: {
+    title: string;
+    items: string[];
+  };
   architectureHighlight: string;
   ctaText: string;
   ctaHref: string;
@@ -150,6 +154,17 @@ export const BENTO_PRODUCTS: BentoProduct[] = [
       "Cálculo de días de cobertura según velocidad de venta promedio de los últimos 30 días.",
       "Conector no invasivo: funciona sobre el sistema de facturación actual sin reemplazarlo.",
     ],
+    targetAudience: {
+      title: "Naxad Pharmalyzed IA está pensado para:",
+      items: [
+        "Farmacias independientes",
+        "Farmacias con múltiples proveedores",
+        "Organizaciones que necesitan mayor control de inventario",
+        "Operaciones que ya utilizan un sistema comercial",
+        "Equipos que necesitan mejorar trazabilidad",
+        "Farmacias que quieren transformar sus datos operativos en información útil para decidir",
+      ],
+    },
     architectureHighlight: "Motor de análisis de stock con sincronización continua y conector local para puntos de venta.",
     ctaText: "Sumarme al piloto de farmacias",
     ctaHref: "/contacto?solucion=pharmalyze",
@@ -976,6 +991,27 @@ export function HomeEcosystem() {
                       </div>
                     )}
                   </div>
+
+                  {/* Para quién es - Mini tags */}
+                  <div className="mb-4">
+                    <p className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-semibold mb-1.5">
+                      Pensado para:
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200/80 font-medium">
+                        Farmacias independientes
+                      </span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200/80 font-medium">
+                        Múltiples droguerías
+                      </span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200/80 font-medium">
+                        Control FEFO
+                      </span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200 font-medium">
+                        Sobre POS comercial existente
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Footer de Tarjeta */}
@@ -1457,6 +1493,29 @@ export function HomeEcosystem() {
                       ))}
                     </ul>
                   </div>
+
+                  {/* Para quién está pensado (si está disponible) */}
+                  {modalProduct.targetAudience && (
+                    <div className="p-5 sm:p-6 rounded-2xl bg-amber-50/70 border border-amber-200">
+                      <div className="flex items-center gap-2 mb-3.5">
+                        <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                        <h5 className="text-xs font-bold uppercase tracking-wider text-amber-900 font-mono">
+                          {modalProduct.targetAudience.title}
+                        </h5>
+                      </div>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        {modalProduct.targetAudience.items.map((item, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-amber-200/70 text-xs text-slate-800 shadow-2xs"
+                          >
+                            <CheckCircle2 size={14} className="text-amber-600 shrink-0 mt-0.5" />
+                            <span className="leading-relaxed font-medium">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               )}
 

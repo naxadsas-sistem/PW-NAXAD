@@ -21,6 +21,7 @@ export interface RubroItem {
   producto: string;
   dolor: string;
   solucion: string;
+  paraQuien?: string[];
   metrica: { valor: string; unidad: string; label: string };
   href: string;
 }
@@ -59,8 +60,16 @@ const rubros: RubroItem[] = [
     producto: "Pharmalyze AI",
     dolor: "Vencimientos que se pierden, stock desfasado, proveedores opacos.",
     solucion: "Predicción inteligente de reposición, control de lotes automatizado.",
+    paraQuien: [
+      "Farmacias independientes",
+      "Múltiples proveedores / droguerías",
+      "Mayor control de inventario",
+      "Sobre sistema comercial existente",
+      "Equipos que buscan trazabilidad",
+      "Datos operativos para decidir",
+    ],
     metrica: { valor: "-40%", unidad: "mermas", label: "Reducción promedio" },
-    href: "/#ecosistema",
+    href: "/para-quien#pharmalyze",
   },
   {
     id: "otros",
@@ -219,6 +228,24 @@ export default function RubrosShowcase() {
                               {rubro.solucion}
                             </p>
                           </div>
+
+                          {rubro.paraQuien && (
+                            <div className="pt-1">
+                              <p className="text-[10px] font-bold uppercase tracking-wider text-amber-700 mb-1.5">
+                                Pensado para:
+                              </p>
+                              <div className="flex flex-wrap gap-1">
+                                {rubro.paraQuien.map((item, i) => (
+                                  <span
+                                    key={i}
+                                    className="text-[10px] px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200/80 font-medium"
+                                  >
+                                    {item}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          )}
 
                           {/* Métrica destacada */}
                           <div className="pt-3 border-t border-slate-100">

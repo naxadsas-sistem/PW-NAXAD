@@ -53,7 +53,7 @@ export default function SolucionesPage() {
         "Paneles de indicadores clave para toma de decisiones.",
       ],
       usefulFor:
-        "Clínicas, consultorios y PyMEs que necesitan centralizar su operación en una sola pantalla confiable.",
+        "Clínicas, consultorios, farmacias (Naxad Pharmalyzed IA) y organizaciones que necesitan centralizar su operación en una sola pantalla confiable y tomar decisiones con datos reales.",
     },
     {
       id: "desarrollo",
