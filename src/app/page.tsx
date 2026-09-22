@@ -95,7 +95,9 @@ export default function HomePage() {
         <DiagnosticoOperativo />
 
         {/* 3. Ecosistema de Productos (DentalDesk, LautaroNutrición, Pharmalyze AI) */}
-        <HomeEcosystem />
+        <LazySection>
+          <HomeEcosystem />
+        </LazySection>
 
         {/* 4. Propuesta / Solución (Criterio de negocio, arquitectura) */}
         <LazySection>
