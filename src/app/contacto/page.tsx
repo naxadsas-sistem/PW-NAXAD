@@ -7,18 +7,11 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ContactBackground } from "@/components/ui/ContactBackground";
-import { siteConfig } from "@/config/site";
+import ContactCards from "@/components/ContactCards";
 import {
-  MessageSquare,
-  Mail,
-  MapPin,
   CheckCircle2,
   ArrowRight,
-  ShieldCheck,
   Loader2,
-  Copy,
-  Check,
-  Clock,
 } from "lucide-react";
 
 export default function ContactoPage() {
@@ -34,7 +27,6 @@ export default function ContactoPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [copiedEmail, setCopiedEmail] = useState(false);
 
   // Validaciones en tiempo real
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
@@ -71,14 +63,6 @@ export default function ContactoPage() {
       setLoading(false);
       setSubmitted(true);
     }, 700);
-  };
-
-  const copyToClipboard = (text: string) => {
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(text);
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2000);
-    }
   };
 
   return (
@@ -389,173 +373,9 @@ export default function ContactoPage() {
               </Card>
             </div>
 
-            {/* Columna Lateral: Cards de Contacto Dinámicas Estilo Stripe Moderno (5 columnas) */}
-            <div className="lg:col-span-5 space-y-5">
-              {/* Card 1: WhatsApp Dinámica con Glow y Hover */}
-              <div className="animate-fade-in-up delay-150">
-                <Card className="p-6 bg-white border border-slate-200 rounded-2xl shadow-xs transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_30px_rgb(16,185,129,0.12)] hover:border-emerald-300 group">
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
-                      <MessageSquare size={20} />
-                    </div>
-                    <div className="space-y-2 flex-1">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-sm sm:text-base font-bold text-[#151A21]">
-                          Conversación por WhatsApp
-                        </h3>
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
-                          Online
-                        </span>
-                      </div>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        Contacto directo e inmediato para dudas puntuales sobre DentalDesk, LautaroNutrición, Pharmalyze AI o presupuestos.
-                      </p>
-                      <div className="pt-1">
-                        <a
-                          href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(siteConfig.contact.whatsappMessage)}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 hover:text-emerald-700 transition-colors"
-                        >
-                          <span>Iniciar chat en WhatsApp</span>
-                          <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-
-              {/* Card 2: Email Oficial con Acción de Copiado Rápido */}
-              <div className="animate-fade-in-up delay-225">
-                <Card className="p-6 bg-white border border-slate-200 rounded-2xl shadow-xs transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_12px_30px_rgb(37,99,235,0.12)] hover:border-blue-300 group">
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 text-[#2563EB] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
-                      <Mail size={20} />
-                    </div>
-                    <div className="space-y-2 flex-1">
-                      <h3 className="text-sm sm:text-base font-bold text-[#151A21]">
-                        Correo Electrónico Oficial
-                      </h3>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        Para pliegos, documentación técnica o presentaciones formales de empresa:
-                      </p>
-                      <div className="flex items-center gap-2 pt-1">
-                        <a
-                          href={`mailto:${siteConfig.contact.email}`}
-                          className="text-xs font-mono text-[#151A21] hover:text-[#2563EB] transition-colors font-semibold"
-                        >
-                          {siteConfig.contact.email}
-                        </a>
-                        <button
-                          type="button"
-                          onClick={() => copyToClipboard(siteConfig.contact.email)}
-                          className="p-1 rounded-md text-slate-400 hover:text-[#2563EB] hover:bg-blue-50 transition-all text-[11px] inline-flex items-center gap-1 cursor-pointer"
-                          title="Copiar email"
-                        >
-                          {copiedEmail ? (
-                            <>
-                              <Check size={12} className="text-emerald-500" />
-                              <span className="text-[10px] text-emerald-600 font-semibold">Copiado</span>
-                            </>
-                          ) : (
-                            <Copy size={12} />
-                          )}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-
-              {/* Card 3: Mapa Interactivo / Estilizado de CABA (Minimalista, Escala Monocromática Stripe) */}
-              <div className="animate-fade-in-up delay-300">
-                <Card className="p-6 bg-white border border-slate-200 rounded-2xl shadow-xs transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md hover:border-slate-300 overflow-hidden">
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700">
-                          <MapPin size={16} className="text-[#2563EB]" />
-                        </div>
-                        <div>
-                          <h4 className="text-xs font-bold text-[#151A21]">
-                            Buenos Aires, Argentina
-                          </h4>
-                          <span className="text-[10px] font-mono text-slate-500">
-                            34°36&apos;S 58°22&apos;W · CABA
-                          </span>
-                        </div>
-                      </div>
-                      <div className="inline-flex items-center gap-1 text-[11px] text-slate-500 font-medium">
-                        <Clock size={12} className="text-slate-400" />
-                        <span>9:00 - 18:00 ART</span>
-                      </div>
-                    </div>
-
-                    {/* Gráfico Vectorial Estilizado (Mapa Minimalista de CABA / Río de la Plata) */}
-                    <div className="relative h-28 w-full rounded-xl bg-slate-50 border border-slate-200/80 overflow-hidden flex items-center justify-center">
-                      {/* Trama urbana de fondo */}
-                      <svg
-                        className="absolute inset-0 w-full h-full opacity-40 text-slate-300"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <defs>
-                          <pattern
-                            id="mapGrid"
-                            width="20"
-                            height="20"
-                            patternUnits="userSpaceOnUse"
-                          >
-                            <path
-                              d="M 20 0 L 0 0 0 20"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="0.8"
-                            />
-                          </pattern>
-                        </defs>
-                        <rect width="100%" height="100%" fill="url(#mapGrid)" />
-                        {/* Silueta de la costa del Río de la Plata */}
-                        <path
-                          d="M -10 90 Q 60 70, 140 45 T 320 10 T 500 5"
-                          fill="none"
-                          stroke="#94A3B8"
-                          strokeWidth="2"
-                        />
-                      </svg>
-
-                      {/* Pin Central con Pulso Azul Eléctrico */}
-                      <div className="relative z-10 flex flex-col items-center">
-                        <div className="relative flex items-center justify-center">
-                          <span className="absolute h-6 w-6 rounded-full bg-[#2563EB]/25 animate-ping" />
-                          <span className="h-3 w-3 rounded-full bg-[#2563EB] shadow-xs ring-4 ring-white" />
-                        </div>
-                        <span className="mt-1.5 text-[10px] font-semibold bg-white/90 backdrop-blur-xs px-2 py-0.5 rounded-md border border-slate-200 text-[#151A21] shadow-2xs">
-                          Operación Central NAXAD
-                        </span>
-                      </div>
-                    </div>
-
-                    <p className="text-[11px] text-slate-500 leading-relaxed pt-1">
-                      Atención a clientes y empresas en toda el Área Metropolitana de Buenos Aires y de forma remota para todo el país.
-                    </p>
-                  </div>
-                </Card>
-              </div>
-
-              {/* Card 4: Confidencialidad y Compromiso B2B */}
-              <div className="animate-fade-in-up delay-300">
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
-                  <ShieldCheck size={18} className="text-[#E76F73] shrink-0 mt-0.5" />
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    <strong className="text-[#151A21] font-semibold">
-                      Acuerdo de confidencialidad (NDA):
-                    </strong>{" "}
-                    Garantizamos reserva operativa total sobre las métricas, pacientes y flujos de trabajo de tu negocio desde la primera llamada.
-                  </p>
-                </div>
-              </div>
+            {/* Columna Lateral: Cards de Contacto con Interacción Real (5 columnas) */}
+            <div className="lg:col-span-5 animate-fade-in-up delay-150">
+              <ContactCards />
             </div>
           </div>
         </Container>
