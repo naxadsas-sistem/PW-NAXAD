@@ -128,9 +128,15 @@ export default function ContactCards() {
               />
 
               <div className="relative flex items-start gap-4">
-                {/* Icono con fondo dinámico */}
-                <div
-                  className={`inline-flex p-3 rounded-xl transition-all duration-300 shrink-0 ${
+                {/* Icono con fondo dinámico y animación reactiva al hover */}
+                <motion.div
+                  whileHover={{
+                    scale: 1.12,
+                    rotate: method.id === "whatsapp" ? 6 : method.id === "email" ? -6 : 4,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 15 }}
+                  className={`inline-flex p-3 rounded-xl transition-all duration-300 shrink-0 select-none ${
                     isActive
                       ? `bg-gradient-to-br ${method.color} text-white shadow-md scale-105`
                       : `${method.bgColor} ${method.textColor}`
@@ -138,9 +144,9 @@ export default function ContactCards() {
                 >
                   <Icon
                     size={20}
-                    className="transition-transform duration-300 group-hover:scale-110"
+                    className="transition-transform duration-300"
                   />
-                </div>
+                </motion.div>
 
                 <div className="flex-1 space-y-2 min-w-0">
                   {/* Header con status */}
@@ -332,9 +338,14 @@ export default function ContactCards() {
         transition={{ delay: 0.35, duration: 0.4 }}
         className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-3.5"
       >
-        <div className="p-2 rounded-xl bg-rose-50 border border-rose-100 text-[#E76F73] shrink-0 mt-0.5">
+        <motion.div
+          whileHover={{ scale: 1.15, rotate: 6 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 350, damping: 15 }}
+          className="p-2 rounded-xl bg-rose-50 border border-rose-100 text-[#E76F73] shrink-0 mt-0.5 cursor-pointer select-none"
+        >
           <ShieldCheck size={18} />
-        </div>
+        </motion.div>
         <p className="text-xs text-slate-600 leading-relaxed font-normal">
           <strong className="text-[#151A21] font-semibold">
             Acuerdo de confidencialidad (NDA):
