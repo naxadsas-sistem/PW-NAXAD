@@ -242,30 +242,79 @@ export default function ContactCards() {
                     )}
                   </div>
 
-                  {/* Micro-visual animado para ubicación */}
+                  {/* Micro-visual animado para ubicación: Mapa con Pulso Animado en Tiempo Real */}
                   {method.id === "ubicacion" && (
                     <div className="pt-2">
-                      <div className="relative h-16 w-full rounded-xl bg-slate-50 border border-slate-200/80 overflow-hidden flex items-center justify-between px-3">
-                        <div className="flex items-center gap-2 z-10">
-                          <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                          </span>
-                          <span className="text-[11px] font-mono font-medium text-slate-700">
-                            Base Operativa Central
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1 text-[10px] font-mono text-slate-500 z-10 bg-white/80 backdrop-blur-xs px-2 py-0.5 rounded-md border border-slate-100">
-                          <Clock size={11} className="text-slate-400" />
-                          <span>GMT-3</span>
+                      <div className="relative h-28 w-full rounded-xl bg-slate-50 border border-slate-200/80 overflow-hidden">
+                        {/* Grid de fondo */}
+                        <svg
+                          className="absolute inset-0 w-full h-full opacity-40 text-slate-300"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <defs>
+                            <pattern
+                              id="mapGrid"
+                              width="20"
+                              height="20"
+                              patternUnits="userSpaceOnUse"
+                            >
+                              <path
+                                d="M 20 0 L 0 0 0 20"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="0.8"
+                              />
+                            </pattern>
+                          </defs>
+                          <rect width="100%" height="100%" fill="url(#mapGrid)" />
+                        </svg>
+
+                        {/* Línea de costa estilizada del Río de la Plata */}
+                        <svg
+                          className="absolute inset-0 w-full h-full"
+                          viewBox="0 0 400 120"
+                          preserveAspectRatio="none"
+                        >
+                          <path
+                            d="M 0 80 Q 100 60, 200 50 T 400 30"
+                            fill="none"
+                            stroke="#94A3B8"
+                            strokeWidth="2"
+                            opacity="0.5"
+                          />
+                        </svg>
+
+                        {/* Pin con pulso animado */}
+                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                          <div className="relative flex items-center justify-center">
+                            <motion.span
+                              className="absolute h-8 w-8 rounded-full bg-blue-500/30"
+                              animate={{
+                                scale: [1, 2, 1],
+                                opacity: [0.5, 0, 0.5],
+                              }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                            />
+                            <motion.span
+                              className="h-4 w-4 rounded-full bg-blue-600 shadow-lg ring-4 ring-white"
+                              animate={{
+                                scale: [1, 1.1, 1],
+                              }}
+                              transition={{ duration: 1, repeat: Infinity }}
+                            />
+                          </div>
                         </div>
 
-                        {/* Radar sweep sutil al hover */}
-                        <div
-                          className={`absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent transition-transform duration-1000 ${
-                            isActive ? "translate-x-full" : "-translate-x-full"
-                          }`}
-                        />
+                        {/* Coordenadas */}
+                        <div className="absolute bottom-2 left-2 text-[9px] font-mono text-slate-600 bg-white/90 backdrop-blur-xs px-1.5 py-0.5 rounded shadow-2xs border border-slate-100">
+                          34°36&apos;S 58°22&apos;W
+                        </div>
+
+                        {/* Horario y Estado en tiempo real */}
+                        <div className="absolute top-2 right-2 flex items-center gap-1.5 text-[9px] font-mono text-slate-500 bg-white/90 backdrop-blur-xs px-2 py-0.5 rounded shadow-2xs border border-slate-100">
+                          <Clock size={10} className="text-slate-400" />
+                          <span>9:00 - 18:00 ART</span>
+                        </div>
                       </div>
                     </div>
                   )}
