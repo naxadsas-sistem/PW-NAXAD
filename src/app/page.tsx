@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HomeHero } from "@/components/home/HomeHero";
 import DiagnosticoOperativo from "@/components/DiagnosticoOperativo";
-import { HomeEcosystem } from "@/components/home/HomeEcosystem";
+import { EcosistemaModular } from "@/components/ecosistema-modular";
 import { HomeValue } from "@/components/home/HomeValue";
 import { HomeProcess } from "@/components/home/HomeProcess";
 import { HomeComparison } from "@/components/home/HomeComparison";
@@ -94,9 +94,9 @@ export default function HomePage() {
         {/* 2. Diagnóstico Operativo (The Pain Mirror) */}
         <DiagnosticoOperativo />
 
-        {/* 3. Ecosistema de Productos (DentalDesk, LautaroNutrición, Pharmalyze AI) */}
+        {/* 3. Ecosistema de Productos & Mini-Landings (DentalDesk, LautaroNutrición, Pharmalyze AI, A Medida) */}
         <LazySection>
-          <HomeEcosystem />
+          <EcosistemaModular />
         </LazySection>
 
         {/* 4. Propuesta / Solución (Criterio de negocio, arquitectura) */}
