@@ -14,6 +14,7 @@ import {
   Quote
 } from "lucide-react";
 import Link from "next/link";
+import ClosingSection from "@/components/ClosingSection";
 
 const phases = [
   {
@@ -229,38 +230,8 @@ export default function ComoTrabajamosContent() {
         </div>
       </section>
 
-      {/* 3. CIERRE DE CONFIANZA (Founder Quote) */}
-      <section className="py-20 lg:py-28 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-900 to-slate-900"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px]"></div>
-
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-          <Quote className="w-12 h-12 text-blue-500 mx-auto mb-6 opacity-60" />
-          <blockquote className="text-2xl lg:text-3xl font-medium leading-relaxed mb-6">
-            &ldquo;Cada proyecto puede tener un alcance distinto, pero el criterio es siempre el mismo: <span className="text-blue-400 font-semibold">generar mejoras aplicables y sostenibles.</span>&rdquo;
-          </blockquote>
-          <p className="text-slate-300 text-base sm:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-            No forzamos etapas burocráticas innecesarias. Adaptamos la profundidad del proceso a la realidad y urgencia de tu negocio.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link 
-              href="/contacto"
-              className="w-full sm:w-auto bg-blue-600 text-white px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-blue-500 transition-all duration-200 shadow-lg shadow-blue-600/25 inline-flex items-center justify-center gap-2 group"
-            >
-              <span>Coordinar conversación inicial</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <a 
-              href="https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20gustar%C3%ADa%20conversar%20sobre%20c%C3%B3mo%20trabajan%20en%20NAXAD."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-transparent border border-slate-700 text-white px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-slate-800 transition-all duration-200 inline-flex items-center justify-center gap-2"
-            >
-              <span>Hablar por WhatsApp</span>
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* 3. CIERRE DE CONFIANZA: Efecto Spotlight Glassmorphism */}
+      <ClosingSection />
     </main>
   );
 }
