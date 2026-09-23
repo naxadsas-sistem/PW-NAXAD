@@ -1,84 +1,91 @@
+'use client';
+
 import React from "react";
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { ArrowDown, ArrowRight } from "lucide-react";
-import { HeroMockup3D } from "@/components/home/HeroMockup3D";
-import { StripeGradientBackground } from "@/components/home/HeroDynamicBackground";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export function HomeHero() {
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-white border-b border-slate-200 overflow-hidden">
-      {/* Background dinámico: Canvas interactivo Stripe WebGL + Parallax + Malla */}
-      <StripeGradientBackground intensity="medium" />
+    <section className="relative w-full min-h-[90vh] flex items-center justify-center bg-slate-950 overflow-hidden">
+      {/* 1. Fondo Dinámico: Orbes de gradiente animados (Efecto Stripe Aurora) */}
+      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-blue-600/20 rounded-full blur-[120px] animate-aurora-1 pointer-events-none" />
+      <div className="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] bg-indigo-600/20 rounded-full blur-[120px] animate-aurora-2 pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[20%] w-[60vw] h-[60vw] bg-violet-600/20 rounded-full blur-[120px] animate-aurora-3 pointer-events-none" />
 
-      <Container className="relative z-10">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-6">
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-xs font-medium text-slate-700 shadow-xs">
-            <span className="h-2 w-2 rounded-full bg-[#2563EB] animate-pulse" />
-            <span>NAXAD — SaaS propios y sistemas a medida</span>
+      {/* 2. Rejilla sutil (Grid) para textura "Tech" */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+
+      {/* 3. Viñeta oscura en los bordes para enfocar la atención al centro */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(2,6,23,0.6)_100%)] pointer-events-none" />
+
+      {/* 4. Contenido del Hero */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-24">
+        <div className="max-w-4xl mx-auto text-center">
+          
+          {/* Eyebrow / Kicker */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs sm:text-sm font-semibold mb-8 backdrop-blur-sm shadow-xs">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>
+            <span>Sistemas de gestión a medida para PyMEs</span>
           </div>
 
-          {/* H1 con texto gradiente animado estilo Stripe */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.14] max-w-3xl">
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent animate-gradient">
-              El sistema que tu negocio necesita
-            </span>{" "}
-            <span className="text-[#151A21]">no el que le sobra.</span>
+          {/* H1: Jerarquía clara y tracking-tight para elegancia */}
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6">
+            Tu empresa ya tiene un sistema.{" "}
+            <span className="text-slate-400">Hoy depende de personas y planillas.</span>
+            <br className="hidden lg:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-300">
+              Lo convertimos en software.
+            </span>
           </h1>
 
-          {/* Subtítulo alineado a la izquierda */}
-          <p className="text-left text-base sm:text-lg md:text-xl text-slate-600 leading-loose max-w-2xl w-full font-normal">
-            Construimos productos y sistemas de gestión a partir de cómo opera tu negocio en la vida real. Ya funcionan en una clínica, un consultorio y una farmacia — el próximo puede ser el tuyo.
+          {/* Subtítulo: Leading-relaxed para legibilidad */}
+          <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl mx-auto font-normal">
+            Encontramos dónde se traba tu operación y construimos el sistema que la destraba. Menos horas cargando datos, menos errores y números claros para decidir.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center gap-3.5 pt-3 w-full sm:w-auto">
-            <a
-              href="#ecosistema"
-              className="w-full sm:w-auto"
+          {/* CTAs con Jerarquía Visual */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <a 
+              href="#diagnostico"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-blue-500 transition-all duration-200 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 cursor-pointer"
             >
-              <Button
-                size="lg"
-                className="w-full sm:w-auto text-sm px-6 py-3 font-semibold bg-[#2563EB] text-white hover:bg-blue-700 shadow-sm transition-all"
-              >
-                Ver el ecosistema
-                <ArrowDown size={15} className="ml-2" />
-              </Button>
+              <span>Hacé el diagnóstico en 2 min</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <Link href="/contacto" className="w-full sm:w-auto">
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto text-sm px-6 py-3 font-medium text-slate-700 bg-white/80 backdrop-blur-xs border-slate-300 hover:bg-slate-50 hover:text-[#151A21]"
-              >
-                Contanos tu caso
-                <ArrowRight size={15} className="ml-2 text-slate-500" />
-              </Button>
-            </Link>
+            
+            <a 
+              href="https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20gustar%C3%ADa%20hablar%20con%20un%20especialista%20de%20NAXAD."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 text-white border border-white/10 px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-white/10 hover:border-white/20 transition-all duration-200 backdrop-blur-sm cursor-pointer"
+            >
+              <span>Hablar con un especialista</span>
+            </a>
           </div>
-        </div>
 
-        {/* Mockup Interactivo 3D con selector del ecosistema */}
-        <div className="mt-12 sm:mt-16 w-full">
-          <HeroMockup3D />
-        </div>
-
-        {/* Indicador de scroll animado hacia el ecosistema */}
-        <div className="pt-10 flex justify-center">
-          <a
-            href="#ecosistema"
-            aria-label="Ir al ecosistema"
-            className="group flex flex-col items-center gap-1.5 text-[11px] font-mono font-medium text-slate-500 hover:text-[#2563EB] transition-colors"
-          >
-            <div className="w-5 h-9 rounded-full border border-slate-300 group-hover:border-[#2563EB] flex items-start justify-center p-1.5 transition-colors bg-white/70 backdrop-blur-xs shadow-xs">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-scroll-pill" />
+          {/* Micro-Proof / Trust Signals */}
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-xs sm:text-sm text-slate-400 font-medium">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
+              <span>Sin costo inicial</span>
             </div>
-            <span>Explorar</span>
-          </a>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
+              <span>Sin registrarte</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
+              <span>Resultado inmediato</span>
+            </div>
+          </div>
+
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
+
+export default HomeHero;
