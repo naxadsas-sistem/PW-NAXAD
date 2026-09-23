@@ -129,11 +129,11 @@ export default function NosotrosPage() {
         </section>
 
         {/* 3. SECCIÓN FUNDADOR: SPOTLIGHT (Autoridad y Conexión) */}
-        <section className="py-24 lg:py-32 bg-slate-900 text-white relative overflow-hidden">
+        <section className="py-24 lg:py-32 bg-slate-50/80 text-[#151A21] border-t border-b border-slate-200 relative overflow-hidden">
           {/* Efecto Aurora sutil de fondo */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/15 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
             <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
@@ -142,22 +142,22 @@ export default function NosotrosPage() {
               <div className="lg:col-span-2 flex flex-col items-center lg:items-start text-center lg:text-left">
                 {/* Avatar / Iniciales con borde brillante */}
                 <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-30 animate-pulse" />
-                  <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-4xl font-bold text-white border-4 border-slate-800 shadow-2xl font-mono">
+                  <div className="absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-20 animate-pulse" />
+                  <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-4xl font-bold text-white border-4 border-white shadow-xl font-mono">
                     GZ
                   </div>
                 </div>
                 
-                <h2 className="text-3xl font-bold text-white mb-1">Gabriel Zambrano</h2>
-                <p className="text-blue-400 font-medium mb-4">Fundador</p>
+                <h2 className="text-3xl font-bold text-[#151A21] mb-1">Gabriel Zambrano</h2>
+                <p className="text-[#2563EB] font-semibold mb-4 text-sm">Fundador</p>
                 
-                <div className="flex flex-col gap-3 text-slate-400 text-sm">
+                <div className="flex flex-col gap-3 text-slate-600 text-sm">
                   <div className="flex items-center gap-2 justify-center lg:justify-start">
-                    <GraduationCap className="w-4 h-4 text-blue-400 shrink-0" />
+                    <GraduationCap className="w-4 h-4 text-[#2563EB] shrink-0" />
                     <span>Administración de Empresas (IPCAC)</span>
                   </div>
                   <div className="flex items-center gap-2 justify-center lg:justify-start">
-                    <MapPin className="w-4 h-4 text-blue-400 shrink-0" />
+                    <MapPin className="w-4 h-4 text-[#2563EB] shrink-0" />
                     <span>Buenos Aires, Argentina</span>
                   </div>
                 </div>
@@ -165,22 +165,22 @@ export default function NosotrosPage() {
 
               {/* Columna Derecha: Cita y Valores */}
               <div className="lg:col-span-3">
-                <Quote className="w-10 h-10 text-blue-500/50 mb-6" />
-                <blockquote className="text-2xl lg:text-3xl font-medium text-slate-100 leading-relaxed mb-8">
-                  &ldquo;No vengo de la programación, vengo de la administración de empresas. Por eso no empiezo preguntando qué funciones querés, sino <span className="text-blue-400 font-semibold">dónde perdés tiempo y plata</span>. La tecnología es la herramienta; tu negocio es el objetivo.&rdquo;
+                <Quote className="w-10 h-10 text-blue-600/30 mb-6" />
+                <blockquote className="text-2xl lg:text-3xl font-medium text-[#151A21] leading-relaxed mb-8">
+                  &ldquo;No vengo de la programación, vengo de la administración de empresas. Por eso no empiezo preguntando qué funciones querés, sino <span className="text-[#2563EB] font-semibold">dónde perdés tiempo y plata</span>. La tecnología es la herramienta; tu negocio es el objetivo.&rdquo;
                 </blockquote>
 
                 {/* Tarjetas de Valor */}
                 <div className="grid sm:grid-cols-2 gap-4 mt-8">
-                  <div className="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/80 hover:border-blue-500/50 transition-colors shadow-xs">
-                    <Handshake className="w-6 h-6 text-blue-400 mb-3" />
-                    <h4 className="font-semibold text-white mb-1">Acompañamiento directo</h4>
-                    <p className="text-sm text-slate-400">En cada proyecto, sin intermediarios.</p>
+                  <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 transition-colors shadow-2xs">
+                    <Handshake className="w-6 h-6 text-[#2563EB] mb-3" />
+                    <h4 className="font-semibold text-[#151A21] mb-1">Acompañamiento directo</h4>
+                    <p className="text-sm text-slate-600">En cada proyecto, sin intermediarios.</p>
                   </div>
-                  <div className="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/80 hover:border-blue-500/50 transition-colors shadow-xs">
-                    <Target className="w-6 h-6 text-blue-400 mb-3" />
-                    <h4 className="font-semibold text-white mb-1">Enfoque en rentabilidad</h4>
-                    <p className="text-sm text-slate-400">Y adopción real por parte del equipo.</p>
+                  <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 transition-colors shadow-2xs">
+                    <Target className="w-6 h-6 text-[#2563EB] mb-3" />
+                    <h4 className="font-semibold text-[#151A21] mb-1">Enfoque en rentabilidad</h4>
+                    <p className="text-sm text-slate-600">Y adopción real por parte del equipo.</p>
                   </div>
                 </div>
               </div>
@@ -188,17 +188,17 @@ export default function NosotrosPage() {
             </div>
 
             {/* Cierre / Llamada a la Acción de Conversión */}
-            <div className="mt-16 pt-12 border-t border-slate-800 text-center max-w-2xl mx-auto">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">
+            <div className="mt-16 pt-12 border-t border-slate-200 text-center max-w-2xl mx-auto">
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#151A21] mb-3 tracking-tight">
                 ¿Hablamos de tu empresa?
               </h3>
-              <p className="text-slate-300 text-base mb-8">
+              <p className="text-slate-600 text-base mb-8">
                 Contanos cómo trabajás hoy y te decimos qué resolver primero.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/contacto"
-                  className="group relative w-full sm:w-auto flex items-center justify-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-blue-500 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 overflow-hidden"
+                  className="group relative w-full sm:w-auto flex items-center justify-center gap-3 bg-[#2563EB] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 overflow-hidden"
                 >
                   <Calendar className="w-5 h-5 shrink-0" />
                   <span>Agendar mi diagnóstico sin costo</span>
@@ -208,9 +208,9 @@ export default function NosotrosPage() {
                   href="https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20gustar%C3%ADa%20conversar%20sobre%20la%20gesti%C3%B3n%20de%20mi%20empresa."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto flex items-center justify-center gap-3 bg-slate-800 text-slate-200 border border-slate-700 px-8 py-4 rounded-xl text-base font-semibold hover:bg-slate-700 hover:border-slate-600 hover:text-white transition-all duration-300"
+                  className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-[#151A21] border border-slate-200/90 px-8 py-4 rounded-xl text-base font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-2xs"
                 >
-                  <MessageCircle className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <MessageCircle className="w-5 h-5 text-emerald-600 shrink-0" />
                   <span>Hablar por WhatsApp</span>
                 </a>
               </div>

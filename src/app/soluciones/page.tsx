@@ -219,21 +219,21 @@ export default function SolucionesPage() {
         </section>
 
         {/* 3. CIERRE / CTA FINAL */}
-        <section className="bg-slate-900 text-white py-20 lg:py-28 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:32px_32px]"></div>
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-500/10 rounded-full blur-[90px] pointer-events-none"></div>
+        <section className="bg-gradient-to-b from-white via-slate-50 to-blue-50/30 text-[#151A21] py-20 lg:py-28 relative overflow-hidden border-t border-slate-200/80">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight text-[#151A21]">
               ¿No estás seguro de cuál de estas soluciones necesitas?
             </h2>
-            <p className="text-base sm:text-lg text-slate-300 mb-10 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 mb-10 leading-relaxed">
               No te pedimos que lo sepas. Nuestro trabajo comienza con un diagnóstico gratuito de 30 minutos para identificar exactamente dónde está la fricción y qué camino es el más rentable para tu empresa.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link 
                 href="/contacto"
-                className="w-full sm:w-auto bg-blue-600 text-white px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-blue-500 transition-all duration-200 shadow-lg shadow-blue-600/25 inline-flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-[#2563EB] text-white px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-blue-700 transition-all duration-200 shadow-lg shadow-blue-600/25 inline-flex items-center justify-center gap-2"
               >
                 <span>Agendar diagnóstico gratuito</span>
                 <ArrowRight className="w-5 h-5" />
@@ -242,7 +242,7 @@ export default function SolucionesPage() {
                 href="https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20gustar%C3%ADa%20conversar%20sobre%20las%20soluciones%20tecnol%C3%B3gicas%20de%20NAXAD."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-transparent border border-slate-700 text-white px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-slate-800 transition-all duration-200 inline-flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-white border border-slate-200/90 text-[#151A21] px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-2xs inline-flex items-center justify-center gap-2"
               >
                 <span>Hablar por WhatsApp</span>
               </a>
