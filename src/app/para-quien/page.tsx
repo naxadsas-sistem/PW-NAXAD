@@ -7,7 +7,6 @@ import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { RubrosShowcase } from "@/components/RubrosShowcase";
-import { PharmalyzeAudience } from "@/components/PharmalyzeAudience";
 import {
   AlertCircle,
   ArrowRight,
@@ -16,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "Para Quién Trabajamos | Clínicas, Nutrición, Farmacias y PyMEs | NAXAD",
   description:
-    "Soluciones de gestión y tecnología para clínicas, centros de salud, profesionales y farmacias (Naxad Pharmalyzed IA).",
+    "Soluciones de gestión y tecnología para clínicas, centros de salud, profesionales, farmacias y PyMEs.",
 };
 
 export default function ParaQuienPage() {
@@ -35,11 +34,6 @@ export default function ParaQuienPage() {
       <main className="flex-1 pt-24 sm:pt-28 pb-20">
         {/* Sección Interactiva de Rubros con Dinamismo Premium */}
         <RubrosShowcase />
-
-        {/* Foco de Audiencia: Naxad Pharmalyzed IA */}
-        <Container className="mt-12 sm:mt-16">
-          <PharmalyzeAudience />
-        </Container>
 
         <Container className="mt-12 sm:mt-16">
           {/* Bloque de Señales: Puede ser el momento de hablar si... */}
