@@ -12,8 +12,7 @@ import {
   Settings,
   GraduationCap,
   Sparkles,
-  Clock,
-  Database
+  Clock
 } from 'lucide-react';
 
 const fases = [
@@ -336,96 +335,12 @@ export default function EnfoqueNaxad() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="text-center mt-12 mb-16"
+          className="text-center mt-12"
         >
           <p className="text-sm text-slate-500">
             Cada fase se adapta a tu contexto. No seguimos un script rígido, seguimos tu operación.
           </p>
         </motion.div>
-
-        {/* Diagrama Arquitectónico: De herramientas aisladas a un flujo sincronizado */}
-        <div className="rounded-3xl bg-white border border-slate-200 p-7 sm:p-10 shadow-sm">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-200 mb-6 gap-2">
-            <div>
-              <div className="text-xs font-mono text-[#2563EB] uppercase tracking-wider font-semibold">
-                Arquitectura de Gestión Unificada
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-[#151A21] mt-0.5">
-                De herramientas aisladas a un flujo sincronizado
-              </h3>
-            </div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-800 bg-emerald-50 px-3 py-1 rounded-md border border-emerald-200 self-start sm:self-auto">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-              Sincronización Bidireccional
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 xl:gap-12 items-center font-mono">
-            {/* Fuentes / Inputs */}
-            <div className="space-y-2.5">
-              <div className="text-xs text-slate-500 uppercase tracking-wider mb-2 font-sans font-medium">
-                Fuentes & Canales
-              </div>
-              <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-800">
-                <span>E-commerce (Tiendanube / Woo)</span>
-                <span className="w-2 h-2 rounded-full bg-[#2563EB]" />
-              </div>
-              <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-800">
-                <span>Facturación & AFIP (CAE)</span>
-                <span className="w-2 h-2 rounded-full bg-blue-400" />
-              </div>
-              <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-800">
-                <span>Cobranzas (Mercado Pago / Bancos)</span>
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              </div>
-              <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-800">
-                <span>WhatsApp Comercial & Pedidos</span>
-                <span className="w-2 h-2 rounded-full bg-[#E76F73]" />
-              </div>
-            </div>
-
-            {/* Núcleo Central: NAXAD Engine */}
-            <div className="p-6 rounded-xl bg-blue-50/60 border-2 border-blue-200 text-center">
-              <div className="w-11 h-11 mx-auto rounded-lg bg-[#2563EB] text-white flex items-center justify-center mb-3 shadow-sm">
-                <Database size={20} />
-              </div>
-              <h4 className="text-base font-bold text-[#151A21] mb-1">
-                Motor de Gestión NAXAD
-              </h4>
-              <p className="text-xs text-slate-600 leading-loose mb-4">
-                Reglas de negocio, validación automática de datos y trazabilidad operativa.
-              </p>
-              <div className="space-y-1.5 text-[11px] text-slate-700 bg-white p-3 rounded-lg border border-blue-100 text-left">
-                <div>✔ Conciliación automática</div>
-                <div>✔ Actualización de stock multicanal</div>
-                <div>✔ Alertas tempranas de margen</div>
-              </div>
-            </div>
-
-            {/* Resultados / Output */}
-            <div className="space-y-2.5">
-              <div className="text-xs text-slate-500 uppercase tracking-wider mb-2 font-sans font-medium">
-                Salidas & Control
-              </div>
-              <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-800">
-                <span>Tablero Directivo en Tiempo Real</span>
-                <span className="text-[#2563EB] font-bold">100% al día</span>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-800">
-                <span>Cero Reingreso Manual de Planillas</span>
-                <span className="text-emerald-700 font-bold">Ahorro continuo</span>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-800">
-                <span>Stock Sincronizado por Sucursal</span>
-                <span className="text-[#2563EB] font-bold">Cero desfasaje</span>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-slate-800">
-                <span>Equipo con Roles Claros</span>
-                <span className="text-emerald-700 font-bold">Adopción total</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
