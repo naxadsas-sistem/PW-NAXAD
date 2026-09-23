@@ -48,11 +48,11 @@ export default function ContactoPage() {
   ].filter(Boolean).length;
   const progressPercentage = Math.round((completedFields / 7) * 100);
 
-  // Preseleccionar necesidad si viene desde un botón CTA de producto
+  // Preseleccionar necesidad si viene desde un botón CTA de producto o soluciones
   useEffect(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
-      const sol = params.get("solucion");
+      const sol = params.get("solucion") || params.get("interes") || params.get("servicio");
       const timer = setTimeout(() => {
         if (sol === "dentaldesk") {
           setFormData((prev) => ({ ...prev, needType: "DentalDesk (SaaS clínica dental)" }));
@@ -66,6 +66,10 @@ export default function ContactoPage() {
           setFormData((prev) => ({ ...prev, needType: "Automatización e integración de procesos" }));
         } else if (sol === "consultoria") {
           setFormData((prev) => ({ ...prev, needType: "Consultoría y diagnóstico operativo" }));
+        } else if (sol === "implementacion") {
+          setFormData((prev) => ({ ...prev, needType: "Implementación, capacitación y acompañamiento" }));
+        } else if (sol === "saas" || sol === "sistemas") {
+          setFormData((prev) => ({ ...prev, needType: "Sistemas de gestión y productos SaaS" }));
         }
       }, 0);
       return () => clearTimeout(timer);
@@ -356,8 +360,20 @@ export default function ContactoPage() {
                           <option value="Pharmalyze AI (Piloto farmacias)">
                             Pharmalyze AI — Inteligencia de reposición de farmacias
                           </option>
+                          <option value="Sistemas de gestión y productos SaaS">
+                            Sistemas de gestión y productos SaaS
+                          </option>
                           <option value="Sistema de gestión a medida">
                             Desarrollo de sistema de gestión a medida
+                          </option>
+                          <option value="Automatización e integración de procesos">
+                            Automatización e integración de procesos
+                          </option>
+                          <option value="Consultoría y diagnóstico operativo">
+                            Consultoría y diagnóstico operativo
+                          </option>
+                          <option value="Implementación, capacitación y acompañamiento">
+                            Implementación, capacitación y acompañamiento
                           </option>
                           <option value="Diagnóstico de procesos y ordenamiento">
                             Diagnóstico y ordenamiento de procesos operativos
