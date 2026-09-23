@@ -128,94 +128,109 @@ export default function NosotrosPage() {
           </div>
         </section>
 
-        {/* 3. SECCIÓN FUNDADOR: SPOTLIGHT (Autoridad y Conexión) */}
-        <section className="py-24 lg:py-32 bg-slate-50/80 text-[#151A21] border-t border-b border-slate-200 relative overflow-hidden">
-          {/* Efecto Aurora sutil de fondo */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[140px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-[140px] pointer-events-none" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+        {/* 3. SECCIÓN FUNDADOR: EDITORIAL DE ALTA GAMA */}
+        <section className="py-16 sm:py-20 bg-slate-50/50 text-[#151A21] border-t border-b border-slate-200/80 relative">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <div className="bg-white border border-slate-200/80 rounded-2xl sm:rounded-3xl p-7 sm:p-10 lg:p-12 shadow-[0_2px_16px_-4px_rgba(15,23,42,0.04)] relative">
+              {/* Header Editorial / Kicker */}
+              <div className="flex items-center justify-between gap-4 mb-7 pb-5 border-b border-slate-100">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+                  <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-slate-500 font-semibold">
+                    Criterio de Dirección &middot; Fundador
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                  <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                  <span>Buenos Aires, Argentina</span>
+                </div>
+              </div>
 
-          <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-              
-              {/* Columna Izquierda: Identidad Visual */}
-              <div className="lg:col-span-2 flex flex-col items-center lg:items-start text-center lg:text-left">
-                {/* Avatar / Iniciales con borde brillante */}
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-20 animate-pulse" />
-                  <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-4xl font-bold text-white border-4 border-white shadow-xl font-mono">
+              {/* Cita Editorial */}
+              <div className="relative my-2 sm:my-4 pl-5 sm:pl-7 border-l-2 border-[#2563EB]">
+                <blockquote className="font-serif italic text-lg sm:text-xl md:text-[22px] text-slate-800 leading-[1.65] tracking-tight font-normal">
+                  &ldquo;No vengo de la programación, vengo de la administración de empresas. Por eso no empiezo preguntando qué funciones querés, sino{" "}
+                  <span className="not-italic font-semibold text-[#151A21] underline decoration-[#2563EB]/40 decoration-1 underline-offset-4">
+                    dónde perdés tiempo y plata
+                  </span>
+                  . La tecnología es la herramienta; tu negocio es el objetivo.&rdquo;
+                </blockquote>
+              </div>
+
+              {/* Perfil del Fundador y Principios de Valor */}
+              <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                {/* Identidad Gabriel */}
+                <div className="flex items-center gap-3.5">
+                  <div className="w-11 h-11 rounded-full bg-[#151A21] text-white flex items-center justify-center text-xs font-mono font-bold tracking-tight shrink-0 shadow-xs ring-4 ring-slate-100">
                     GZ
                   </div>
-                </div>
-                
-                <h2 className="text-3xl font-bold text-[#151A21] mb-1">Gabriel Zambrano</h2>
-                <p className="text-[#2563EB] font-semibold mb-4 text-sm">Fundador</p>
-                
-                <div className="flex flex-col gap-3 text-slate-600 text-sm">
-                  <div className="flex items-center gap-2 justify-center lg:justify-start">
-                    <GraduationCap className="w-4 h-4 text-[#2563EB] shrink-0" />
-                    <span>Administración de Empresas (IPCAC)</span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-base font-bold text-[#151A21]">Gabriel Zambrano</h3>
+                      <span className="text-slate-300">·</span>
+                      <span className="text-xs font-semibold text-[#2563EB]">Fundador</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500 mt-0.5">
+                      <GraduationCap className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      <span>Administración de Empresas (IPCAC)</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 justify-center lg:justify-start">
-                    <MapPin className="w-4 h-4 text-[#2563EB] shrink-0" />
-                    <span>Buenos Aires, Argentina</span>
+                </div>
+
+                {/* Pilares Clave Integrados */}
+                <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 text-xs text-slate-600">
+                  <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-50/90 border border-slate-200/80">
+                    <Handshake className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+                    <div>
+                      <span className="font-semibold text-[#151A21]">Acompañamiento directo</span>
+                      <span className="text-slate-400 mx-1">·</span>
+                      <span className="text-slate-500">Sin intermediarios</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-50/90 border border-slate-200/80">
+                    <Target className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+                    <div>
+                      <span className="font-semibold text-[#151A21]">Rentabilidad</span>
+                      <span className="text-slate-400 mx-1">·</span>
+                      <span className="text-slate-500">Adopción real</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Columna Derecha: Cita y Valores */}
-              <div className="lg:col-span-3">
-                <Quote className="w-10 h-10 text-blue-600/30 mb-6" />
-                <blockquote className="text-2xl lg:text-3xl font-medium text-[#151A21] leading-relaxed mb-8">
-                  &ldquo;No vengo de la programación, vengo de la administración de empresas. Por eso no empiezo preguntando qué funciones querés, sino <span className="text-[#2563EB] font-semibold">dónde perdés tiempo y plata</span>. La tecnología es la herramienta; tu negocio es el objetivo.&rdquo;
-                </blockquote>
-
-                {/* Tarjetas de Valor */}
-                <div className="grid sm:grid-cols-2 gap-4 mt-8">
-                  <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 transition-colors shadow-2xs">
-                    <Handshake className="w-6 h-6 text-[#2563EB] mb-3" />
-                    <h4 className="font-semibold text-[#151A21] mb-1">Acompañamiento directo</h4>
-                    <p className="text-sm text-slate-600">En cada proyecto, sin intermediarios.</p>
-                  </div>
-                  <div className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-200 transition-colors shadow-2xs">
-                    <Target className="w-6 h-6 text-[#2563EB] mb-3" />
-                    <h4 className="font-semibold text-[#151A21] mb-1">Enfoque en rentabilidad</h4>
-                    <p className="text-sm text-slate-600">Y adopción real por parte del equipo.</p>
-                  </div>
+              {/* Llamada a la Acción de Conversión */}
+              <div className="mt-8 pt-7 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+                <div>
+                  <h4 className="text-sm sm:text-base font-bold text-[#151A21] tracking-tight">
+                    ¿Hablamos de la gestión de tu empresa?
+                  </h4>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Contanos cómo trabajás hoy y te decimos qué resolver primero.
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 w-full sm:w-auto shrink-0">
+                  <Link
+                    href="/contacto"
+                    className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-[#2563EB] text-white px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold hover:bg-blue-700 transition-all shadow-sm hover:shadow"
+                  >
+                    <Calendar className="w-4 h-4 shrink-0" />
+                    <span>Agendar diagnóstico</span>
+                    <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                  </Link>
+                  <a
+                    href="https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20gustar%C3%ADa%20conversar%20sobre%20la%20gesti%C3%B3n%20de%20mi%20empresa."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 bg-white text-[#151A21] border border-slate-200/90 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold hover:bg-slate-50 transition-all shadow-2xs"
+                    aria-label="Hablar por WhatsApp"
+                  >
+                    <MessageCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>WhatsApp</span>
+                  </a>
                 </div>
               </div>
 
             </div>
-
-            {/* Cierre / Llamada a la Acción de Conversión */}
-            <div className="mt-16 pt-12 border-t border-slate-200 text-center max-w-2xl mx-auto">
-              <h3 className="text-2xl sm:text-3xl font-bold text-[#151A21] mb-3 tracking-tight">
-                ¿Hablamos de tu empresa?
-              </h3>
-              <p className="text-slate-600 text-base mb-8">
-                Contanos cómo trabajás hoy y te decimos qué resolver primero.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  href="/contacto"
-                  className="group relative w-full sm:w-auto flex items-center justify-center gap-3 bg-[#2563EB] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 overflow-hidden"
-                >
-                  <Calendar className="w-5 h-5 shrink-0" />
-                  <span>Agendar mi diagnóstico sin costo</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform shrink-0" />
-                </Link>
-                <a
-                  href="https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20gustar%C3%ADa%20conversar%20sobre%20la%20gesti%C3%B3n%20de%20mi%20empresa."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-[#151A21] border border-slate-200/90 px-8 py-4 rounded-xl text-base font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-2xs"
-                >
-                  <MessageCircle className="w-5 h-5 text-emerald-600 shrink-0" />
-                  <span>Hablar por WhatsApp</span>
-                </a>
-              </div>
-            </div>
-
           </div>
         </section>
       </main>
