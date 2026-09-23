@@ -339,4 +339,23 @@ h1, h2, h3, h4, .font-heading {
 .animate-gradient-2 { animation: gradient-2 25s ease-in-out infinite; }
 .animate-gradient-3 { animation: gradient-3 22s ease-in-out infinite; }
 
+/* Animación suave para la cinta 3D Stripe */
+@keyframes aurora-ribbon {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate3d(8px, -12px, 0) scale(1.015) rotate(0.4deg);
+  }
+  66% {
+    transform: translate3d(-6px, 10px, 0) scale(0.99) rotate(-0.3deg);
+  }
+}
+
+.animate-aurora-ribbon {
+  animation: aurora-ribbon 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+
 
