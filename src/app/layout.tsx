@@ -1,5 +1,18 @@
 import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   themeColor: "#FFFFFF",
@@ -49,9 +62,9 @@ export default function RootLayout({
     <html
       lang="es"
       data-scroll-behavior="smooth"
-      className="h-full antialiased scroll-smooth"
+      className={`h-full antialiased scroll-smooth ${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-full flex flex-col bg-white text-[#151A21] selection:bg-[#2563EB]/15 selection:text-[#2563EB]">
+      <body className="min-h-full flex flex-col bg-white text-[#151A21] font-sans selection:bg-[#2563EB]/15 selection:text-[#2563EB]">
         {children}
       </body>
     </html>

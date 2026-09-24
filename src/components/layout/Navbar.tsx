@@ -73,23 +73,43 @@ const ECOSYSTEM_PRODUCTS: MegaMenuProduct[] = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileEcosystemOpen, setMobileEcosystemOpen] = useState(false);
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const scrolledRef = useRef(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
       const currentProgress = totalScroll > 0 ? (window.scrollY / totalScroll) * 100 : 0;
-      setScrollProgress(Math.min(100, Math.max(0, currentProgress)));
-      setScrolled(window.scrollY > 20);
+      
+      if (progressBarRef.current) {
+        progressBarRef.current.style.width = `${Math.min(100, Math.max(0, currentProgress))}%`;
+      }
+
+      const isScrolled = window.scrollY > 20;
+      if (isScrolled !== scrolledRef.current) {
+        scrolledRef.current = isScrolled;
+        setScrolled(isScrolled);
+      }
+
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScroll);
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    updateScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -492,8 +512,9 @@ export function Navbar() {
       {/* Indicador Visual de Scroll / Lectura en el borde inferior del Navbar */}
       <div className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-slate-200/40 overflow-hidden pointer-events-none">
         <div
-          className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-400 transition-all duration-150 ease-out"
-          style={{ width: `${scrollProgress}%` }}
+          ref={progressBarRef}
+          className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-400 transition-[width] duration-75 ease-out"
+          style={{ width: "0%" }}
         />
       </div>
     </header>
