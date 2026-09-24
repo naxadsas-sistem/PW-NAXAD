@@ -8,7 +8,7 @@ import { ArrowRight, MessageSquare, ShieldCheck, Clock, CheckCircle2 } from "luc
 
 export function HomeFinalCTA() {
   return (
-    <section className="py-28 sm:py-32 md:py-36 lg:py-40 bg-slate-50 relative overflow-hidden">
+    <section className="py-20 sm:py-24 lg:py-28 bg-slate-50 relative overflow-hidden">
       {/* Background dinámico con orbes flotantes de colores en movimiento */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
         <div className="absolute -top-24 left-1/4 w-[34rem] h-[34rem] bg-gradient-to-tr from-blue-600/20 via-sky-400/15 to-transparent rounded-full blur-3xl animate-orb-1" />
@@ -20,20 +20,20 @@ export function HomeFinalCTA() {
       <Container className="relative z-10">
         {/* Contenedor con borde sutil y fondo blanco */}
         <div className="rounded-2xl p-[1px] bg-gradient-to-r from-[#2563EB]/40 via-slate-200 to-[#E76F73]/40 shadow-sm">
-          <div className="rounded-[15px] bg-white p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden">
-            <div className="max-w-3xl mx-auto space-y-6 relative z-10">
+          <div className="rounded-[15px] bg-white p-8 sm:p-12 lg:p-14 text-center relative overflow-hidden">
+            <div className="max-w-3xl mx-auto space-y-5 relative z-10">
               <Badge variant="coral" size="md">
                 Conversación Inicial
               </Badge>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#151A21] leading-[1.15]">
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-[#151A21] leading-[1.15]">
                 Menos caos operativo.{" "}
                 <span className="text-[#2563EB]">
                   Más control para decidir.
                 </span>
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-600 leading-loose max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
                 Contanos cómo funciona hoy tu empresa. Coordinemos una primera conversación de 30 minutos para analizar tus procesos y devolverte una propuesta de ordenamiento sin costo.
               </p>
 

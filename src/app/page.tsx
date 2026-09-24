@@ -4,7 +4,6 @@ import { Footer } from "@/components/layout/Footer";
 import { HomeHero } from "@/components/home/HomeHero";
 import DiagnosticoOperativo from "@/components/DiagnosticoOperativo";
 import { EcosistemaModular } from "@/components/ecosistema-modular";
-import { HomeValue } from "@/components/home/HomeValue";
 import { HomeProcess } from "@/components/home/HomeProcess";
 import { HomeComparison } from "@/components/home/HomeComparison";
 import { HomeTrust } from "@/components/home/HomeTrust";
@@ -99,12 +98,7 @@ export default function HomePage() {
           <EcosistemaModular />
         </LazySection>
 
-        {/* 4. Propuesta / Solución (Criterio de negocio, arquitectura) */}
-        <LazySection>
-          <HomeValue />
-        </LazySection>
-
-        {/* 5. Metodología (3 pasos claros sin métricas inventadas) */}
+        {/* 4. Metodología & Criterio de Negocio: Cómo convertimos tu operación en software */}
         <LazySection>
           <HomeProcess />
         </LazySection>
