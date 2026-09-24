@@ -230,14 +230,17 @@ export default function StatsCommandCenter() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-10 sm:mb-12"
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 mb-3 shadow-2xs">
-            <Shield size={13} className="text-[#2563EB]" />
-            <span>Métricas auditadas en tiempo real</span>
+          {/* Eyebrow Editorial Monospace */}
+          <div className="inline-flex items-center gap-2 mb-3.5 text-slate-500 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+            <span className="font-semibold text-slate-700">Métricas Reales</span>
+            <span className="text-slate-300 hidden sm:inline">&middot;</span>
+            <span className="text-slate-500 hidden sm:inline">Producción Activa</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#151A21] tracking-tight mb-2">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#151A21] tracking-tight leading-tight mb-2.5">
             Números que{" "}
-            <span className="bg-gradient-to-r from-[#2563EB] to-[#E76F73] bg-clip-text text-transparent">
-              respaldan decisiones
+            <span className="bg-gradient-to-r from-[#2563EB] via-indigo-600 to-[#2563EB] bg-clip-text text-transparent">
+              respaldan decisiones.
             </span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">

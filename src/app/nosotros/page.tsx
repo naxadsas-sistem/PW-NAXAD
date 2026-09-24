@@ -75,13 +75,17 @@ export default function NosotrosPage() {
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
           
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-semibold mb-6 shadow-xs">
-              <Target className="w-4 h-4" />
-              Nuestra Metodología de Decisión
+            <div className="inline-flex items-center gap-2 mb-4 text-slate-500 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+              <span className="font-semibold text-slate-700">Principios Operativos</span>
+              <span className="text-slate-300 hidden sm:inline">&middot;</span>
+              <span className="text-slate-500 hidden sm:inline">Criterio de Negocio</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-[#151A21] tracking-tight leading-[1.12] mb-6">
               Principios concretos que aplicamos en <br className="hidden sm:block" />
-              <span className="text-blue-600">cada diagnóstico, desarrollo e implementación.</span>
+              <span className="bg-gradient-to-r from-[#2563EB] via-indigo-600 to-[#2563EB] bg-clip-text text-transparent">
+                cada diagnóstico, desarrollo e implementación.
+              </span>
             </h1>
           </div>
         </section>

@@ -111,14 +111,19 @@ export default function SolucionesPage() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-200/30 rounded-full blur-[100px] pointer-events-none"></div>
           
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-semibold mb-6">
-              <Lightbulb className="w-4 h-4" />
-              Ecosistema Naxad
+            <div className="inline-flex items-center gap-2 mb-4 text-slate-500 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+              <span className="font-semibold text-slate-700">Suite de Soluciones</span>
+              <span className="text-slate-300 hidden sm:inline">&middot;</span>
+              <span className="text-slate-500 hidden sm:inline">Ecosistema NAXAD</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
-              Soluciones tecnológicas para una <span className="text-blue-600">gestión más clara.</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-[#151A21] tracking-tight leading-[1.12] mb-5">
+              Soluciones tecnológicas para una{" "}
+              <span className="bg-gradient-to-r from-[#2563EB] via-indigo-600 to-[#2563EB] bg-clip-text text-transparent">
+                gestión más clara y ordenada.
+              </span>
             </h1>
-            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
               Cada organización tiene una forma propia de trabajar. Combinamos consultoría y tecnología para diseñar soluciones que acompañen la operación, en lugar de obligarla a adaptarse.
             </p>
           </div>

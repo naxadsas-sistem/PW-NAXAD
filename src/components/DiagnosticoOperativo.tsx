@@ -223,7 +223,7 @@ export default function DiagnosticoOperativo() {
   const tieneRespuestas = respuestas.some((r) => r !== null);
 
   return (
-    <section id="diagnostico" className="py-24 sm:py-28 lg:py-32 bg-gradient-to-b from-white to-slate-50/60 relative overflow-hidden border-b border-slate-200">
+    <section id="diagnostico" className="py-20 sm:py-24 lg:py-28 bg-gradient-to-b from-white to-slate-50/60 relative overflow-hidden border-b border-slate-200/80">
       {/* Fondo decorativo sutil */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(231,111,115,0.06),transparent)] pointer-events-none" />
 
@@ -234,17 +234,20 @@ export default function DiagnosticoOperativo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-100 text-xs font-semibold text-red-700 mb-6 shadow-2xs">
-            <AlertTriangle size={14} />
-            <span>Diagnóstico Operativo</span>
+          {/* Eyebrow Editorial Monospace */}
+          <div className="inline-flex items-center gap-2 mb-4 text-slate-500 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em]">
+            <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+            <span className="font-semibold text-slate-700">Diagnóstico Operativo</span>
+            <span className="text-slate-300 hidden sm:inline">&middot;</span>
+            <span className="text-slate-500 hidden sm:inline">Detección de Fricción</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#151A21] tracking-tight mb-4 leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#151A21] tracking-tight leading-[1.15] mb-4">
             Cuando la operación crece,{" "}
-            <span className="bg-gradient-to-r from-[#E76F73] to-red-600 bg-clip-text text-transparent">
-              el caos operativo también escala
+            <span className="bg-gradient-to-r from-[#E76F73] via-rose-600 to-[#E76F73] bg-clip-text text-transparent">
+              el desorden manual también escala.
             </span>
           </h2>
 

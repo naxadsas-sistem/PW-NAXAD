@@ -94,14 +94,16 @@ export default function RubrosShowcase() {
         {/* Header de sección */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-[#2563EB] mb-6"
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 mb-4 text-slate-500 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em]"
           >
-            <Sparkles size={14} />
-            <span>¿Para quién construimos?</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+            <span className="font-semibold text-slate-700">Para Quién Construimos</span>
+            <span className="text-slate-300 hidden sm:inline">&middot;</span>
+            <span className="text-slate-500 hidden sm:inline">Especialización Sectorial</span>
           </motion.div>
 
           <motion.h2
@@ -109,10 +111,10 @@ export default function RubrosShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#151A21] tracking-tight mb-4"
+            className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#151A21] tracking-tight leading-[1.15] mb-4"
           >
             Tres rubros resueltos.{" "}
-            <span className="bg-gradient-to-r from-[#2563EB] to-[#E76F73] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#2563EB] via-indigo-600 to-[#2563EB] bg-clip-text text-transparent">
               Infinitos por venir.
             </span>
           </motion.h2>

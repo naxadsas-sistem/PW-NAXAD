@@ -95,15 +95,18 @@ export default function ContactoPage() {
       <main className="relative z-10 flex-1 pt-32 pb-24">
         <Container>
           {/* Header de Página */}
-          <div className="max-w-3xl mb-14 space-y-4 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 backdrop-blur-md border border-blue-200/80 text-xs font-semibold text-[#2563EB] shadow-xs">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB] animate-pulse" />
-              <span>Canales oficiales de NAXAD</span>
+          <div className="max-w-3xl mb-12 space-y-4 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 text-slate-500 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+              <span className="font-semibold text-slate-700">Contacto Directo</span>
+              <span className="text-slate-300 hidden sm:inline">&middot;</span>
+              <span className="text-slate-500 hidden sm:inline">Buenos Aires, Argentina</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-tight">
-              Hablemos de tu gestión.
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-[#151A21] tracking-tight leading-[1.12]">
+              Hablemos de tu gestión.{" "}
+              <span className="text-slate-500 font-medium">Sin rodeos ni maquetas.</span>
             </h1>
-            <p className="text-base sm:text-lg text-slate-800 leading-relaxed font-normal max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl">
               Contanos sobre tu negocio o el producto del ecosistema que te interesa. Analizamos tu contexto para indicarte si adoptás una solución existente o construimos algo a tu medida.
             </p>
           </div>
