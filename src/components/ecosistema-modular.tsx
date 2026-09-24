@@ -7,7 +7,7 @@ import {
   Maximize2, X, ArrowRight, Check, ShieldCheck, 
   Activity, Calendar, BrainCircuit, PackageSearch, Code2, 
   Terminal, Database, MessageCircle, ExternalLink, PlayCircle,
-  Stethoscope, Clock, CheckCircle2, ChevronRight
+  Stethoscope, Clock, CheckCircle2, ChevronRight, Server, Lock, Cpu
 } from 'lucide-react';
 
 interface Product {
@@ -406,10 +406,212 @@ function SimulationWindow({ type }: { type: string }) {
   );
 }
 
+// --- ESPECIFICACIONES TÉCNICAS Y SEGURIDAD RLS (PESTAÑA EN EL MODAL) ---
+function ArchitectureSpecsWindow({ id }: { id: string }) {
+  if (id === 'dentaldesk') {
+    return (
+      <div className="p-5 sm:p-6 space-y-4 font-mono text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+          <div className="flex items-center gap-2">
+            <Database className="w-4 h-4 text-blue-400" />
+            <span className="text-white font-semibold">PostgreSQL 16 · Supabase Core</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+              RLS Activo (20 Tablas)
+            </span>
+            <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/30">
+              99.9% Uptime SLA
+            </span>
+          </div>
+        </div>
+
+        <div className="rounded-xl bg-slate-950 p-4 border border-slate-800 text-[11px] leading-relaxed overflow-x-auto text-slate-300">
+          <div className="text-slate-500 mb-2">-- Aislamiento estricto multi-clínica en historias clínicas</div>
+          <div><span className="text-violet-400">CREATE POLICY</span> <span className="text-emerald-300">&quot;tenant_isolation_clinical_records&quot;</span></div>
+          <div className="pl-3"><span className="text-slate-400">ON</span> <span className="text-sky-300">public.clinical_records</span></div>
+          <div className="pl-3"><span className="text-violet-400">FOR ALL USING</span> (</div>
+          <div className="pl-6"><span className="text-sky-300">tenant_id</span> <span className="text-violet-400">=</span> (<span className="text-amber-300">auth</span>.<span className="text-amber-300">jwt</span>() -&gt;&gt; <span className="text-emerald-300">&apos;clinic_id&apos;</span>)::<span className="text-blue-300">uuid</span></div>
+          <div className="pl-3">);</div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Cifrado Datos</span>
+            <strong className="text-white text-xs">AES-256 / TLS 1.3</strong>
+          </div>
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Latencia p95</span>
+            <strong className="text-emerald-400 text-xs">&lt; 78ms query</strong>
+          </div>
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">WhatsApp Cloud</span>
+            <strong className="text-white text-xs">Webhooks v19.0</strong>
+          </div>
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Backups</span>
+            <strong className="text-blue-400 text-xs">PITR Continuo</strong>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === 'lautaronutricion') {
+    return (
+      <div className="p-5 sm:p-6 space-y-4 font-mono text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+          <div className="flex items-center gap-2">
+            <Cpu className="w-4 h-4 text-rose-400" />
+            <span className="text-white font-semibold">FastAPI + GPT-4o Multimodal + pgvector</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-rose-500/15 text-rose-400 border border-rose-500/30">
+              Zero Retention Logs
+            </span>
+            <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/30">
+              &lt; 1.4s Inferencia
+            </span>
+          </div>
+        </div>
+
+        <div className="rounded-xl bg-slate-950 p-4 border border-slate-800 text-[11px] leading-relaxed overflow-x-auto text-slate-300">
+          <div className="text-slate-500 mb-2"># Pipeline de clasificación nutricional automatizado</div>
+          <div><span className="text-violet-400">async def</span> <span className="text-sky-300">analyze_dish</span>(image_payload: <span className="text-amber-300">ImageTensor</span>) -&gt; <span className="text-emerald-300">MacroEstimate</span>:</div>
+          <div className="pl-3">embeddings = <span className="text-violet-400">await</span> vector_store.similarity_search(image_payload)</div>
+          <div className="pl-3">validated_macros = nutrition_engine.calibrate(embeddings, argenfoods_db)</div>
+          <div className="pl-3"><span className="text-violet-400">return</span> validated_macros <span className="text-slate-500"># SLA: 98% concordancia clínica</span></div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Modelo Visual</span>
+            <strong className="text-white text-xs">GPT-4o Vision</strong>
+          </div>
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Base Vectorial</span>
+            <strong className="text-rose-400 text-xs">pgvector HNSW</strong>
+          </div>
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Tokens de Sesión</span>
+            <strong className="text-white text-xs">JWT 15m Rotativo</strong>
+          </div>
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Disponibilidad</span>
+            <strong className="text-emerald-400 text-xs">99.9% Uptime</strong>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === 'pharmalyze') {
+    return (
+      <div className="p-5 sm:p-6 space-y-4 font-mono text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+          <div className="flex items-center gap-2">
+            <Server className="w-4 h-4 text-amber-400" />
+            <span className="text-white font-semibold">PostgreSQL 16 + Redis Cache + GiST Index</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30">
+              ANMAT Audit-Ready
+            </span>
+            <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+              FEFO Optimizer
+            </span>
+          </div>
+        </div>
+
+        <div className="rounded-xl bg-slate-950 p-4 border border-slate-800 text-[11px] leading-relaxed overflow-x-auto text-slate-300">
+          <div className="text-slate-500 mb-2">-- Consulta GiST optimizada: lotes críticos &lt; 90 días</div>
+          <div><span className="text-violet-400">SELECT</span> lot_number, exp_date, wholesale_price, discount_pct</div>
+          <div className="pl-3"><span className="text-violet-400">FROM</span> pharmacy_inventory</div>
+          <div className="pl-3"><span className="text-violet-400">WHERE</span> exp_date &lt;= (<span className="text-sky-300">CURRENT_DATE</span> + <span className="text-amber-300">INTERVAL &apos;90 days&apos;</span>)</div>
+          <div className="pl-3"><span className="text-violet-400">ORDER BY</span> exp_date <span className="text-violet-400">ASC</span>, discount_pct <span className="text-violet-400">DESC</span>;</div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Indexación</span>
+            <strong className="text-white text-xs">GiST + B-Tree</strong>
+          </div>
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Latencia Cache</span>
+            <strong className="text-emerald-400 text-xs">&lt; 12ms Redis</strong>
+          </div>
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Integración ERP</span>
+            <strong className="text-white text-xs">EDI / JSON REST</strong>
+          </div>
+          <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span className="text-[10px] uppercase text-slate-400 block mb-1">Trazabilidad</span>
+            <strong className="text-amber-400 text-xs">Log Inmutable</strong>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Sistemas a medida
+  return (
+    <div className="p-5 sm:p-6 space-y-4 font-mono text-xs">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
+        <div className="flex items-center gap-2">
+          <Lock className="w-4 h-4 text-emerald-400" />
+          <span className="text-white font-semibold">Arquitectura Cloud-Native · Propiedad 100% Cliente</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+            Sin Lock-in
+          </span>
+          <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/30">
+            99.9% Uptime SLA
+          </span>
+        </div>
+      </div>
+
+      <div className="rounded-xl bg-slate-950 p-4 border border-slate-800 text-[11px] leading-relaxed overflow-x-auto text-slate-300">
+        <div className="text-slate-500 mb-2"># Pipeline CI/CD con SAST & Despliegue Zero-Downtime</div>
+        <div><span className="text-sky-300">stages</span>: [audit, test, build, deploy_production]</div>
+        <div><span className="text-sky-300">security_scan</span>:</div>
+        <div className="pl-3">run: naxad-security-audit --strict --rls-check</div>
+        <div><span className="text-sky-300">zero_downtime_deploy</span>:</div>
+        <div className="pl-3">strategy: blue-green-traffic-shift</div>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+        <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+          <span className="text-[10px] uppercase text-slate-400 block mb-1">Código Fuente</span>
+          <strong className="text-emerald-400 text-xs">Propiedad Total</strong>
+        </div>
+        <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+          <span className="text-[10px] uppercase text-slate-400 block mb-1">Infraestructura</span>
+          <strong className="text-white text-xs">AWS / GCP Propio</strong>
+        </div>
+        <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+          <span className="text-[10px] uppercase text-slate-400 block mb-1">Monitoreo</span>
+          <strong className="text-white text-xs">24/7 Datadog/Sentry</strong>
+        </div>
+        <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+          <span className="text-[10px] uppercase text-slate-400 block mb-1">Garantía</span>
+          <strong className="text-blue-400 text-xs">SLA Contractual</strong>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // --- COMPONENTE PRINCIPAL DEL ECOSISTEMA ---
 export function EcosistemaModular() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [modalTab, setModalTab] = useState<'simulation' | 'specs'>('simulation');
+
+  const handleOpenProduct = (id: string) => {
+    setSelectedProductId(id);
+    setModalTab('simulation');
+  };
 
   const filteredProducts = activeFilter === 'all' 
     ? products 
@@ -481,7 +683,7 @@ export function EcosistemaModular() {
           {filteredProducts.map((product) => (
             <div 
               key={product.id}
-              onClick={() => setSelectedProductId(product.id)}
+              onClick={() => handleOpenProduct(product.id)}
               className="group cursor-pointer relative bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-slate-200/60 hover:border-blue-400/40"
             >
               {/* Parte Superior: Kicker, Botón Expandir y Título */}
@@ -500,7 +702,7 @@ export function EcosistemaModular() {
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
-                      setSelectedProductId(product.id);
+                      handleOpenProduct(product.id);
                     }}
                     className="p-2 sm:p-2.5 rounded-xl bg-slate-100/80 hover:bg-blue-50 text-slate-500 hover:text-[#2563EB] transition-colors border border-slate-200/60 shadow-2xs shrink-0 cursor-pointer"
                     aria-label={`Ver detalles de ${product.title}`}
@@ -623,12 +825,49 @@ export function EcosistemaModular() {
                 ))}
               </div>
 
-              {/* Simulación Interactiva en Vivo / Mockup Dark Mode de Alta Fidelidad */}
+              {/* Selector de Pestañas: Simulación vs Arquitectura */}
+              <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl mb-4 border border-slate-200/80 w-fit">
+                <button
+                  type="button"
+                  onClick={() => setModalTab('simulation')}
+                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                    modalTab === 'simulation'
+                      ? 'bg-white text-slate-900 shadow-xs border border-slate-200/60'
+                      : 'text-slate-500 hover:text-slate-900'
+                  }`}
+                >
+                  <PlayCircle className={`w-3.5 h-3.5 ${modalTab === 'simulation' ? 'text-blue-600' : 'text-slate-400'}`} />
+                  <span>Simulación en Vivo</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setModalTab('specs')}
+                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                    modalTab === 'specs'
+                      ? 'bg-white text-slate-900 shadow-xs border border-slate-200/60'
+                      : 'text-slate-500 hover:text-slate-900'
+                  }`}
+                >
+                  <Terminal className={`w-3.5 h-3.5 ${modalTab === 'specs' ? 'text-blue-600' : 'text-slate-400'}`} />
+                  <span>Arquitectura & Seguridad RLS</span>
+                </button>
+              </div>
+
+              {/* Contenedor Dark Mode de Alta Fidelidad */}
               <div className="rounded-2xl bg-slate-900 border border-slate-800 shadow-xl overflow-hidden mb-6">
                 <div className="flex items-center justify-between px-4 py-3 bg-slate-800/60 border-b border-slate-700">
                   <div className="flex items-center gap-2">
-                    <PlayCircle className="w-4 h-4 text-blue-400" />
-                    <span className="text-xs font-semibold text-slate-300 uppercase tracking-wide">Simulación Operativa en Vivo</span>
+                    {modalTab === 'simulation' ? (
+                      <>
+                        <PlayCircle className="w-4 h-4 text-blue-400" />
+                        <span className="text-xs font-semibold text-slate-300 uppercase tracking-wide">Simulación Operativa en Vivo</span>
+                      </>
+                    ) : (
+                      <>
+                        <Terminal className="w-4 h-4 text-emerald-400" />
+                        <span className="text-xs font-semibold text-slate-300 uppercase tracking-wide">Especificaciones Técnicas & Auditoría RLS</span>
+                      </>
+                    )}
                   </div>
                   <div className="flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-500/30 border border-red-500/60" />
@@ -636,7 +875,12 @@ export function EcosistemaModular() {
                     <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/30 border border-emerald-500/60" />
                   </div>
                 </div>
-                <SimulationWindow type={selectedProduct.simulationType} />
+
+                {modalTab === 'simulation' ? (
+                  <SimulationWindow type={selectedProduct.simulationType} />
+                ) : (
+                  <ArchitectureSpecsWindow id={selectedProduct.id} />
+                )}
               </div>
 
               {/* Botón inferior discreto para cerrar */}
