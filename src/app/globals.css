@@ -339,23 +339,67 @@ h1, h2, h3, h4, .font-heading {
 .animate-gradient-2 { animation: gradient-2 25s ease-in-out infinite; }
 .animate-gradient-3 { animation: gradient-3 22s ease-in-out infinite; }
 
-/* Animación suave para la cinta 3D Stripe */
-@keyframes aurora-ribbon {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+/* Animación de flujo continuo ascendente para la cinta 3D NAXAD */
+@keyframes ribbon-upward-flow {
+  0% {
+    transform: translate3d(0, 24px, 0) scale(0.99) rotate(0deg);
   }
-  33% {
-    transform: translate3d(8px, -12px, 0) scale(1.015) rotate(0.4deg);
+  50% {
+    transform: translate3d(-8px, -18px, 0) scale(1.015) rotate(0.4deg);
   }
-  66% {
-    transform: translate3d(-6px, 10px, 0) scale(0.99) rotate(-0.3deg);
+  100% {
+    transform: translate3d(0, 24px, 0) scale(0.99) rotate(0deg);
   }
 }
 
-.animate-aurora-ribbon {
-  animation: aurora-ribbon 16s ease-in-out infinite;
+.animate-ribbon-upward {
+  animation: ribbon-upward-flow 18s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   will-change: transform;
 }
+
+/* Haz de luz ascendente que viaja por la cinta creando el efecto de corriente continua */
+@keyframes light-stream-upward {
+  0% {
+    transform: translate3d(30%, 80%, 0) rotate(-28deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate3d(-30%, -80%, 0) rotate(-28deg);
+    opacity: 0;
+  }
+}
+
+.animate-stream-upward {
+  animation: light-stream-upward 8.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Pulso ascendente que viaja por las aristas de curvatura */
+@keyframes pulse-stroke-up {
+  0% {
+    stroke-dashoffset: 800;
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.65;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.15;
+  }
+}
+
+.animate-stroke-up {
+  stroke-dasharray: 400 400;
+  animation: pulse-stroke-up 9s linear infinite;
+}
+
 
 
 
