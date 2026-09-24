@@ -9,14 +9,14 @@ import {
   Cpu, 
   Users, 
   TrendingUp, 
-  Quote, 
   MapPin, 
   GraduationCap,
   Handshake,
   Target,
   Calendar,
   ArrowRight,
-  MessageCircle
+  MessageCircle,
+  CheckCircle2
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -28,123 +28,147 @@ export const metadata: Metadata = {
 const principles = [
   {
     number: "01",
+    tag: "01 · DIAGNÓSTICO",
     title: "Decidimos con datos, no con suposiciones",
-    description: "Antes de proponer, relevamos. Cada recomendación se apoya en cómo opera hoy tu empresa.",
+    description: "Antes de proponer o presupuestar software, relevamos cómo opera hoy tu empresa en la práctica. Cada recomendación técnica se apoya en flujos reales, no en teorías de desarrollo.",
+    rule: "Cero líneas de código sin relevar los procesos reales primero.",
     icon: BarChart3,
-    size: "md:col-span-2 md:row-span-2", // Tarjeta grande destacada
+    span: "md:col-span-3", // Fila superior (1 de 2)
   },
   {
     number: "02",
-    title: "Vemos la empresa completa",
-    description: "Un problema de caja suele empezar en ventas o en compras. Buscamos el origen, no el síntoma.",
+    tag: "02 · VISIÓN INTEGRAL",
+    title: "Vemos la empresa como un sistema completo",
+    description: "Un problema de caja suele originarse en un desfasaje de stock en depósito o en ventas mal registradas. Buscamos siempre la causa raíz del cuello de botella, no un parche superficial.",
+    rule: "Trazabilidad de punta a punta entre áreas operativas.",
     icon: Globe,
-    size: "md:col-span-1 md:row-span-1", // Tarjeta superior derecha
+    span: "md:col-span-3", // Fila superior (2 de 2)
   },
   {
     number: "03",
+    tag: "03 · TECNOLOGÍA PRAGMÁTICA",
     title: "Usamos la tecnología que el problema necesita",
-    description: "Inteligencia artificial y automatización cuando suman. Soluciones simples cuando alcanzan.",
+    description: "Inteligencia artificial y modelos multimodales cuando aportan una ventaja competitiva real. Automatizaciones y bases de datos relacionales simples cuando alcanzan. Cero modas innecesarias.",
+    rule: "Soberanía técnica: código 100% propio sin licencias por usuario.",
     icon: Cpu,
-    size: "md:col-span-1 md:row-span-1", // Tarjeta media derecha
+    span: "md:col-span-2", // Fila inferior (1 de 3)
   },
   {
     number: "04",
+    tag: "04 · ADOPCIÓN HUMANA",
     title: "Diseñamos para quien usa el sistema",
-    description: "Si tu equipo no lo adopta, no sirve. Por eso lo construimos con ellos.",
+    description: "Si tu equipo rechaza el software o le resulta engorroso en el día a día, la inversión no sirve de nada. Por eso involucramos a los operadores reales desde el primer prototipo.",
+    rule: "Capacitación personalizada y 90%+ de adopción asegurada.",
     icon: Users,
-    size: "md:col-span-1 md:row-span-1", // Tarjeta inferior izquierda
+    span: "md:col-span-2", // Fila inferior (2 de 3)
   },
   {
     number: "05",
-    title: "Medimos el antes y el después",
-    description: "Cada proyecto define qué tiene que mejorar: horas, errores, cobros o stock.",
+    tag: "05 · RETORNO MEDIBLE",
+    title: "Medimos el impacto antes y después",
+    description: "Cada proyecto define indicadores objetivos de éxito desde el día cero: horas semanales ahorradas en carga manual, reducción de errores de stock o cobros conciliados a tiempo.",
+    rule: "Métricas operativas claras que justifican la inversión.",
     icon: TrendingUp,
-    size: "md:col-span-2 md:row-span-1", // Tarjeta ancha inferior derecha
+    span: "md:col-span-2", // Fila inferior (3 de 3)
   },
 ];
 
 export default function NosotrosPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-[#151A21]">
+    <div className="flex min-h-screen flex-col bg-slate-50/70 text-[#151A21]">
       <Navbar />
 
       <main className="flex-1">
-        {/* 1. HERO SECTION */}
-        <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px]"></div>
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-          
+        {/* 1. HERO SECTION: ORDENADO, DIRECTIVO Y CON ESCALA CONSISTENTE */}
+        <section className="relative pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 overflow-hidden bg-white border-b border-slate-200/80">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+            {/* Kicker Editorial Monospace */}
             <div className="inline-flex items-center gap-2 mb-4 text-slate-500 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
               <span className="font-semibold text-slate-700">Principios Operativos</span>
               <span className="text-slate-300 hidden sm:inline">&middot;</span>
-              <span className="text-slate-500 hidden sm:inline">Criterio de Negocio</span>
+              <span className="text-slate-500 hidden sm:inline">Criterio de Decisión</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-[#151A21] tracking-tight leading-[1.12] mb-6">
-              Principios concretos que aplicamos en <br className="hidden sm:block" />
+
+            {/* Titular H1 Proporcional y Equilibrado */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-bold text-[#151A21] tracking-tight leading-[1.14] mb-5">
+              Principios concretos que aplicamos en{" "}
+              <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-[#2563EB] via-indigo-600 to-[#2563EB] bg-clip-text text-transparent">
                 cada diagnóstico, desarrollo e implementación.
               </span>
             </h1>
+
+            {/* Subtítulo Claro */}
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
+              No construimos software para acumular funciones. Diseñamos con un criterio estricto de administración de empresas para resolver cuellos de botella operativos reales.
+            </p>
           </div>
         </section>
 
-        {/* 2. BENTO GRID DE PRINCIPIOS */}
-        <section className="pb-24 lg:pb-32">
+        {/* 2. GRID DISCIPLINADO DE PRINCIPIOS (2 + 3 SIMÉTRICO Y ORDENADO) */}
+        <section className="py-16 sm:py-20 lg:py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 auto-rows-[minmax(180px,auto)]">
+            
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
               {principles.map((principle) => {
                 const Icon = principle.icon;
                 return (
                   <div
                     key={principle.number}
-                    className={`group relative bg-white rounded-2xl border border-slate-200 p-6 lg:p-8 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-slate-200/50 hover:border-blue-500/30 flex flex-col justify-between ${principle.size}`}
+                    className={`bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 lg:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:shadow-slate-200/50 hover:border-blue-400/40 ${principle.span}`}
                   >
-                    {/* Número gigante de fondo estilo editorial / Linear */}
-                    <div className="absolute -right-4 -bottom-8 text-[120px] lg:text-[160px] font-bold text-slate-100/50 leading-none select-none pointer-events-none group-hover:text-blue-500/10 transition-colors duration-500">
-                      {principle.number}
+                    <div>
+                      {/* Header de la tarjeta */}
+                      <div className="flex items-center justify-between gap-3 mb-4">
+                        <span className="text-[11px] font-mono font-semibold text-[#2563EB] bg-blue-50/80 px-2.5 py-1 rounded-md border border-blue-100/80">
+                          {principle.tag}
+                        </span>
+                        <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200/70 text-slate-600 flex items-center justify-center shrink-0">
+                          <Icon className="w-4 h-4 text-[#2563EB]" />
+                        </div>
+                      </div>
+
+                      {/* Título del Principio */}
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug mb-2.5">
+                        {principle.title}
+                      </h3>
+
+                      {/* Descripción */}
+                      <p className="text-sm text-slate-600 leading-relaxed mb-5">
+                        {principle.description}
+                      </p>
                     </div>
 
-                    {/* Contenido */}
-                    <div className="relative z-10 h-full flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center justify-between mb-4">
-                          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
-                            Principio {principle.number}
-                          </span>
-                          <div className="p-2.5 rounded-xl bg-slate-100 text-slate-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-xs">
-                            <Icon className="w-5 h-5" />
-                          </div>
-                        </div>
-                        <h3 className="text-xl lg:text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
-                          {principle.title}
-                        </h3>
-                        <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                          {principle.description}
-                        </p>
-                      </div>
+                    {/* Regla operativa en el footer */}
+                    <div className="pt-3.5 border-t border-slate-100 flex items-center gap-2 text-xs text-slate-600 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                      <span>{principle.rule}</span>
                     </div>
                   </div>
                 );
               })}
             </div>
+
           </div>
         </section>
 
         {/* 3. SECCIÓN FUNDADOR: EDITORIAL DE ALTA GAMA */}
-        <section className="py-16 sm:py-20 bg-slate-50/50 text-[#151A21] border-t border-b border-slate-200/80 relative">
+        <section className="py-16 sm:py-20 bg-white text-[#151A21] border-t border-slate-200/80 relative">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <div className="bg-white border border-slate-200/80 rounded-2xl sm:rounded-3xl p-7 sm:p-10 lg:p-12 shadow-[0_2px_16px_-4px_rgba(15,23,42,0.04)] relative">
+            <div className="bg-slate-50/60 border border-slate-200/90 rounded-2xl sm:rounded-3xl p-7 sm:p-10 lg:p-12 shadow-xs relative">
               {/* Header Editorial / Kicker */}
-              <div className="flex items-center justify-between gap-4 mb-7 pb-5 border-b border-slate-100">
+              <div className="flex items-center justify-between gap-4 mb-7 pb-5 border-b border-slate-200/70">
                 <div className="flex items-center gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
                   <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-slate-500 font-semibold">
                     Criterio de Dirección &middot; Fundador
                   </span>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <div className="flex items-center gap-1.5 text-xs text-slate-500 font-mono">
                   <MapPin className="w-3.5 h-3.5 text-slate-400" />
                   <span>Buenos Aires, Argentina</span>
                 </div>
@@ -162,10 +186,10 @@ export default function NosotrosPage() {
               </div>
 
               {/* Perfil del Fundador y Principios de Valor */}
-              <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="mt-8 pt-6 border-t border-slate-200/70 flex flex-col md:flex-row md:items-center justify-between gap-6">
                 {/* Identidad Gabriel */}
                 <div className="flex items-center gap-3.5">
-                  <div className="w-11 h-11 rounded-full bg-[#151A21] text-white flex items-center justify-center text-xs font-mono font-bold tracking-tight shrink-0 shadow-xs ring-4 ring-slate-100">
+                  <div className="w-11 h-11 rounded-full bg-[#151A21] text-white flex items-center justify-center text-xs font-mono font-bold tracking-tight shrink-0 shadow-xs ring-4 ring-white">
                     GZ
                   </div>
                   <div>
@@ -183,7 +207,7 @@ export default function NosotrosPage() {
 
                 {/* Pilares Clave Integrados */}
                 <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 text-xs text-slate-600">
-                  <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-50/90 border border-slate-200/80">
+                  <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-slate-200/80">
                     <Handshake className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
                     <div>
                       <span className="font-semibold text-[#151A21]">Acompañamiento directo</span>
@@ -191,7 +215,7 @@ export default function NosotrosPage() {
                       <span className="text-slate-500">Sin intermediarios</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-50/90 border border-slate-200/80">
+                  <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-slate-200/80">
                     <Target className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
                     <div>
                       <span className="font-semibold text-[#151A21]">Rentabilidad</span>
@@ -203,7 +227,7 @@ export default function NosotrosPage() {
               </div>
 
               {/* Llamada a la Acción de Conversión */}
-              <div className="mt-8 pt-7 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+              <div className="mt-8 pt-7 border-t border-slate-200/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
                 <div>
                   <h4 className="text-sm sm:text-base font-bold text-[#151A21] tracking-tight">
                     ¿Hablamos de la gestión de tu empresa?
