@@ -49,21 +49,27 @@ h1, h2, h3, h4, .font-heading {
   font-variant-numeric: tabular-nums;
 }
 
-/* Animación de entrada premium (Fade In + Slide Up) */
+/* Animación de entrada en cascada premium (Fade In + Slide Up) */
 @keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(16px) scale(0.98);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0; /* Comienza invisible */
 }
+
+/* Escalonamiento para efecto cascada */
+.delay-75 { animation-delay: 75ms; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-225 { animation-delay: 225ms; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
 
 /* Animación suave para los elementos internos que aparecen en cascada */
 @keyframes fade-in {
@@ -73,22 +79,6 @@ h1, h2, h3, h4, .font-heading {
 .animate-fade-in {
   animation: fade-in 0.6s ease-out 0.2s forwards; /* 0.2s de retraso para efecto cascada */
   opacity: 0; /* Comienza invisible */
-}
-
-.delay-75 {
-  animation-delay: 75ms;
-}
-
-.delay-150 {
-  animation-delay: 150ms;
-}
-
-.delay-225 {
-  animation-delay: 225ms;
-}
-
-.delay-300 {
-  animation-delay: 300ms;
 }
 
 .bg-dot-grid {

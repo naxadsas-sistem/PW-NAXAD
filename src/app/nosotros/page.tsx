@@ -3,12 +3,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { PrincipiosCascada } from "@/components/principios-cascada";
 import { 
-  BarChart3, 
-  Globe, 
-  Cpu, 
-  Users, 
-  TrendingUp, 
   MapPin, 
   GraduationCap,
   Handshake,
@@ -16,7 +12,6 @@ import {
   Calendar,
   ArrowRight,
   MessageCircle,
-  CheckCircle2
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -25,136 +20,14 @@ export const metadata: Metadata = {
     "Principios concretos que aplicamos en cada diagnóstico, desarrollo e implementación. Equipo de Consultoría y Desarrollo de NAXAD.",
 };
 
-const principles = [
-  {
-    number: "01",
-    tag: "01 · DIAGNÓSTICO",
-    title: "Decidimos con datos, no con suposiciones",
-    description: "Antes de proponer o presupuestar software, relevamos cómo opera hoy tu empresa en la práctica. Cada recomendación técnica se apoya en flujos reales, no en teorías de desarrollo.",
-    rule: "Cero líneas de código sin relevar los procesos reales primero.",
-    icon: BarChart3,
-    span: "md:col-span-3", // Fila superior (1 de 2)
-  },
-  {
-    number: "02",
-    tag: "02 · VISIÓN INTEGRAL",
-    title: "Vemos la empresa como un sistema completo",
-    description: "Un problema de caja suele originarse en un desfasaje de stock en depósito o en ventas mal registradas. Buscamos siempre la causa raíz del cuello de botella, no un parche superficial.",
-    rule: "Trazabilidad de punta a punta entre áreas operativas.",
-    icon: Globe,
-    span: "md:col-span-3", // Fila superior (2 de 2)
-  },
-  {
-    number: "03",
-    tag: "03 · TECNOLOGÍA PRAGMÁTICA",
-    title: "Usamos la tecnología que el problema necesita",
-    description: "Inteligencia artificial y modelos multimodales cuando aportan una ventaja competitiva real. Automatizaciones y bases de datos relacionales simples cuando alcanzan. Cero modas innecesarias.",
-    rule: "Soberanía técnica: código 100% propio sin licencias por usuario.",
-    icon: Cpu,
-    span: "md:col-span-2", // Fila inferior (1 de 3)
-  },
-  {
-    number: "04",
-    tag: "04 · ADOPCIÓN HUMANA",
-    title: "Diseñamos para quien usa el sistema",
-    description: "Si tu equipo rechaza el software o le resulta engorroso en el día a día, la inversión no sirve de nada. Por eso involucramos a los operadores reales desde el primer prototipo.",
-    rule: "Capacitación personalizada y 90%+ de adopción asegurada.",
-    icon: Users,
-    span: "md:col-span-2", // Fila inferior (2 de 3)
-  },
-  {
-    number: "05",
-    tag: "05 · RETORNO MEDIBLE",
-    title: "Medimos el impacto antes y después",
-    description: "Cada proyecto define indicadores objetivos de éxito desde el día cero: horas semanales ahorradas en carga manual, reducción de errores de stock o cobros conciliados a tiempo.",
-    rule: "Métricas operativas claras que justifican la inversión.",
-    icon: TrendingUp,
-    span: "md:col-span-2", // Fila inferior (3 de 3)
-  },
-];
-
 export default function NosotrosPage() {
   return (
     <div className="flex min-h-screen flex-col bg-slate-50/70 text-[#151A21]">
       <Navbar />
 
       <main className="flex-1">
-        {/* 1. HERO SECTION: ORDENADO, DIRECTIVO Y CON ESCALA CONSISTENTE */}
-        <section className="relative pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 overflow-hidden bg-white border-b border-slate-200/80">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
-            {/* Kicker Editorial Monospace */}
-            <div className="inline-flex items-center gap-2 mb-4 text-slate-500 font-mono text-[11px] sm:text-xs uppercase tracking-[0.18em]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
-              <span className="font-semibold text-slate-700">Principios Operativos</span>
-              <span className="text-slate-300 hidden sm:inline">&middot;</span>
-              <span className="text-slate-500 hidden sm:inline">Criterio de Decisión</span>
-            </div>
-
-            {/* Titular H1 Proporcional y Equilibrado */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-bold text-[#151A21] tracking-tight leading-[1.14] mb-5">
-              Principios concretos que aplicamos en{" "}
-              <br className="hidden sm:inline" />
-              <span className="bg-gradient-to-r from-[#2563EB] via-indigo-600 to-[#2563EB] bg-clip-text text-transparent">
-                cada diagnóstico, desarrollo e implementación.
-              </span>
-            </h1>
-
-            {/* Subtítulo Claro */}
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
-              No construimos software para acumular funciones. Diseñamos con un criterio estricto de administración de empresas para resolver cuellos de botella operativos reales.
-            </p>
-          </div>
-        </section>
-
-        {/* 2. GRID DISCIPLINADO DE PRINCIPIOS (2 + 3 SIMÉTRICO Y ORDENADO) */}
-        <section className="py-16 sm:py-20 lg:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            
-            <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
-              {principles.map((principle) => {
-                const Icon = principle.icon;
-                return (
-                  <div
-                    key={principle.number}
-                    className={`bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 lg:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:shadow-slate-200/50 hover:border-blue-400/40 ${principle.span}`}
-                  >
-                    <div>
-                      {/* Header de la tarjeta */}
-                      <div className="flex items-center justify-between gap-3 mb-4">
-                        <span className="text-[11px] font-mono font-semibold text-[#2563EB] bg-blue-50/80 px-2.5 py-1 rounded-md border border-blue-100/80">
-                          {principle.tag}
-                        </span>
-                        <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200/70 text-slate-600 flex items-center justify-center shrink-0">
-                          <Icon className="w-4 h-4 text-[#2563EB]" />
-                        </div>
-                      </div>
-
-                      {/* Título del Principio */}
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug mb-2.5">
-                        {principle.title}
-                      </h3>
-
-                      {/* Descripción */}
-                      <p className="text-sm text-slate-600 leading-relaxed mb-5">
-                        {principle.description}
-                      </p>
-                    </div>
-
-                    {/* Regla operativa en el footer */}
-                    <div className="pt-3.5 border-t border-slate-100 flex items-center gap-2 text-xs text-slate-600 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>{principle.rule}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-          </div>
-        </section>
+        {/* 1 & 2. CASCADA DE PRINCIPIOS OPERATIVOS */}
+        <PrincipiosCascada />
 
         {/* 3. SECCIÓN INSTITUCIONAL: FILOSOFÍA DE DIRECCIÓN OPERATIVA */}
         <section className="py-16 sm:py-20 bg-white text-[#151A21] border-t border-slate-200/80 relative">
