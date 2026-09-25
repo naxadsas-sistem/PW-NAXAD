@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PrincipiosCascada } from "@/components/principios-cascada";
+import { CascadaContenido } from "@/components/cascada-contenido";
 import { 
   MapPin, 
   GraduationCap,
@@ -26,8 +27,11 @@ export default function NosotrosPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* 1 & 2. CASCADA DE PRINCIPIOS OPERATIVOS */}
+        {/* 1. PRINCIPIOS OPERATIVOS */}
         <PrincipiosCascada />
+
+        {/* 2. CASCADA DE CONTENIDO Y CASOS DE ÉXITO (ESTILO STRIPE) */}
+        <CascadaContenido />
 
         {/* 3. SECCIÓN INSTITUCIONAL: FILOSOFÍA DE DIRECCIÓN OPERATIVA */}
         <section className="py-16 sm:py-20 bg-white text-[#151A21] border-t border-slate-200/80 relative">
