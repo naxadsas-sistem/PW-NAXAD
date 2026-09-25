@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "NAXAD",
   legalName: "NAXAD",
-  founder: "Gabriel Zambrano",
+  team: "Equipo de Consultoría & Desarrollo NAXAD",
   location: "Buenos Aires, Argentina",
   descriptor: "Consultoría tecnológica y gestión",
   tagline: "Sistemas y consultoría para una gestión más eficiente.",

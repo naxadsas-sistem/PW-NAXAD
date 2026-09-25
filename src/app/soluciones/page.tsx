@@ -244,7 +244,7 @@ export default function SolucionesPage() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a 
-                href="https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20gustar%C3%ADa%20conversar%20sobre%20las%20soluciones%20tecnol%C3%B3gicas%20de%20NAXAD."
+                href="https://wa.me/5491136248967?text=Hola%20equipo%20de%20NAXAD!%20Me%20gustar%C3%ADa%20conversar%20sobre%20las%20soluciones%20tecnol%C3%B3gicas%20de%20NAXAD."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto bg-white border border-slate-200/90 text-[#151A21] px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-2xs inline-flex items-center justify-center gap-2"

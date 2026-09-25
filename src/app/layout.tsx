@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "inteligencia de stock farmacias pharmalyze",
     "consultoria gestion buenos aires",
   ],
-  authors: [{ name: "NAXAD · Gabriel Zambrano" }],
+  authors: [{ name: "Equipo de Consultoría & Desarrollo NAXAD" }],
   openGraph: {
     title: "NAXAD — SaaS propios y sistemas a medida",
     description:

@@ -76,10 +76,10 @@ export async function registrarMovimientoStock(lote: {
       subtitle: "Implementación asistida en tu equipo",
       duration: "Continuo",
       desc: "El éxito de un sistema no es terminarlo, sino que tu equipo lo use todos los días con naturalidad. Capacitamos a cada persona, medimos el uso real y brindamos soporte directo por WhatsApp sin tickets burocráticos.",
-      deliverable: "Equipo capacitado, adopción real y soporte directo del consultor.",
+      deliverable: "Equipo capacitado, adopción real y soporte técnico dedicado.",
       codePreview: `// 03-acompanamiento-activo.ts
 export const soporteEcosistemaNaxad = {
-  canalDirecto: "WhatsApp oficial + reuniones con Gabriel Zambrano",
+  canalDirecto: "WhatsApp corporativo + sesiones con el equipo de ingeniería",
   soporte: "Post-lanzamiento activo en Buenos Aires",
   adopcionPromedio: "90%+ en los primeros 30 días",
   garantia: "SLA de disponibilidad 99.9% e infraestructura escalable",

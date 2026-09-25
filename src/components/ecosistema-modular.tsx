@@ -46,7 +46,7 @@ const products: Product[] = [
     ctaPrimary: 'Pedir demo clínica',
     ctaPrimaryHref: '/contacto?solucion=dentaldesk&interes=dentaldesk',
     ctaSecondary: 'Consultar detalles por WhatsApp',
-    ctaSecondaryHref: 'https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20interesa%20conocer%20DentalDesk%20para%20mi%20cl%C3%ADnica%20u%20odontolog%C3%ADa.',
+    ctaSecondaryHref: 'https://wa.me/5491136248967?text=Hola%20equipo%20de%20NAXAD!%20Me%20interesa%20conocer%20DentalDesk%20para%20mi%20cl%C3%ADnica%20u%20odontolog%C3%ADa.',
     benefits: [
       'Agenda médica visual con sincronización de sillones y profesionales en tiempo real.',
       'Recordatorios y confirmaciones automáticas de citas vía WhatsApp oficial.',
@@ -70,7 +70,7 @@ const products: Product[] = [
     ctaPrimary: 'Pedir desarrollo con IA',
     ctaPrimaryHref: '/contacto?solucion=lautaronutricion&interes=lautaronutricion',
     ctaSecondary: 'Ver caso clínico por WhatsApp',
-    ctaSecondaryHref: 'https://wa.me/5491136248967?text=Hola%20Gabriel!%20Vi%20el%20caso%20de%20LautaroNutrici%C3%B3n%20y%20quiero%20consultar%20por%20un%20sistema%20similar.',
+    ctaSecondaryHref: 'https://wa.me/5491136248967?text=Hola%20equipo%20de%20NAXAD!%20Vi%20el%20caso%20de%20LautaroNutrici%C3%B3n%20y%20quiero%20consultar%20por%20un%20sistema%20similar.',
     benefits: [
       'Reconocimiento fotográfico de alimentos y cálculo instantáneo de calorías y macros.',
       'Alertas predictivas para evitar el abandono de pacientes entre consultas.',
@@ -94,7 +94,7 @@ const products: Product[] = [
     ctaPrimary: 'Sumarse al piloto en CABA',
     ctaPrimaryHref: '/contacto?solucion=pharmalyze&interes=pharmalyze',
     ctaSecondary: 'Consultar integración con POS',
-    ctaSecondaryHref: 'https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20interesa%20sumarme%20al%20piloto%20de%20Pharmalyze%20AI.',
+    ctaSecondaryHref: 'https://wa.me/5491136248967?text=Hola%20equipo%20de%20NAXAD!%20Me%20interesa%20sumarme%20al%20piloto%20de%20Pharmalyze%20AI.',
     benefits: [
       'Monitor de vencimientos por lote FEFO con alertas preventivas automatizadas.',
       'Comparador algorítmico de precios y bonificaciones entre múltiples droguerías.',
@@ -117,8 +117,8 @@ const products: Product[] = [
     simulationType: 'code',
     ctaPrimary: 'Cotizar arquitectura a medida',
     ctaPrimaryHref: '/contacto?solucion=desarrollo&interes=amedida',
-    ctaSecondary: 'Hablar con Gabriel Zambrano',
-    ctaSecondaryHref: 'https://wa.me/5491136248967?text=Hola%20Gabriel!%20Quiero%20cotizar%20un%20sistema%20a%20medida%20para%20mi%20empresa.',
+    ctaSecondary: 'Hablar con el equipo de ingeniería',
+    ctaSecondaryHref: 'https://wa.me/5491136248967?text=Hola%20equipo%20de%20NAXAD!%20Quiero%20cotizar%20un%20sistema%20a%20medida%20para%20mi%20empresa.',
     benefits: [
       'Software 100% de tu propiedad: tu empresa es dueña del código y de sus bases de datos.',
       'Políticas de aislamiento Row Level Security (RLS) auditadas a nivel de base de datos.',

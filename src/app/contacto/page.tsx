@@ -134,7 +134,7 @@ export default function ContactoPage() {
                         Consulta recibida correctamente
                       </h2>
                       <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                        Gracias por ponerte en contacto. Gabriel Zambrano revisará tu consulta personalmente y te responderemos en menos de 24 horas hábiles.
+                        Gracias por ponerte en contacto. Nuestro equipo técnico y de operaciones evaluará tu caso y te responderemos en menos de 24 horas hábiles.
                       </p>
                     </div>
                     <div className="pt-2">

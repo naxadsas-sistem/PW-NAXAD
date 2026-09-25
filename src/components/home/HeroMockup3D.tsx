@@ -347,7 +347,7 @@ export function HeroMockup3D() {
                         <div className="grid grid-cols-12 px-3 py-2.5 items-center bg-blue-50/30">
                           <span className="col-span-3 text-[#151A21] font-semibold">10:15 · Florencia Díaz</span>
                           <span className="col-span-4 text-slate-600">Limpieza + Diagnóstico 3D</span>
-                          <span className="col-span-3 text-slate-600">Dr. G. Zambrano</span>
+                          <span className="col-span-3 text-slate-600">Dr. M. Rossi</span>
                           <span className="col-span-2 text-right">
                             <span className="px-2 py-0.5 rounded-full text-[10px] bg-blue-50 text-[#2563EB] font-semibold animate-pulse">
                               En Box 2

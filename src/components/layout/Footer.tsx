@@ -100,7 +100,7 @@ export function Footer() {
         {/* Bottom Legal & Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            © {currentYear} NAXAD. Fundada por Gabriel Zambrano. Todos los derechos reservados.
+            © {currentYear} NAXAD. Sistemas de gestión y consultoría tecnológica. Todos los derechos reservados.
           </div>
           <div className="flex items-center gap-6">
             <span className="font-mono text-[11px] text-slate-500">

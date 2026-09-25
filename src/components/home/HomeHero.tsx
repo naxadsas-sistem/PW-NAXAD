@@ -49,7 +49,7 @@ export function HomeHero() {
             </a>
             
             <a 
-              href="https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20gustar%C3%ADa%20hablar%20con%20un%20especialista%20de%20NAXAD."
+              href="https://wa.me/5491136248967?text=Hola%20equipo%20de%20NAXAD!%20Me%20gustar%C3%ADa%20hablar%20con%20un%20especialista."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-white/90 text-[#151A21] border border-slate-200/90 px-5 py-3.5 rounded-xl text-sm sm:text-base font-medium hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-2xs backdrop-blur-xs cursor-pointer"

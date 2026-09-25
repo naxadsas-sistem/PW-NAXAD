@@ -91,7 +91,7 @@ export const BENTO_PRODUCTS: BentoProduct[] = [
     architectureHighlight: "Arquitectura multi-tenant nativa en PostgreSQL con políticas RLS auditadas para secreto médico.",
     ctaText: "Quiero esto para mi clínica",
     ctaHref: "/contacto?solucion=dentaldesk",
-    whatsappMessage: "Hola Gabriel! Me interesa conocer DentalDesk para mi consultorio o clínica odontológica.",
+    whatsappMessage: "Hola equipo de NAXAD! Me interesa conocer DentalDesk para mi consultorio o clínica odontológica.",
   },
   {
     id: "lautaronutricion",
@@ -124,7 +124,7 @@ export const BENTO_PRODUCTS: BentoProduct[] = [
     architectureHighlight: "Pipeline de análisis multimodal con IA integrado directamente a la ficha clínica del paciente.",
     ctaText: "Ver caso de estudio y pedir demo",
     ctaHref: "/contacto?solucion=lautaronutricion",
-    whatsappMessage: "Hola Gabriel! Vi el caso de LautaroNutrición y quiero consultar por un sistema a medida con IA para mi especialidad.",
+    whatsappMessage: "Hola equipo de NAXAD! Vi el caso de LautaroNutrición y quiero consultar por un sistema a medida con IA para mi especialidad.",
   },
   {
     id: "pharmalyze",
@@ -168,7 +168,7 @@ export const BENTO_PRODUCTS: BentoProduct[] = [
     architectureHighlight: "Motor de análisis de stock con sincronización continua y conector local para puntos de venta.",
     ctaText: "Sumarme al piloto de farmacias",
     ctaHref: "/contacto?solucion=pharmalyze",
-    whatsappMessage: "Hola Gabriel! Me interesa sumarme al piloto de Pharmalyze AI para farmacias.",
+    whatsappMessage: "Hola equipo de NAXAD! Me interesa sumarme al piloto de Pharmalyze AI para farmacias.",
   },
   {
     id: "desarrollo-medida",
@@ -198,7 +198,7 @@ export const BENTO_PRODUCTS: BentoProduct[] = [
     architectureHighlight: "Arquitectura moderna orientada a eventos, escalable y sin ataduras a licencias mensuales prohibitivas.",
     ctaText: "Cotizar mi sistema a medida",
     ctaHref: "/contacto?solucion=desarrollo",
-    whatsappMessage: "Hola Gabriel! Quiero consultar por el desarrollo de un sistema a medida para mi empresa.",
+    whatsappMessage: "Hola equipo de NAXAD! Quiero consultar por el desarrollo de un sistema a medida para mi empresa.",
   },
   {
     id: "automatizaciones",
@@ -228,24 +228,24 @@ export const BENTO_PRODUCTS: BentoProduct[] = [
     architectureHighlight: "Capa de orquestación segura con reintentos automáticos y auditoría de eventos de integración.",
     ctaText: "Automatizar mis procesos",
     ctaHref: "/contacto?solucion=automatizacion",
-    whatsappMessage: "Hola Gabriel! Quiero consultar cómo conectar y automatizar los procesos y sistemas de mi negocio.",
+    whatsappMessage: "Hola equipo de NAXAD! Quiero consultar cómo conectar y automatizar los procesos y sistemas de mi negocio.",
   },
   {
     id: "consultoria",
     name: "Consultoría y Diagnóstico",
     category: "infra",
-    badge: "1-a-1 Directo",
+    badge: "Equipo Técnico",
     badgeColor: "bg-slate-100 text-slate-800 border-slate-300",
-    status: "Con Gabriel Zambrano",
+    status: "Sesión Estratégica con el Equipo",
     statusType: "production",
-    headline: "Diagnóstico operativo y consultoría tecnológica directa con el fundador",
-    shortDesc: "Sin intermediarios ni comerciales de ventas. Evaluamos dónde están las fugas de tiempo y qué tecnología realmente conviene sumar.",
+    headline: "Diagnóstico operativo y consultoría técnica con el equipo de NAXAD",
+    shortDesc: "Sin intermediarios comerciales ni vendedores. Nuestro equipo de arquitectura evalúa dónde están las fugas de tiempo y qué tecnología realmente conviene sumar.",
     fullDesc: "Antes de gastar un solo peso en programar software, es fundamental entender si el problema es de procesos, de capacitación o de herramientas. Realizamos una auditoría exhaustiva de tus flujos de trabajo cotidianos y te presentamos un plan de acción concreto y honesto.",
     urlMock: "naxad.com/diagnostico · Buenos Aires",
     icon: Compass,
     techStack: ["Auditoría de Procesos", "Evaluación de ROI", "Arquitectura de Software", "Capacitación Operativa"],
     metrics: [
-      { label: "Atención", value: "Directa 1-a-1" },
+      { label: "Atención", value: "Equipo Directo" },
       { label: "Claridad de diagnóstico", value: "48 hs" },
       { label: "Compromiso de honestidad", value: "100%" },
     ],
@@ -258,7 +258,7 @@ export const BENTO_PRODUCTS: BentoProduct[] = [
     architectureHighlight: "Criterio de ingeniería aplicado a la rentabilidad y eficiencia real de la pequeña y mediana empresa.",
     ctaText: "Agendar conversación de 20 min",
     ctaHref: "/contacto?solucion=consultoria",
-    whatsappMessage: "Hola Gabriel! Me gustaría coordinar un diagnóstico operativo inicial para mi empresa.",
+    whatsappMessage: "Hola equipo de NAXAD! Me gustaría coordinar un diagnóstico operativo inicial para mi empresa.",
   },
 ];
 
@@ -1244,7 +1244,7 @@ export function HomeEcosystem() {
           )}
 
           {/* ----------------------------------------------------------------------- */}
-          {/* TARJETA 6: CONSULTORÍA & DIAGNÓSTICO CON FUNDADOR (col-span-6 en desktop) */}
+          {/* TARJETA 6: CONSULTORÍA & DIAGNÓSTICO CON EQUIPO (col-span-6 en desktop) */}
           {/* ----------------------------------------------------------------------- */}
           {(selectedCategory === "all" || selectedCategory === "infra") && (
             <div className="min-w-[86vw] max-w-[88vw] sm:min-w-[500px] sm:max-w-[540px] lg:min-w-0 lg:max-w-none snap-center shrink-0 lg:shrink lg:col-span-6 flex flex-col">
@@ -1262,14 +1262,14 @@ export function HomeEcosystem() {
                             Diagnóstico Operativo
                           </h3>
                           <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-300">
-                            Gabriel Zambrano
+                            Equipo de Consultoría
                           </span>
                           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-200 shadow-2xs">
                             <span className="relative flex h-2 w-2">
                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
                               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
                             </span>
-                            1-a-1 Directo
+                            Equipo Directo
                           </span>
                         </div>
                       </div>
@@ -1290,7 +1290,7 @@ export function HomeEcosystem() {
                   </div>
 
                   <p className="text-sm sm:text-base text-slate-600 leading-loose mb-5 font-normal">
-                    Conversación directa con el consultor principal sin vendedores en el medio. Evaluamos cuellos de botella y retorno práctico de inversión.
+                    Conversación directa con nuestro equipo de arquitectura y procesos, sin vendedores en el medio. Evaluamos cuellos de botella y retorno práctico de inversión.
                   </p>
 
                   {/* Micro-UI: Tarjeta de Diagnóstico Rápido */}
@@ -1312,7 +1312,7 @@ export function HomeEcosystem() {
 
                 <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-100">
                   <a
-                    href="https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20gustar%C3%ADa%20coordinar%20un%20diagn%C3%B3stico%20operativo%20inicial%20para%20mi%20empresa."
+                    href="https://wa.me/5491136248967?text=Hola%20equipo%20de%20NAXAD!%20Me%20gustar%C3%ADa%20coordinar%20un%20diagn%C3%B3stico%20operativo%20inicial%20para%20mi%20empresa."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800 hover:text-[#2563EB] transition-colors"

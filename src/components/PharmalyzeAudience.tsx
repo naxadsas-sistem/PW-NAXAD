@@ -173,7 +173,7 @@ export function PharmalyzeAudience() {
             </Link>
 
             <a
-              href="https://wa.me/5491123456789?text=Hola%20Gabriel!%20Me%20interesa%20sumarme%20al%20piloto%20de%20Pharmalyze%20AI%20para%20mi%20farmacia."
+              href="https://wa.me/5491123456789?text=Hola%20equipo%20de%20NAXAD!%20Me%20interesa%20sumarme%20al%20piloto%20de%20Pharmalyze%20AI%20para%20mi%20farmacia."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto"

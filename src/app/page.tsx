@@ -21,9 +21,8 @@ const jsonLd = {
       "description":
         "Consultoría tecnológica, SaaS propios y desarrollo de sistemas de gestión a medida.",
       "founder": {
-        "@type": "Person",
-        "name": "Gabriel Zambrano",
-        "jobTitle": "Fundador y Consultor Principal",
+        "@type": "Organization",
+        "name": "Equipo de Consultoría y Desarrollo NAXAD",
       },
       "address": {
         "@type": "PostalAddress",
@@ -108,7 +107,7 @@ export default function HomePage() {
           <HomeComparison />
         </LazySection>
 
-        {/* 7. Métricas reales y credencial de Gabriel Zambrano */}
+        {/* 7. Métricas reales y respaldo de equipo */}
         <LazySection>
           <HomeTrust />
         </LazySection>

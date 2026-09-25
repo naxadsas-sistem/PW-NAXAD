@@ -86,7 +86,7 @@ export default function ClosingSection() {
 
               {/* CTA Secundario: WhatsApp */}
               <a 
-                href="https://wa.me/5491136248967?text=Hola%20Gabriel!%20Me%20gustar%C3%ADa%20conversar%20sobre%20c%C3%B3mo%20trabajan%20en%20NAXAD."
+                href="https://wa.me/5491136248967?text=Hola%20equipo%20de%20NAXAD!%20Me%20gustar%C3%ADa%20conversar%20sobre%20c%C3%B3mo%20trabajan%20en%20NAXAD."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/btn w-full sm:w-auto flex items-center justify-center gap-3 bg-white text-[#151A21] border border-slate-200/90 px-8 py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-2xs"
