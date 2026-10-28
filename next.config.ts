@@ -25,7 +25,18 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 días
   },
 
-  // Cabeceras HTTP de seguridad y caché
+   // Redirección del dominio sin www al canónico
+    async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "naxadsystem.com" }],
+        destination: "https://www.naxadsystem.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
+   // Cabeceras HTTP de seguridad y caché
   async headers() {
     return [
       {
@@ -54,7 +65,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
           },
         ],
       },
