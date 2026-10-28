@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,6 +22,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "NAXAD — SaaS propios y sistemas de gestión a medida",
   description:
     "Construimos productos y sistemas de gestión a partir de cómo opera tu negocio en la vida real. DentalDesk, LautaroNutrición y Pharmalyze AI.",
@@ -36,7 +38,6 @@ export const metadata: Metadata = {
     title: "NAXAD — SaaS propios y sistemas a medida",
     description:
       "El sistema que tu negocio necesita, no el que le sobra. Conoce nuestro ecosistema de productos y desarrollos a medida.",
-    url: "https://naxad.com",
     siteName: "NAXAD",
     locale: "es_AR",
     type: "website",
