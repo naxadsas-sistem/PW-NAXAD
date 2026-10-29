@@ -181,7 +181,7 @@ export const BENTO_PRODUCTS: BentoProduct[] = [
     headline: "Desarrollo de software a medida con TypeScript, Next.js y bases de datos dedicadas",
     shortDesc: "Para empresas con procesos propios que no encajan en ningún software enlatado comercial. Código limpio y 100% tuyo.",
     fullDesc: "No vendemos plantillas prefabricadas ni sistemas hinchados con 50 funciones inútiles. Analizamos tus cuellos de botella operativos y construimos una aplicación web rápida, segura y hecha exactamente para tu flujo de trabajo diario.",
-    urlMock: "api.naxad.com/v1/core · Enterprise Cloud",
+    urlMock: "api.naxadsystem.com/v1/core · Enterprise Cloud",
     icon: Code2,
     techStack: ["TypeScript", "Next.js", "PostgreSQL", "Tailwind CSS", "Docker", "REST / GraphQL"],
     metrics: [
@@ -211,7 +211,7 @@ export const BENTO_PRODUCTS: BentoProduct[] = [
     headline: "Integración no invasiva de procesos: conectá tus planillas, POS y WhatsApp Oficial",
     shortDesc: "Eliminá la doble carga administrativa y los errores humanos conectando las herramientas que tu equipo ya utiliza a diario.",
     fullDesc: "La automatización con criterio de negocio no busca reemplazar a las personas, sino librarlas de tareas de copia y pegue. Conectamos tus formularios web, sistemas POS, pasarelas de cobro y mensajería en un flujo automático continuo y supervisado.",
-    urlMock: "webhooks.naxad.com/dispatch · Events Hub",
+    urlMock: "webhooks.naxadsystem.com/dispatch · Events Hub",
     icon: Workflow,
     techStack: ["Webhooks", "WhatsApp Business API", "Zapier / Make", "Microservicios Node", "AFIP / Facturación"],
     metrics: [
@@ -241,7 +241,7 @@ export const BENTO_PRODUCTS: BentoProduct[] = [
     headline: "Diagnóstico operativo y consultoría técnica con el equipo de NAXAD",
     shortDesc: "Sin intermediarios comerciales ni vendedores. Nuestro equipo de arquitectura evalúa dónde están las fugas de tiempo y qué tecnología realmente conviene sumar.",
     fullDesc: "Antes de gastar un solo peso en programar software, es fundamental entender si el problema es de procesos, de capacitación o de herramientas. Realizamos una auditoría exhaustiva de tus flujos de trabajo cotidianos y te presentamos un plan de acción concreto y honesto.",
-    urlMock: "naxad.com/diagnostico · Buenos Aires",
+    urlMock: "naxadsystem.com/diagnostico · Buenos Aires",
     icon: Compass,
     techStack: ["Auditoría de Procesos", "Evaluación de ROI", "Arquitectura de Software", "Capacitación Operativa"],
     metrics: [

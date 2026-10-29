@@ -51,8 +51,8 @@ const contactMethods: ContactMethod[] = [
     title: "Correo Electrónico Oficial",
     description:
       "Para pliegos, documentación técnica o presentaciones formales de empresa:",
-    action: siteConfig.contact.email || "contacto@naxad.com",
-    href: `mailto:${siteConfig.contact.email || "contacto@naxad.com"}`,
+    action: siteConfig.contact.email,
+    href: `mailto:${siteConfig.contact.email}`,
     color: "from-blue-500 to-indigo-600",
     bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
