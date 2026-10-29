@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Soluciones de Gestión y Consultoría Tecnológica | NAXAD",
+  title: "Soluciones de Gestión y Consultoría Tecnológica",
   description:
     "Diseñamos e implementamos soluciones que acompañan la operación de tu negocio: consultoría, sistemas de gestión, desarrollo a medida, automatización y acompañamiento.",
 };

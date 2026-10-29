@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { RubrosShowcase } from "@/components/RubrosShowcase";
 
 export const metadata: Metadata = {
-  title: "Para Quién Trabajamos | Clínicas, Nutrición, Farmacias y PyMEs | NAXAD",
+  title: "Para quién trabajamos | Clínicas, farmacias y PyMEs",
   description:
     "Soluciones de gestión y tecnología para clínicas, centros de salud, profesionales, farmacias y PyMEs.",
 };

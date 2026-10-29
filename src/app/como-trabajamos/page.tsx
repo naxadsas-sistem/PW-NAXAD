@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import ComoTrabajamosContent from "@/components/ComoTrabajamosContent";
 
 export const metadata: Metadata = {
-  title: "Cómo Trabajamos | Metodología de Gestión y Tecnología | NAXAD",
+  title: "Cómo Trabajamos | Metodología de Gestión y Tecnología",
   description:
     "Primero entendemos. Después construimos. Conocé nuestra metodología de 4 fases para ordenar y digitalizar la operación de tu negocio.",
 };

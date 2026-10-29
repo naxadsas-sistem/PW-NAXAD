@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sobre Nosotros | Metodología de Decisión y Principios | NAXAD",
+  title: "Sobre Nosotros | Metodología de Decisión y Principios",
   description:
     "Principios concretos que aplicamos en cada diagnóstico, desarrollo e implementación. Equipo de Consultoría y Desarrollo de NAXAD.",
 };

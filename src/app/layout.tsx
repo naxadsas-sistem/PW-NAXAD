@@ -23,7 +23,10 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "NAXAD — SaaS propios y sistemas de gestión a medida",
+  title: {
+    default: "NAXAD — SaaS propios y sistemas de gestión a medida",
+    template: "%s | NAXAD",
+  },
   description:
     "Construimos productos y sistemas de gestión a partir de cómo opera tu negocio en la vida real. DentalDesk, LautaroNutrición y Pharmalyze AI.",
   keywords: [
