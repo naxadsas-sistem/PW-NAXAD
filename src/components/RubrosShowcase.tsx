@@ -106,7 +106,7 @@ export default function RubrosShowcase() {
             <span className="text-slate-500 hidden sm:inline">Especialización Sectorial</span>
           </motion.div>
 
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -117,7 +117,7 @@ export default function RubrosShowcase() {
             <span className="bg-gradient-to-r from-[#2563EB] via-indigo-600 to-[#2563EB] bg-clip-text text-transparent">
               Infinitos por venir.
             </span>
-          </motion.h2>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
