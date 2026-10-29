@@ -15,9 +15,9 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://naxad.com/#organization",
+      "@id": "https://www.naxadsystem.com/#organization",
       "name": "NAXAD",
-      "url": "https://naxad.com",
+      "url": "https://www.naxadsystem.com",
       "description":
         "Consultoría tecnológica, SaaS propios y desarrollo de sistemas de gestión a medida.",
       "founder": {
@@ -32,11 +32,11 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://naxad.com/#website",
-      "url": "https://naxad.com",
+      "@id": "https://www.naxadsystem.com/#website",
+      "url": "https://www.naxadsystem.com",
       "name": "NAXAD",
       "publisher": {
-        "@id": "https://naxad.com/#organization",
+        "@id": "https://www.naxadsystem.com/#organization",
       },
       "inLanguage": "es-AR",
     },
@@ -48,7 +48,7 @@ const jsonLd = {
       "description":
         "Sistema de gestión integral para clínicas odontológicas, turnos y fichas clínicas.",
       "provider": {
-        "@id": "https://naxad.com/#organization",
+        "@id": "https://www.naxadsystem.com/#organization",
       },
     },
     {
@@ -59,7 +59,7 @@ const jsonLd = {
       "description":
         "Plataforma de gestión clínica y seguimiento antropométrico para nutricionistas (Dr. Lautaro Reyna).",
       "provider": {
-        "@id": "https://naxad.com/#organization",
+        "@id": "https://www.naxadsystem.com/#organization",
       },
     },
     {
@@ -70,7 +70,7 @@ const jsonLd = {
       "description":
         "Inteligencia predictiva de reposición y stock crítico para farmacias (NaxadSistem).",
       "provider": {
-        "@id": "https://naxad.com/#organization",
+        "@id": "https://www.naxadsystem.com/#organization",
       },
     },
   ],
