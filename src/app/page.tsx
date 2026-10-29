@@ -16,6 +16,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": "https://www.naxadsystem.com/#organization",
+      "logo": "https://www.naxadsystem.com/brand/isotipo-png.png",
       "name": "NAXAD",
       "url": "https://www.naxadsystem.com",
       "description":
