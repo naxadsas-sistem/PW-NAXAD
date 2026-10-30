@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Cómo Trabajamos | Metodología de Gestión y Tecnología",
   description:
     "Primero entendemos. Después construimos. Conocé nuestra metodología de 4 fases para ordenar y digitalizar la operación de tu negocio.",
+  openGraph: {
+    title: "Cómo Trabajamos — Metodología de 4 Fases | NAXAD",
+    description:
+      "Primero entendemos. Después construimos. Metodología de 4 fases para ordenar y digitalizar la operación de tu negocio.",
+  },
 };
 
 export default function ComoTrabajamosPage() {

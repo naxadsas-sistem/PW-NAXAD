@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Para quién trabajamos | Clínicas, farmacias y PyMEs",
   description:
     "Soluciones de gestión y tecnología para clínicas, centros de salud, profesionales, farmacias y PyMEs.",
+  openGraph: {
+    title: "Para quién trabajamos — Clínicas, farmacias y PyMEs | NAXAD",
+    description:
+      "Soluciones de gestión y tecnología para clínicas, centros de salud, profesionales, farmacias y PyMEs.",
+  },
 };
 
 export default function ParaQuienPage() {

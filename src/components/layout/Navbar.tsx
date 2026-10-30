@@ -331,8 +331,7 @@ export function Navbar() {
                 {/* Glow ring sutil de fondo */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-500 opacity-80 group-hover:opacity-100 transition-opacity" />
 
-                <button
-                  type="button"
+                <span
                   className="relative inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600 text-white text-xs font-semibold shadow-[0_4px_16px_rgba(37,99,235,0.32)] hover:shadow-[0_6px_22px_rgba(37,99,235,0.48)] transition-all cursor-pointer"
                 >
                   <Sparkles size={12} className="text-blue-200" />
@@ -341,7 +340,7 @@ export function Navbar() {
                     size={13}
                     className="transition-transform duration-200 group-hover:translate-x-0.5"
                   />
-                </button>
+                </span>
               </div>
             </Link>
           </div>
@@ -494,15 +493,14 @@ export function Navbar() {
 
             {/* CTA Destacado dentro del Menú */}
             <div className="pt-2.5 mt-1 border-t border-slate-100">
-              <Link href="/contacto" onClick={() => setMobileMenuOpen(false)}>
-                <button
-                  type="button"
+              <Link href="/contacto" onClick={() => setMobileMenuOpen(false)} className="block">
+                <span
                   className="w-full min-h-[48px] h-12 flex items-center justify-center gap-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white text-sm font-semibold shadow-md shadow-blue-500/20 active:scale-[0.99] transition-all cursor-pointer touch-manipulation"
                 >
                   <Sparkles size={16} className="text-blue-200 animate-pulse" />
                   <span>Contanos tu caso</span>
                   <ArrowRight size={15} />
-                </button>
+                </span>
               </Link>
             </div>
           </div>

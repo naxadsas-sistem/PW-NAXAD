@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   title: "Soluciones de Gestión y Consultoría Tecnológica",
   description:
     "Diseñamos e implementamos soluciones que acompañan la operación de tu negocio: consultoría, sistemas de gestión, desarrollo a medida, automatización y acompañamiento.",
+  openGraph: {
+    title: "Soluciones de Gestión y Consultoría Tecnológica | NAXAD",
+    description:
+      "Consultoría, sistemas de gestión, desarrollo a medida, automatización y acompañamiento para tu negocio.",
+  },
 };
 
 const solutions = [

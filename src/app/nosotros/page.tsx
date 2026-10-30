@@ -23,6 +23,11 @@ export const metadata: Metadata = {
   title: "Sobre Nosotros | Metodología de Decisión y Principios",
   description:
     "Principios concretos que aplicamos en cada diagnóstico, desarrollo e implementación. Equipo de Consultoría y Desarrollo de NAXAD.",
+  openGraph: {
+    title: "Sobre Nosotros — Metodología y Principios | NAXAD",
+    description:
+      "Principios concretos que aplicamos en cada diagnóstico, desarrollo e implementación. Conocé al equipo detrás de NAXAD.",
+  },
 };
 
 const principles = [

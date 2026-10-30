@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   ArrowRight,
   Loader2,
+  AlertCircle,
 } from "lucide-react";
 
 export default function ContactoPage() {
@@ -28,6 +29,7 @@ export default function ContactoPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // Validaciones en tiempo real
   const isNameValid = formData.name.trim().length >= 3;
@@ -76,13 +78,37 @@ export default function ContactoPage() {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setErrorMessage(null);
+
+    try {
+      const res = await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrorMessage(
+          data.error ??
+            "Ocurrió un error al enviar tu consulta. Por favor intentá de nuevo."
+        );
+        return;
+      }
+
+      // Solo mostramos éxito si el servidor confirmó la recepción
       setSubmitted(true);
-    }, 700);
+    } catch {
+      setErrorMessage(
+        "No pudimos conectar con el servidor. Verificá tu conexión e intentá de nuevo, o escribinos por WhatsApp."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -449,6 +475,20 @@ export default function ContactoPage() {
                         Acepto el tratamiento confidencial de mis datos para ser contactado por NAXAD respecto a esta consulta.
                       </label>
                     </div>
+
+                    {/* Mensaje de Error */}
+                    {errorMessage && (
+                      <div
+                        role="alert"
+                        className="flex items-start gap-2.5 p-3.5 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700 animate-fade-in-up"
+                      >
+                        <AlertCircle size={16} className="shrink-0 mt-0.5 text-red-500" />
+                        <div>
+                          <p className="font-semibold text-xs">No se pudo enviar la consulta</p>
+                          <p className="text-xs mt-0.5">{errorMessage}</p>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Botón de Envío con Micro-interacciones */}
                     <div className="pt-2">
