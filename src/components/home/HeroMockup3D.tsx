@@ -292,7 +292,7 @@ export function HeroMockup3D() {
                       height={1736}
                       quality={96}
                       priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px)"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px"
                       className="w-full h-auto object-contain block transition-transform duration-300 group-hover:scale-[1.01]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3.5 pointer-events-none">
@@ -447,8 +447,7 @@ export function HeroMockup3D() {
                       width={2048}
                       height={1196}
                       quality={96}
-                      priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px)"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px"
                       className="w-full h-auto object-contain block transition-transform duration-300 group-hover:scale-[1.01]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3.5 pointer-events-none">
@@ -482,8 +481,7 @@ export function HeroMockup3D() {
                       width={2048}
                       height={1182}
                       quality={96}
-                      priority
-                      sizes="(max-width: 768px) 100vw, 850px)"
+                      sizes="(max-width: 768px) 100vw, 850px"
                       className="w-full max-w-2xl h-auto object-contain rounded-lg shadow-sm border border-slate-200/80 transition-transform duration-300 group-hover:scale-[1.01]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3.5 pointer-events-none">
@@ -650,8 +648,7 @@ export function HeroMockup3D() {
                       width={2048}
                       height={1196}
                       quality={96}
-                      priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px)"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px"
                       className="w-full h-auto object-contain block transition-transform duration-300 group-hover:scale-[1.01]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3.5 pointer-events-none">
@@ -841,7 +838,6 @@ export function HeroMockup3D() {
                   width={modalImage.width}
                   height={modalImage.height}
                   quality={98}
-                  priority
                   sizes="100vw"
                   className="max-w-full h-auto object-contain rounded-xl border border-slate-200 shadow-lg"
                 />

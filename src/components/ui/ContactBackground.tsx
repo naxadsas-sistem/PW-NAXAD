@@ -1,20 +1,27 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { StripeGradient } from "@/lib/stripe-gradient";
 
 export function ContactBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollY, setScrollY] = useState(0);
+  const orbsRef = useRef<HTMLDivElement>(null);
+  const canvasWrapRef = useRef<HTMLDivElement>(null);
 
-  // 1. Parallax reactivo al scroll para dar sensación de profundidad
+  // 1. Parallax reactivo al scroll (sin re-renders)
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrollY(window.scrollY);
+          const y = window.scrollY;
+          if (orbsRef.current) {
+            orbsRef.current.style.transform = `translate3d(0, ${y * 0.16}px, 0)`;
+          }
+          if (canvasWrapRef.current) {
+            canvasWrapRef.current.style.transform = `translate3d(0, ${y * 0.10}px, 0)`;
+          }
           ticking = false;
         });
         ticking = true;
@@ -73,9 +80,6 @@ export function ContactBackground() {
     };
   }, []);
 
-  const parallaxY = scrollY * 0.10;
-  const orbsY = scrollY * 0.16;
-
   return (
     <div
       ref={containerRef}
@@ -83,10 +87,8 @@ export function ContactBackground() {
     >
       {/* 1. Orbes de Luz Ambiental Flotantes difuminados */}
       <div
-        style={{
-          transform: `translate3d(0, ${orbsY}px, 0)`,
-          willChange: "transform",
-        }}
+        ref={orbsRef}
+        style={{ willChange: "transform" }}
         className="absolute inset-0 pointer-events-none transition-transform duration-100 ease-out"
       >
         {/* Orbe 1: Azul eléctrico y cyan superior izquierdo */}
@@ -101,9 +103,9 @@ export function ContactBackground() {
 
       {/* 2. Canvas con el Shader WebGL Stripe con filtro de difuminado y desvanecimiento suave */}
       <div
+        ref={canvasWrapRef}
         className="w-full h-full"
         style={{
-          transform: `translate3d(0, ${parallaxY}px, 0)`,
           willChange: "transform",
           maskImage:
             "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.2) 80%, transparent 100%)",

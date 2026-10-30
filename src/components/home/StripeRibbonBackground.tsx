@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 
 export interface StripeRibbonBackgroundProps {
@@ -10,15 +10,22 @@ export interface StripeRibbonBackgroundProps {
 export function StripeRibbonBackground({
   className = "",
 }: StripeRibbonBackgroundProps) {
-  const [scrollY, setScrollY] = useState(0);
+  const orbsRef = useRef<HTMLDivElement>(null);
+  const ribbonRef = useRef<HTMLDivElement>(null);
 
-  // Parallax sutil reactivo al scroll para darle tridimensionalidad
+  // Parallax sutil reactivo al scroll (sin re-renders)
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrollY(window.scrollY);
+          const y = window.scrollY * 0.12;
+          if (orbsRef.current) {
+            orbsRef.current.style.transform = `translate3d(0, ${y * 0.6}px, 0)`;
+          }
+          if (ribbonRef.current) {
+            ribbonRef.current.style.transform = `translate3d(0, ${y}px, 0)`;
+          }
           ticking = false;
         });
         ticking = true;
@@ -28,8 +35,6 @@ export function StripeRibbonBackground({
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const parallaxY = scrollY * 0.12;
 
   return (
     <div
@@ -46,12 +51,10 @@ export function StripeRibbonBackground({
       />
 
       {/* 2. Orbes de atmósfera con la paleta de marca NAXAD (Azul Eléctrico + Celeste Cielo + Coral sutil) */}
-      <div 
+      <div
+        ref={orbsRef}
         className="absolute inset-0 pointer-events-none transition-transform duration-100 ease-out"
-        style={{
-          transform: `translate3d(0, ${parallaxY * 0.6}px, 0)`,
-          willChange: "transform",
-        }}
+        style={{ willChange: "transform" }}
       >
         {/* Resplandor Azul Eléctrico NAXAD (#2563EB) superior derecho */}
         <div className="absolute -top-20 right-[-8%] sm:right-[4%] w-[34rem] sm:w-[48rem] h-[34rem] sm:h-[48rem] bg-gradient-to-bl from-blue-600/28 via-indigo-600/20 to-transparent rounded-full blur-[120px] pointer-events-none" />
@@ -65,11 +68,9 @@ export function StripeRibbonBackground({
 
       {/* 3. La Cinta 3D Satinada con Colores de Marca NAXAD y Flujo Ascendente Continuo */}
       <div
+        ref={ribbonRef}
         className="absolute -top-[5%] sm:top-[-3%] right-[-32%] sm:right-[-18%] lg:right-[-8%] xl:right-[-2%] 2xl:right-[2%] w-[680px] sm:w-[960px] lg:w-[1260px] xl:w-[1440px] h-[750px] sm:h-[950px] lg:h-[1100px] pointer-events-none transition-transform duration-100 ease-out flex items-center justify-end"
-        style={{
-          transform: `translate3d(0, ${parallaxY}px, 0)`,
-          willChange: "transform",
-        }}
+        style={{ willChange: "transform" }}
       >
         <div className="relative w-full h-full animate-ribbon-upward">
           {/* Asset 3D de alta definición en azul zafiro y celeste NAXAD */}

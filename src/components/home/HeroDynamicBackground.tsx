@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { StripeGradient } from "@/lib/stripe-gradient";
 
 export interface HeroDynamicBackgroundProps {
@@ -13,15 +13,22 @@ export function HeroDynamicBackground({
 }: HeroDynamicBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollY, setScrollY] = useState(0);
+  const orbsRef = useRef<HTMLDivElement>(null);
+  const canvasWrapRef = useRef<HTMLDivElement>(null);
 
-  // 1. Parallax reactivo al scroll (GPU-friendly)
+  // 1. Parallax reactivo al scroll (GPU-friendly, sin re-renders)
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrollY(window.scrollY);
+          const y = window.scrollY;
+          if (orbsRef.current) {
+            orbsRef.current.style.transform = `translate3d(0, ${y * 0.16}px, 0)`;
+          }
+          if (canvasWrapRef.current) {
+            canvasWrapRef.current.style.transform = `translate3d(0, ${y * 0.10}px, 0)`;
+          }
           ticking = false;
         });
         ticking = true;
@@ -80,9 +87,6 @@ export function HeroDynamicBackground({
     };
   }, []);
 
-  const parallaxY = scrollY * 0.10;
-  const orbsY = scrollY * 0.16;
-
   return (
     <div
       ref={containerRef}
@@ -90,10 +94,8 @@ export function HeroDynamicBackground({
     >
       {/* 1. Orbes de Luz Ambiental Flotantes difuminados y lentos */}
       <div
-        style={{
-          transform: `translate3d(0, ${orbsY}px, 0)`,
-          willChange: "transform",
-        }}
+        ref={orbsRef}
+        style={{ willChange: "transform" }}
         className="absolute inset-0 pointer-events-none transition-transform duration-100 ease-out"
       >
         {/* Orbe 1: Azul eléctrico y cyan superior izquierdo ultra difuminado */}
@@ -108,9 +110,9 @@ export function HeroDynamicBackground({
 
       {/* 2. Canvas con Shader WebGL Stripe con filtro de difuminado y desvanecimiento suave */}
       <div
+        ref={canvasWrapRef}
         className="absolute top-0 left-0 right-0 h-[750px] sm:h-[880px] md:h-[1020px] w-full"
         style={{
-          transform: `translate3d(0, ${parallaxY}px, 0)`,
           willChange: "transform",
           maskImage:
             "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.18) 75%, transparent 100%)",
